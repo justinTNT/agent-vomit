@@ -212,8 +212,68 @@ def merge(self, other, strategy: str = "mean"):
         return self.value
 ```
 
+## Audio-Specific Module Guidelines
+
+From our audio module exploration, additional patterns emerged:
+
+### 14. **Signal Processing Patterns**
+```python
+# BAD: Ignoring Nyquist theorem
+downsample = x[:, :, ::stride]  # Causes aliasing
+
+# GOOD: Apply low-pass filter before downsampling
+filtered = low_pass_filter(x, cutoff=1.0/stride)
+downsampled = filtered[:, :, ::stride]
+```
+
+### 15. **Filter Design**
+```python
+# BAD: Hard-coded filter coefficients
+kernel = torch.tensor([0.25, 0.5, 0.25])
+
+# GOOD: Parameterized filter generation
+def generate_filter(filter_type='lanczos', size=5, cutoff=0.5):
+    # Generate based on signal processing principles
+```
+
+### 16. **Streaming/Real-time Constraints**
+```python
+# BAD: Looking into the future
+output[t] = f(input[t-1], input[t], input[t+1])  # Non-causal
+
+# GOOD: Causal operations only
+output[t] = f(input[t-k] for k in range(window_size))  # Past only
+```
+
+### 17. **Domain Boundaries**
+```python
+# Recognize when a pattern is too complex for a single module:
+# ❌ Multi-scale + Multi-architecture + Complex coordination
+# ✅ Single purpose with clear parameters
+
+# If you need multiple architecture variants, parameterize:
+def __init__(self, mode='standard'):  # Not 5 different classes
+```
+
+## Complexity Budget Guidelines
+
+When implementing complex modules:
+
+1. **Set a complexity budget** (e.g., max 3 major design decisions)
+2. **Parameterize ambiguities early** rather than making assumptions
+3. **Fail fast** if coordination between components becomes too tight
+4. **Consider splitting** if the module does more than one thing
+
+Example:
+- ✅ VectorQuantizer: Single codebook, clear purpose
+- ⚠️ ResidualVectorQuantizer: Multiple codebooks but clear hierarchy
+- ❌ MultiScaleMultiArchitectureDiscriminator: Too many variations
+
 ## Summary
 
 These guidelines would have prevented ~90% of the fixes needed. The remaining 10% were resolved through parameterization of ambiguous behaviors. Following these patterns will significantly improve the reliability of agent-generated PyTorch modules.
 
-Key principle: **When in doubt, parameterize** - it's better to have an explicit parameter than to make implicit assumptions about user intent.
+Key principles:
+1. **When in doubt, parameterize** - it's better to have an explicit parameter than to make implicit assumptions about user intent.
+2. **Single purpose clarity** - a module should do one thing well
+3. **Domain expertise != Complexity** - specialized modules can still be simple
