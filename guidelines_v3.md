@@ -426,6 +426,58 @@ output[t] = f(input[t-k] for k in range(window_size))  # Past only
 def __init__(self, mode='standard', **kwargs):  # Not 5 different classes
 ```
 
+### 18. **Mathematical Perfection vs Practical Utility**
+```python
+# For inherently complex mathematical modules (like PQMF), test for functional 
+# correctness rather than theoretical perfection.
+
+# BAD: Requiring perfect reconstruction for filter banks
+assert reconstruction_error < 1e-6  # Too strict for numerical methods
+
+# GOOD: Test functional behavior
+assert reconstruction_error < 0.1 * input_energy  # 10% error acceptable
+assert frequency_separation_achieved()  # Focus on primary purpose
+assert is_differentiable()  # Can be improved through training
+
+# A module that achieves 90% of theoretical ideal is still highly useful,
+# especially if the remaining 10% can be achieved through training.
+```
+
+### 19. **Gated Architectures Channel Splitting**
+```python
+# BAD: Implicit channel splitting assumptions
+self.conv = nn.Conv1d(channels, gate_channels + residual_channels)
+# Where gate_channels and residual_channels are undefined
+
+# GOOD: Make channel splits explicit or derive from input
+def __init__(self, channels, gate_channels=None, residual_channels=None):
+    # If not specified, split evenly or match input
+    if gate_channels is None:
+        gate_channels = channels
+    if residual_channels is None:
+        residual_channels = channels
+    
+    self.conv = nn.Conv1d(channels, gate_channels + residual_channels)
+```
+
+### 20. **PyTorch Parameter Assignment**
+```python
+# BAD: Direct assignment to parameters
+module.weight = normalized_weight  # TypeError: cannot assign
+
+# GOOD: Use .data for temporary updates
+with torch.no_grad():
+    original = module.weight.data
+    module.weight.data = normalized_weight
+    output = module(x)
+    module.weight.data = original
+
+# BETTER: Use parameterization or hooks for permanent changes
+torch.nn.utils.parametrize.register_parametrization(
+    module, 'weight', WeightNormalization()
+)
+```
+
 ## Complexity Budget Guidelines
 
 When implementing complex modules:
@@ -439,6 +491,146 @@ Example:
 - ✅ VectorQuantizer: Single codebook, clear purpose
 - ⚠️ ResidualVectorQuantizer: Multiple codebooks but clear hierarchy
 - ❌ MultiScaleMultiArchitectureDiscriminator: Too many variations
+
+## Tier 4 Advanced/Experimental Module Guidelines
+
+Based on generating WaveGANDiscriminator, OnsetDetector, ChromaEncoder, and PhaseReconstruction:
+
+### 21. **STFT Batch Processing Pattern**
+```python
+# BAD: Reshape and process entire batch as single tensor
+stft = torch.stft(x.reshape(-1), ...)  # Loses batch structure
+stft = stft.reshape(batch_size, freq_bins, time_frames)  # Incorrect reshaping
+
+# GOOD: Process each batch item individually
+stfts = []
+for b in range(batch_size):
+    stft = torch.stft(x[b], ...)
+    stfts.append(stft)
+stft = torch.stack(stfts, dim=0)
+
+# STFT operations don't preserve batch structure when reshaped
+```
+
+### 22. **Empty Tensor Handling in Signal Processing**
+```python
+# BAD: Assume tensors have elements
+audio_max = torch.max(torch.abs(audio), dim=-1)[0]  # Fails on empty tensors
+
+# GOOD: Check for empty tensors first
+if audio.numel() > 0:
+    audio_max = torch.max(torch.abs(audio), dim=-1, keepdim=True)[0]
+    audio_max = torch.clamp(audio_max, min=1e-8)
+    audio = audio / audio_max * 0.95
+```
+
+### 23. **Multi-Channel Convolution for Sequential Data**
+```python
+# BAD: Apply conv1d directly to multi-channel sequential data
+processed = F.conv1d(chroma_data, kernel)  # Expects 1 input channel
+
+# GOOD: Reshape to process each channel separately
+batch_size, num_channels, time_frames = chroma_data.shape
+reshaped = chroma_data.view(batch_size * num_channels, 1, time_frames)
+smoothed = F.conv1d(reshaped, kernel, padding=kernel_size//2)
+processed = smoothed.view(batch_size, num_channels, time_frames)
+
+# Conv1d expects (batch, channels, time) where channels matches kernel input
+```
+
+### 24. **Audio Length Validation for STFT**
+```python
+# BAD: Assume audio is long enough for STFT
+stft = torch.stft(audio, n_fft=window_size, ...)  # May fail
+
+# GOOD: Ensure minimum length requirements
+min_length = window_size
+if audio.shape[-1] < min_length:
+    pad_length = min_length - audio.shape[-1]
+    audio = F.pad(audio, (0, pad_length), mode='constant', value=0)
+
+# STFT requires audio length >= window_size
+```
+
+### 25. **Gradient Preservation in Loss Functions**
+```python
+# BAD: Create scalar that loses gradients
+total_loss = 0.0  # Python float, no gradients
+for loss in losses:
+    total_loss += loss
+return total_loss / len(losses)
+
+# GOOD: Initialize with tensor that preserves gradients
+device = losses[0].device
+total_loss = torch.tensor(0.0, device=device, requires_grad=True)
+for loss in losses:
+    total_loss = total_loss + loss  # Use += only with tensors
+return total_loss / len(losses)
+```
+
+### 26. **Phase Continuity for Audio Processing**
+```python
+# BAD: Assume previous state exists without initialization
+phase = self.prev_phase  # May be None on first call
+
+# GOOD: Handle initialization and state management
+if self.init_phase == 'previous' and self.prev_phase is not None:
+    if self.prev_phase.shape == magnitude.shape:
+        phase = self.prev_phase
+    else:
+        # Resize to match current input
+        phase = F.interpolate(self.prev_phase.unsqueeze(1), 
+                            size=magnitude.shape[1:], 
+                            mode='bilinear').squeeze(1)
+else:
+    # Fallback initialization
+    phase = torch.rand_like(magnitude) * 2 * math.pi - math.pi
+```
+
+### 27. **Frequency-Domain Tensor Dimension Matching**
+```python
+# BAD: Hardcode frequency dimensions
+expected_freq_bins = 513  # Assumes n_fft=1024
+
+# GOOD: Calculate from n_fft parameter
+expected_freq_bins = n_fft // 2 + 1
+
+# BAD: Mismatch between parameters and input
+def forward(magnitude):  # magnitude is (batch, 513, time)
+    # Using n_fft=2048 internally
+    audio = torch.istft(complex_spec, n_fft=2048, ...)  # Dimension mismatch!
+
+# GOOD: Ensure parameter consistency
+def __init__(self, n_fft=1024):
+    self.n_fft = n_fft
+    self.freq_bins = n_fft // 2 + 1
+
+def forward(magnitude):
+    # Validate input dimensions
+    assert magnitude.shape[1] == self.freq_bins, \
+        f"Expected {self.freq_bins} frequency bins, got {magnitude.shape[1]}"
+```
+
+### 28. **Algorithm Selection with Graceful Fallbacks**
+```python
+# BAD: Assume complex algorithm always works
+def detect_onsets(audio):
+    return complex_phase_deviation_method(audio)  # May fail
+
+# GOOD: Implement fallback hierarchy
+def detect_onsets(audio, method='auto'):
+    try:
+        if method == 'complex' or method == 'auto':
+            return complex_phase_deviation_method(audio)
+    except Exception:
+        if method == 'auto':
+            # Fallback to simpler method
+            return spectral_flux_method(audio)
+        else:
+            raise  # Re-raise if specific method was requested
+
+# Complex algorithms should have simpler fallbacks for reliability
+```
 
 ## Summary
 

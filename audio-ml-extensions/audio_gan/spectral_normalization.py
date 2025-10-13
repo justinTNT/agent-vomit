@@ -1,0 +1,205 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from typing import Optional, Union
+
+
+class SpectralNormalization(nn.Module):
+    """
+    Spectral normalization wrapper for neural network layers.
+    Stabilizes GAN training by constraining the spectral norm of weight matrices.
+    """
+    def __init__(self, 
+                 module: nn.Module,
+                 power_iterations: int = 1,
+                 eps: float = 1e-12,
+                 dim: Optional[int] = None):
+        super().__init__()
+        
+        self.module = module
+        self.power_iterations = power_iterations
+        self.eps = eps
+        
+        # Determine which dimension to normalize
+        if dim is not None:
+            self.dim = dim
+        else:
+            # Auto-detect based on module type
+            if isinstance(module, (nn.Conv1d, nn.Conv2d, nn.Conv3d, nn.ConvTranspose1d, 
+                                 nn.ConvTranspose2d, nn.ConvTranspose3d)):
+                self.dim = 1  # Output channel dimension
+            elif isinstance(module, nn.Linear):
+                self.dim = 0  # Output dimension
+            else:
+                self.dim = 0  # Default
+                
+        # Get weight tensor
+        self.weight = module.weight
+        
+        # Initialize spectral normalization
+        self._init_spectral_norm()
+        
+    def _init_spectral_norm(self):
+        """Initialize u and v vectors for power iteration."""
+        weight = self.weight
+        h, w = weight.size(0), weight.view(weight.size(0), -1).size(1)
+        
+        # Random initialization for u and v
+        u = weight.new_empty(h).normal_(0, 1)
+        v = weight.new_empty(w).normal_(0, 1)
+        
+        # Normalize
+        u = F.normalize(u, dim=0, eps=self.eps)
+        v = F.normalize(v, dim=0, eps=self.eps)
+        
+        # Register as buffers (not parameters)
+        self.register_buffer('u', u)
+        self.register_buffer('v', v)
+        
+        # Track number of iterations performed
+        self.register_buffer('num_iterations', torch.tensor(0))
+        
+    def _update_vectors(self):
+        """Update u and v vectors using power iteration."""
+        if self.training:
+            with torch.no_grad():
+                weight = self.weight.view(self.weight.size(0), -1)
+                
+                for _ in range(self.power_iterations):
+                    # v = normalize(W^T @ u)
+                    v = F.normalize(torch.mv(weight.t(), self.u), dim=0, eps=self.eps)
+                    # u = normalize(W @ v)
+                    u = F.normalize(torch.mv(weight, v), dim=0, eps=self.eps)
+                    
+                # Update buffers
+                self.u.copy_(u)
+                self.v.copy_(v)
+                self.num_iterations += 1
+                
+    def compute_spectral_norm(self) -> torch.Tensor:
+        """Compute the spectral norm (largest singular value) of weight matrix."""
+        self._update_vectors()
+        
+        weight = self.weight.view(self.weight.size(0), -1)
+        
+        # Compute spectral norm: sigma = u^T W v
+        sigma = torch.dot(self.u, torch.mv(weight, self.v))
+        
+        return sigma
+        
+    def normalized_weight(self) -> torch.Tensor:
+        """Get spectrally normalized weight."""
+        sigma = self.compute_spectral_norm()
+        
+        # Normalize weight by spectral norm
+        normalized = self.weight / (sigma + self.eps)
+        
+        return normalized
+        
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """Forward pass with spectral normalization."""
+        # Get normalized weight
+        normalized = self.normalized_weight()
+        
+        # Temporarily replace module's weight for forward pass
+        # We need to use setattr to properly update parameter
+        with torch.no_grad():
+            original_weight = self.module.weight.data
+            self.module.weight.data = normalized
+            
+        output = self.module(x)
+        
+        # Restore original weight
+        with torch.no_grad():
+            self.module.weight.data = original_weight
+            
+        return output
+
+
+def apply_spectral_norm(module: nn.Module, 
+                       name: str = 'weight',
+                       power_iterations: int = 1,
+                       eps: float = 1e-12,
+                       dim: Optional[int] = None) -> nn.Module:
+    """
+    Apply spectral normalization to a module's weight.
+    This is a more PyTorch-style implementation using hooks.
+    """
+    # This is a simplified version - PyTorch's built-in spectral_norm is more sophisticated
+    return nn.utils.spectral_norm(module, name=name, n_power_iterations=power_iterations, 
+                                 eps=eps, dim=dim)
+
+
+class SNLinear(nn.Module):
+    """Linear layer with built-in spectral normalization."""
+    def __init__(self,
+                 in_features: int,
+                 out_features: int,
+                 bias: bool = True,
+                 power_iterations: int = 1):
+        super().__init__()
+        
+        # Create base linear layer
+        self.linear = nn.Linear(in_features, out_features, bias=bias)
+        
+        # Apply spectral normalization
+        self.linear = nn.utils.spectral_norm(self.linear, n_power_iterations=power_iterations)
+        
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.linear(x)
+
+
+class SNConv1d(nn.Module):
+    """1D Convolution with built-in spectral normalization."""
+    def __init__(self,
+                 in_channels: int,
+                 out_channels: int,
+                 kernel_size: int,
+                 stride: int = 1,
+                 padding: int = 0,
+                 dilation: int = 1,
+                 groups: int = 1,
+                 bias: bool = True,
+                 power_iterations: int = 1):
+        super().__init__()
+        
+        # Create base conv layer
+        self.conv = nn.Conv1d(
+            in_channels, out_channels, kernel_size,
+            stride=stride, padding=padding, dilation=dilation,
+            groups=groups, bias=bias
+        )
+        
+        # Apply spectral normalization
+        self.conv = nn.utils.spectral_norm(self.conv, n_power_iterations=power_iterations)
+        
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.conv(x)
+
+
+class SNConv2d(nn.Module):
+    """2D Convolution with built-in spectral normalization."""
+    def __init__(self,
+                 in_channels: int,
+                 out_channels: int,
+                 kernel_size: Union[int, tuple],
+                 stride: Union[int, tuple] = 1,
+                 padding: Union[int, tuple] = 0,
+                 dilation: Union[int, tuple] = 1,
+                 groups: int = 1,
+                 bias: bool = True,
+                 power_iterations: int = 1):
+        super().__init__()
+        
+        # Create base conv layer
+        self.conv = nn.Conv2d(
+            in_channels, out_channels, kernel_size,
+            stride=stride, padding=padding, dilation=dilation,
+            groups=groups, bias=bias
+        )
+        
+        # Apply spectral normalization
+        self.conv = nn.utils.spectral_norm(self.conv, n_power_iterations=power_iterations)
+        
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.conv(x)
