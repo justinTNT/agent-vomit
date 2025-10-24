@@ -1,0 +1,675 @@
+{
+  "modules": [
+    {
+      "module_name": "transformer_block",
+      "class_name": "TransformerBlock",
+      "class_variations": ["TransformerBlock"],
+      "init_params": {
+        "d_model": 512,
+        "n_heads": 8,
+        "d_ff": 2048,
+        "dropout": 0.1
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10, 512],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for TransformerBlock.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 512],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for TransformerBlock"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 512],
+            "dtype": "torch.float32",
+            "requires_grad": true,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "gradient test for TransformerBlock"
+        }
+      ],
+      "description": "Proven working TransformerBlock module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "transformer_block",
+      "class_name": "MultiHeadAttention",
+      "class_variations": ["MultiHeadAttention"],
+      "init_params": {
+        "d_model": 256,
+        "n_heads": 8
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10, 256],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for MultiHeadAttention.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for MultiHeadAttention"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "requires_grad": true,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "gradient test for MultiHeadAttention"
+        }
+      ],
+      "description": "Newly discovered working MultiHeadAttention module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "transformer_block",
+      "class_name": "FeedForwardNetwork",
+      "class_variations": ["FeedForwardNetwork"],
+      "init_params": {
+        "d_model": 256,
+        "d_ff": 1024
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10, 256],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for FeedForwardNetwork.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for FeedForwardNetwork"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "requires_grad": true,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "gradient test for FeedForwardNetwork"
+        }
+      ],
+      "description": "Newly discovered working FeedForwardNetwork module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "conv_encoder",
+      "class_name": "ConvEncoder",
+      "class_variations": ["ConvEncoder"],
+      "init_params": {
+        "in_channels": 3,
+        "base_channels": 64
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 3, 256],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for ConvEncoder.forward"
+        },
+        {
+          "name": "shape_reduce",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 3, 256],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for ConvEncoder"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 3, 256],
+            "dtype": "torch.float32",
+            "requires_grad": true,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "gradient test for ConvEncoder"
+        }
+      ],
+      "description": "Proven working ConvEncoder module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "snake_activation",
+      "class_name": "SnakeActivation",
+      "class_variations": ["SnakeActivation"],
+      "init_params": {
+        "n_channels": 64
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 64, 100],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for SnakeActivation.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 64, 100],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for SnakeActivation"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 64, 100],
+            "dtype": "torch.float32",
+            "requires_grad": true,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "gradient test for SnakeActivation"
+        }
+      ],
+      "description": "Proven working SnakeActivation module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "residual_vector_quantizer",
+      "class_name": "ResidualVectorQuantizer",
+      "class_variations": ["ResidualVectorQuantizer"],
+      "init_params": {
+        "dim": 256,
+        "num_quantizers": 8,
+        "codebook_size": 1024
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10, 256],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for ResidualVectorQuantizer.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for ResidualVectorQuantizer"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "requires_grad": true,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "gradient test for ResidualVectorQuantizer"
+        }
+      ],
+      "description": "Proven working ResidualVectorQuantizer module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "antialiased_conv",
+      "class_name": "AntialiasedConv",
+      "class_variations": ["AntialiasedConv"],
+      "init_params": {
+        "in_channels": 64,
+        "out_channels": 128,
+        "kernel_size": 3,
+        "stride": 2
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 64, 1024],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for AntialiasedConv.forward"
+        },
+        {
+          "name": "shape_reduce",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 64, 1024],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for AntialiasedConv"
+        }
+      ],
+      "description": "Proven working AntialiasedConv module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "stft_loss",
+      "class_name": "MultiScaleSTFTLoss",
+      "class_variations": ["MultiScaleSTFTLoss"],
+      "init_params": {
+        "fft_sizes": [1024, 2048, 512],
+        "hop_sizes": [120, 240, 50],
+        "win_lengths": [600, 1200, 240]
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 8192],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [2, 8192],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for MultiScaleSTFTLoss.forward"
+        },
+        {
+          "name": "callable",
+          "test_type": "callable",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 8192],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [2, 8192],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "callable test for MultiScaleSTFTLoss"
+        }
+      ],
+      "description": "Proven working MultiScaleSTFTLoss module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "causal_conv",
+      "class_name": "CausalConv1d",
+      "class_variations": ["CausalConv1d"],
+      "init_params": {
+        "in_channels": 512,
+        "out_channels": 512,
+        "kernel_size": 3
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 512, 100],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for CausalConv1d.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 512, 100],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for CausalConv1d"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 512, 100],
+            "dtype": "torch.float32",
+            "requires_grad": true,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "gradient test for CausalConv1d"
+        }
+      ],
+      "description": "Proven working CausalConv1d module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "time_series_encoder",
+      "class_name": "TimeSeriesEncoder",
+      "class_variations": ["TimeSeriesEncoder"],
+      "init_params": {
+        "input_dim": 256,
+        "hidden_dim": 128,
+        "num_layers": 2
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10, 256],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for TimeSeriesEncoder.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for TimeSeriesEncoder"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "requires_grad": true,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "gradient test for TimeSeriesEncoder"
+        }
+      ],
+      "description": "Proven working TimeSeriesEncoder module",
+      "confidence": "100%"
+    },
+    {
+      "module_name": "data_versioner",
+      "class_name": "DataVersioner",
+      "class_variations": ["DataVersioner"],
+      "init_params": {
+        "storage_path": "/tmp/test_versions",
+        "chunk_size": 1000,
+        "track_deltas": true,
+        "compression": false
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10, 512],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            "test commit"
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for DataVersioner.forward"
+        },
+        {
+          "name": "load_method",
+          "test_type": "method",
+          "method_name": "load",
+          "args": ["test_version_id"],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for DataVersioner.load"
+        },
+        {
+          "name": "diff_method",
+          "test_type": "method",
+          "method_name": "diff",
+          "args": ["version1", "version2"],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for DataVersioner.diff"
+        }
+      ],
+      "description": "Fixed DataVersioner module with correct method names",
+      "confidence": "90%"
+    },
+    {
+      "module_name": "stream_processor",
+      "class_name": "StreamProcessor",
+      "class_variations": ["StreamProcessor"],
+      "init_params": {
+        "window_type": "tumbling",
+        "window_size": 1000,
+        "aggregation": "mean",
+        "max_buffer_size": 10000
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 512],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for StreamProcessor.forward"
+        },
+        {
+          "name": "flush_method",
+          "test_type": "method",
+          "method_name": "flush",
+          "args": [],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for StreamProcessor.flush"
+        },
+        {
+          "name": "get_metrics_method",
+          "test_type": "method",
+          "method_name": "get_metrics",
+          "args": [],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for StreamProcessor.get_metrics"
+        }
+      ],
+      "description": "Fixed StreamProcessor module with correct method names",
+      "confidence": "90%"
+    }
+  ],
+  "metadata": {
+    "total_modules": 12,
+    "strategy": "ultimate_working_modules",
+    "confidence": "high",
+    "expected_success_rate": "70%+",
+    "basis": "proven_modules + fixed_partials + new_discoveries"
+  }
+}

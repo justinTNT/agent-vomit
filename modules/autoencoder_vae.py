@@ -2,8 +2,18 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+from rave_config_system import RAVEConfig
 
 
+
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, output_channels, base_channels, num_layers, **kwargs):
+# New assignments:
+#         self.latent_dim = config.model.latent_dim
+        self.output_channels = output_channels
+        self.base_channels = base_channels
+        self.num_layers = num_layers
 class ConvDecoder(nn.Module):
     def __init__(self, latent_dim, output_channels=3, base_channels=64, num_layers=4):
         super().__init__()
@@ -49,6 +59,13 @@ class ConvDecoder(nn.Module):
         return x
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, encoder, decoder, **kwargs):
+# New assignments:
+#         self.encoder = encoder
+        self.decoder = decoder
+        self.latent_dim = config.model.latent_dim
 class AutoEncoder(nn.Module):
     def __init__(self, encoder, decoder=None, latent_dim=128):
         super().__init__()
@@ -92,6 +109,13 @@ class AutoEncoder(nn.Module):
         }
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, encoder, decoder, **kwargs):
+# New assignments:
+#         self.encoder = encoder
+        self.decoder = decoder
+        self.latent_dim = config.model.latent_dim
 class VAE(nn.Module):
     def __init__(self, encoder, decoder=None, latent_dim=128):
         super().__init__()

@@ -1,0 +1,2731 @@
+{
+  "rave_core": [
+    {
+      "module_name": "modules/autoencoder_vae",
+      "class_name": "AutoEncoder",
+      "status": "success",
+      "signature": "(self, encoder, decoder=None, latent_dim=128)",
+      "parameters_used": {
+        "encoder": "ConvEncoder(\n  (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (pool): AdaptiveAvgPool2d(output_size=(1, 1))\n)"
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "dict",
+            "keys": [
+              "reconstruction",
+              "latent"
+            ],
+            "key_analysis": {
+              "reconstruction": {
+                "type": "tensor",
+                "shape": [
+                  2,
+                  3,
+                  64,
+                  64
+                ],
+                "mean": 0.004919450730085373,
+                "std": 0.0572323277592659,
+                "min": -0.11659198254346848,
+                "max": 0.07132317125797272,
+                "has_nan": false,
+                "has_inf": false
+              },
+              "latent": {
+                "type": "tensor",
+                "shape": [
+                  2,
+                  128
+                ],
+                "mean": -0.011204531416296959,
+                "std": 0.09378109127283096,
+                "min": -0.21997028589248657,
+                "max": 0.2310630828142166,
+                "has_nan": false,
+                "has_inf": false
+              }
+            }
+          },
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/autoencoder_vae",
+      "class_name": "ConditionalConvDecoder",
+      "status": "forward_failed",
+      "signature": "(self, latent_dim, output_channels=3, base_channels=64, num_layers=4)",
+      "parameters_used": {
+        "latent_dim": 128
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mat1 and mat2 shapes cannot be multiplied (384x64 and 128x8192)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/autoencoder_vae",
+      "class_name": "ConditionalVAE",
+      "status": "forward_failed",
+      "signature": "(self, encoder, decoder=None, latent_dim=128, condition_dim=10)",
+      "parameters_used": {
+        "encoder": "ConvEncoder(\n  (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (pool): AdaptiveAvgPool2d(output_size=(1, 1))\n)"
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "ConditionalVAE.forward() missing 1 required positional argument: 'c'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/autoencoder_vae",
+      "class_name": "ConvDecoder",
+      "status": "forward_failed",
+      "signature": "(self, latent_dim, output_channels=3, base_channels=64, num_layers=4)",
+      "parameters_used": {
+        "latent_dim": 128
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mat1 and mat2 shapes cannot be multiplied (384x64 and 128x8192)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/autoencoder_vae",
+      "class_name": "VAE",
+      "status": "forward_failed",
+      "signature": "(self, encoder, decoder=None, latent_dim=128)",
+      "parameters_used": {
+        "encoder": "ConvEncoder(\n  (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (pool): AdaptiveAvgPool2d(output_size=(1, 1))\n)"
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 3D (unbatched) or 4D (batched) input to conv2d, but got input of size: [2, 256]",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/graph_encoder",
+      "class_name": "EdgeConvLayer",
+      "status": "forward_failed",
+      "signature": "(self, in_features, out_features, k=20)",
+      "parameters_used": {
+        "in_features": 256,
+        "out_features": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "too many values to unpack (expected 3)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/graph_encoder",
+      "class_name": "GraphConvLayer",
+      "status": "forward_failed",
+      "signature": "(self, in_features, out_features, bias=True, aggr='mean')",
+      "parameters_used": {
+        "in_features": 256,
+        "out_features": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "GraphConvLayer.forward() missing 1 required positional argument: 'edge_index'",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/time_series_encoder",
+      "class_name": "TemporalConvBlock",
+      "status": "forward_failed",
+      "signature": "(self, in_channels, out_channels, kernel_size=3, stride=1, dilation=1, causal=True, dropout=0.1)",
+      "parameters_used": {
+        "in_channels": 1,
+        "out_channels": 64
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 2D (unbatched) or 3D (batched) input to conv1d, but got input of size: [2, 1, 64, 64]",
+          "input_shape": [
+            2,
+            1,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/stft_loss",
+      "class_name": "LogSTFTMagnitudeLoss",
+      "status": "init_failed",
+      "error": "LogSTFTMagnitudeLoss.__init__() got an unexpected keyword argument 'args'",
+      "signature": "(self, *args, **kwargs) -> None",
+      "attempted_params": {
+        "args": 256,
+        "kwargs": 256
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/stft_loss",
+      "class_name": "MelSpectrogramLoss",
+      "status": "success",
+      "signature": "(self, sample_rate: int = 16000, n_fft: int = 1024, hop_length: int = 256, n_mels: int = 80, f_min: float = 0.0, f_max: Optional[float] = None, normalized: bool = False)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [],
+            "mean": 0.3576853573322296,
+            "std": NaN,
+            "min": 0.3576853573322296,
+            "max": 0.3576853573322296,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": "<class 'tuple'>"
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/stft_loss",
+      "class_name": "MultiScaleSTFTLoss",
+      "status": "success",
+      "signature": "(self, scales: Optional[List[Tuple[int, int, int]]] = None, window: str = 'hann', normalized: bool = False, loss_weights: Optional[List[float]] = None, eps: float = 1e-07)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [],
+            "mean": 1.3906888961791992,
+            "std": NaN,
+            "min": 1.3906888961791992,
+            "max": 1.3906888961791992,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": "<class 'tuple'>"
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/stft_loss",
+      "class_name": "SpectralConvergenceLoss",
+      "status": "init_failed",
+      "error": "SpectralConvergenceLoss.__init__() got an unexpected keyword argument 'args'",
+      "signature": "(self, *args, **kwargs) -> None",
+      "attempted_params": {
+        "args": 256,
+        "kwargs": 256
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/causal_conv",
+      "class_name": "CausalConvTranspose1d",
+      "status": "forward_failed",
+      "signature": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 1, dilation: int = 1, groups: int = 1, bias: bool = True)",
+      "parameters_used": {
+        "in_channels": 1,
+        "out_channels": 64,
+        "kernel_size": 3
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 2D (unbatched) or 3D (batched) input to conv_transpose1d, but got input of size: [2, 1, 64, 64]",
+          "input_shape": [
+            2,
+            1,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/antialiased_conv",
+      "class_name": "AntialiasedConv1d",
+      "status": "forward_failed",
+      "signature": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 2, padding: int = 0, dilation: int = 1, groups: int = 1, bias: bool = True, filter_type: str = 'lanczos', filter_size: Optional[int] = None)",
+      "parameters_used": {
+        "in_channels": 1,
+        "out_channels": 64,
+        "kernel_size": 3
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 2D (unbatched) or 3D (batched) input to conv1d, but got input of size: [2, 1, 64, 64]",
+          "input_shape": [
+            2,
+            1,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/antialiased_conv",
+      "class_name": "AntialiasedConvTranspose1d",
+      "status": "forward_failed",
+      "signature": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 2, padding: int = 0, output_padding: int = 0, groups: int = 1, bias: bool = True, dilation: int = 1, filter_type: str = 'lanczos', filter_size: Optional[int] = None)",
+      "parameters_used": {
+        "in_channels": 1,
+        "out_channels": 64,
+        "kernel_size": 3
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 2D (unbatched) or 3D (batched) input to conv_transpose1d, but got input of size: [2, 1, 64, 64]",
+          "input_shape": [
+            2,
+            1,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/antialiased_conv",
+      "class_name": "BlurPool1d",
+      "status": "forward_failed",
+      "signature": "(self, channels: int, filter_type: str = 'lanczos', filter_size: int = 5, stride: int = 2)",
+      "parameters_used": {
+        "channels": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "not enough values to unpack (expected 3, got 2)",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/antialiased_conv",
+      "class_name": "LowPassFilter1d",
+      "status": "forward_failed",
+      "signature": "(self, filter_type: str = 'lanczos', cutoff_ratio: Optional[float] = None, filter_size: int = 5, stride: int = 2)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "not enough values to unpack (expected 3, got 2)",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/guitar_texture_architecture",
+      "class_name": "HierarchicalTextureQuantizer",
+      "status": "init_failed",
+      "error": "'ModuleConfig' object has no attribute 'texture_dim'",
+      "signature": "(self, config: guitar_texture_architecture.GuitarTextureConfig)",
+      "attempted_params": {
+        "config": "<robust_module_validator.RobustModuleValidator._build_config_object.<locals>.ModuleConfig object at 0x10dd3e110>"
+      },
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/guitar_texture_architecture",
+      "class_name": "ResidualVectorQuantizer",
+      "status": "forward_failed",
+      "signature": "(self, num_quantizers, codebook_size, codebook_dim, commitment_cost)",
+      "parameters_used": {
+        "num_quantizers": 4,
+        "codebook_size": 1024,
+        "codebook_dim": 256,
+        "commitment_cost": 0.25
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "not enough values to unpack (expected 3, got 2)",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/guitar_texture_architecture",
+      "class_name": "TextureContentVAE",
+      "status": "init_failed",
+      "error": "'ModuleConfig' object has no attribute 'encoder_hidden_dim'",
+      "signature": "(self, config: guitar_texture_architecture.GuitarTextureConfig)",
+      "attempted_params": {
+        "config": "<robust_module_validator.RobustModuleValidator._build_config_object.<locals>.ModuleConfig object at 0x10d81fd90>"
+      },
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/residual_vector_quantizer",
+      "class_name": "ResidualVectorQuantizer",
+      "status": "forward_failed",
+      "signature": "(self, num_quantizers: int, num_embeddings: Union[int, List[int]] = 1024, embedding_dim: int = 128, commitment_cost: float = 0.25, decay: float = 0.99, epsilon: float = 1e-05, shared_codebook: bool = False, quantizer_dropout: float = 0.0, distance_metric: str = 'euclidean')",
+      "parameters_used": {
+        "num_quantizers": 4
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "shape '[2]' is invalid for input of size 4",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/residual_vector_quantizer",
+      "class_name": "ResidualVectorQuantizerWrapper",
+      "status": "init_failed",
+      "error": "ResidualVectorQuantizer.__init__() got an unexpected keyword argument 'rvq_kwargs'",
+      "signature": "(self, input_dim: int, **rvq_kwargs)",
+      "attempted_params": {
+        "input_dim": 256,
+        "rvq_kwargs": 256
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/residual_vector_quantizer",
+      "class_name": "VectorQuantizer",
+      "status": "forward_failed",
+      "signature": "(self, num_embeddings: int, embedding_dim: int, commitment_cost: float = 0.25, decay: float = 0.99, epsilon: float = 1e-05, distance_metric: str = 'euclidean')",
+      "parameters_used": {
+        "num_embeddings": 1024,
+        "embedding_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/contrastive_learner",
+      "class_name": "ContrastiveLoss",
+      "status": "forward_failed",
+      "signature": "(self, temperature=0.07, similarity='cosine')",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "ContrastiveLoss.forward() missing 1 required positional argument: 'z2'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/gan_loss",
+      "class_name": "GANLoss",
+      "status": "forward_failed",
+      "signature": "(self, loss_type: str = 'hinge', real_label: float = 1.0, fake_label: float = 0.0, label_smoothing: float = 0.0)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "GANLoss.forward() missing 1 required positional argument: 'is_real'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/multiscale_discriminator",
+      "class_name": "DiscriminatorBlock",
+      "status": "forward_failed",
+      "signature": "(self, in_channels: int, out_channels: int, kernel_size: int = 15, stride: int = 1, use_spectral_norm: bool = True, activation: str = 'lrelu')",
+      "parameters_used": {
+        "in_channels": 1,
+        "out_channels": 64
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Given groups=1, weight of size [64, 1, 15], expected input[1, 2, 256] to have 1 channels, but got 2 channels instead",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/multiscale_discriminator",
+      "class_name": "MultiScaleDiscriminator",
+      "status": "forward_failed",
+      "signature": "(self, num_scales: int = 3, in_channels: int = 1, channels: List[int] = [16, 64, 256, 1024, 1024], kernel_sizes: List[int] = [15, 41, 41, 41, 5], strides: List[int] = [1, 4, 4, 4, 1], groups: List[int] = [1, 4, 16, 64, 256], downsample_factor: int = 4, use_spectral_norm: bool = True)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Given groups=1, weight of size [16, 1, 15], expected input[1, 2, 256] to have 1 channels, but got 2 channels instead",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/multiscale_discriminator",
+      "class_name": "ScaleDiscriminator",
+      "status": "forward_failed",
+      "signature": "(self, in_channels: int = 1, channels: List[int] = [16, 64, 256, 1024, 1024], kernel_sizes: List[int] = [15, 41, 41, 41, 5], strides: List[int] = [1, 4, 4, 4, 1], groups: List[int] = [1, 4, 16, 64, 256], use_spectral_norm: bool = True)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Given groups=1, weight of size [16, 1, 15], expected input[1, 2, 256] to have 1 channels, but got 2 channels instead",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/spectral_normalization",
+      "class_name": "SNConv1d",
+      "status": "forward_failed",
+      "signature": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 1, padding: int = 0, dilation: int = 1, groups: int = 1, bias: bool = True, power_iterations: int = 1)",
+      "parameters_used": {
+        "in_channels": 1,
+        "out_channels": 64,
+        "kernel_size": 3
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 2D (unbatched) or 3D (batched) input to conv1d, but got input of size: [2, 1, 64, 64]",
+          "input_shape": [
+            2,
+            1,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "candidates/agent_claude/auto_encoder",
+      "class_name": "AutoEncoder",
+      "status": "init_failed",
+      "error": "'int' object is not iterable",
+      "signature": "(self, input_dim: int, hidden_dims: list, latent_dim: int, variational: bool = False, activation: str = 'relu', dropout: float = 0.1, **kwargs)",
+      "attempted_params": {
+        "input_dim": 256,
+        "hidden_dims": 256,
+        "latent_dim": 128,
+        "kwargs": 256
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "candidates/agent_claude/multi_scale_stft_loss",
+      "class_name": "MultiScaleSTFTLoss",
+      "status": "success",
+      "signature": "(self, fft_sizes: List[int] = [512, 1024, 2048], hop_sizes: Optional[List[int]] = None, win_lengths: Optional[List[int]] = None, window_fn: Literal['hann', 'hamming', 'blackman', 'bartlett'] = 'hann', mag_weight: float = 1.0, log_weight: float = 1.0, spectral_weight: float = 1.0, epsilon: float = 1e-08, log_base: Literal[2, 10, 'e'] = 'e', reduction: Literal['mean', 'sum', 'none'] = 'mean', **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "dict",
+            "keys": [
+              "loss",
+              "mag_loss",
+              "log_mag_loss",
+              "spectral_loss",
+              "scale_losses"
+            ],
+            "key_analysis": {
+              "loss": {
+                "type": "tensor",
+                "shape": [],
+                "mean": 12.269783020019531,
+                "std": NaN,
+                "min": 12.269783020019531,
+                "max": 12.269783020019531,
+                "has_nan": false,
+                "has_inf": false
+              },
+              "mag_loss": {
+                "type": "tensor",
+                "shape": [],
+                "mean": 10.868371963500977,
+                "std": NaN,
+                "min": 10.868371963500977,
+                "max": 10.868371963500977,
+                "has_nan": false,
+                "has_inf": false
+              },
+              "log_mag_loss": {
+                "type": "tensor",
+                "shape": [],
+                "mean": 0.7284232974052429,
+                "std": NaN,
+                "min": 0.7284232974052429,
+                "max": 0.7284232974052429,
+                "has_nan": false,
+                "has_inf": false
+              },
+              "spectral_loss": {
+                "type": "tensor",
+                "shape": [],
+                "mean": 0.6729884147644043,
+                "std": NaN,
+                "min": 0.6729884147644043,
+                "max": 0.6729884147644043,
+                "has_nan": false,
+                "has_inf": false
+              }
+            }
+          },
+          "input_shape": "<class 'tuple'>"
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "candidates/agent_claude/conv_encoder",
+      "class_name": "ConvEncoder",
+      "status": "success",
+      "signature": "(self, in_channels: int = 3, base_channels: int = 64, num_layers: int = 4, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "dict",
+            "keys": [
+              "features",
+              "pooled",
+              "shape"
+            ],
+            "key_analysis": {
+              "features": {
+                "type": "tensor",
+                "shape": [
+                  2,
+                  512,
+                  4,
+                  4
+                ],
+                "mean": 0.014522735029459,
+                "std": 0.020963922142982483,
+                "min": 0.0,
+                "max": 0.1395617574453354,
+                "has_nan": false,
+                "has_inf": false
+              },
+              "pooled": {
+                "type": "tensor",
+                "shape": [
+                  2,
+                  512
+                ],
+                "mean": 0.014522735960781574,
+                "std": 0.014243906363844872,
+                "min": 0.0,
+                "max": 0.07707463204860687,
+                "has_nan": false,
+                "has_inf": false
+              }
+            }
+          },
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "candidates/agent_claude/antialiased_conv",
+      "class_name": "AntiAliasedConv",
+      "status": "forward_failed",
+      "signature": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 1, padding: int = 0, dilation: int = 1, groups: int = 1, bias: bool = True, filter_type: Literal['box', 'triangle', 'gaussian', 'lanczos'] = 'gaussian', filter_size: Optional[int] = None, sigma: Optional[float] = None, dim: int = 2, **kwargs)",
+      "parameters_used": {
+        "in_channels": 1,
+        "out_channels": 64,
+        "kernel_size": 3,
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Bool",
+          "input_shape": [
+            2,
+            1,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "candidates/agent_claude/residual_vector_quantizer",
+      "class_name": "ResidualVectorQuantizer",
+      "status": "forward_failed",
+      "signature": "(self, dim: int, codebook_size: int = 1024, num_quantizers: int = 8, commitment_weight: float = 1.0, ema_decay: Optional[float] = 0.99, epsilon: float = 1e-05, kmeans_init: bool = False, threshold_ema_dead_code: int = 2, **kwargs)",
+      "parameters_used": {
+        "dim": 256,
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    }
+  ],
+  "rave_useful": [
+    {
+      "module_name": "modules/transformer_block",
+      "class_name": "FeedForwardNetwork",
+      "status": "success",
+      "signature": "(self, d_model, d_ff, dropout=0.1)",
+      "parameters_used": {
+        "d_model": 256,
+        "d_ff": 1024
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              256
+            ],
+            "mean": 0.00019827159121632576,
+            "std": 0.17931103706359863,
+            "min": -0.5888495445251465,
+            "max": 0.545377254486084,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/adaptive_computation",
+      "class_name": "UniversalTransformer",
+      "status": "forward_failed",
+      "signature": "(self, d_model=512, n_heads=8, d_ff=2048, max_steps=6, dropout=0.1, use_act=True, act_threshold=0.01)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "The size of tensor a (256) must match the size of tensor b (512) at non-singleton dimension 2",
+          "input_shape": [
+            2,
+            20,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/graph_encoder",
+      "class_name": "GraphAttentionLayer",
+      "status": "forward_failed",
+      "signature": "(self, in_features, out_features, n_heads=8, dropout=0.1)",
+      "parameters_used": {
+        "in_features": 256,
+        "out_features": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "GraphAttentionLayer.forward() missing 1 required positional argument: 'edge_index'",
+          "input_shape": [
+            2,
+            20,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/time_series_encoder",
+      "class_name": "WaveNetBlock",
+      "status": "forward_failed",
+      "signature": "(self, residual_channels, skip_channels, kernel_size=2, dilation=1, dropout=0.1)",
+      "parameters_used": {
+        "residual_channels": 256,
+        "skip_channels": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Given groups=1, weight of size [512, 256, 2], expected input[2, 1, 8192] to have 256 channels, but got 1 channels instead",
+          "input_shape": [
+            2,
+            1,
+            8192
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/set_encoder",
+      "class_name": "InducedSetAttentionBlock",
+      "status": "success",
+      "signature": "(self, d_model, n_heads, n_inducing_points, dropout=0.1)",
+      "parameters_used": {
+        "d_model": 256,
+        "n_heads": 8,
+        "n_inducing_points": 4
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              20,
+              256
+            ],
+            "mean": -2.9802322831784522e-09,
+            "std": 1.0000438690185547,
+            "min": -3.9995317459106445,
+            "max": 3.4610848426818848,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            20,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/attention_decoder",
+      "class_name": "AttentionDecoder",
+      "status": "forward_failed",
+      "signature": "(self, vocab_size, d_model=512, n_heads=8, n_layers=6, d_ff=2048, max_seq_len=5000, dropout=0.1, pad_token_id=0, start_token_id=1, end_token_id=2)",
+      "parameters_used": {
+        "vocab_size": 1000
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "AttentionDecoder.forward() missing 1 required positional argument: 'encoder_output'",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/attention_decoder",
+      "class_name": "DecoderBlock",
+      "status": "forward_failed",
+      "signature": "(self, d_model, n_heads, d_ff, dropout=0.1)",
+      "parameters_used": {
+        "d_model": 256,
+        "n_heads": 8,
+        "d_ff": 1024
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "DecoderBlock.forward() missing 1 required positional argument: 'encoder_output'",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/cross_modal_fusion",
+      "class_name": "CrossModalAttention",
+      "status": "forward_failed",
+      "signature": "(self, d_model_1, d_model_2, d_hidden, n_heads=8, dropout=0.1)",
+      "parameters_used": {
+        "d_model_1": 256,
+        "d_model_2": 256,
+        "d_hidden": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "CrossModalAttention.forward() missing 1 required positional argument: 'modal_2'",
+          "input_shape": [
+            2,
+            20,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_event_detector",
+      "class_name": "AudioEventDetector",
+      "status": "forward_failed",
+      "signature": "(self, num_classes: int = 50, sample_rate: int = 16000, window_size: float = 1.0, hop_size: float = 0.5, n_mels: int = 64, hidden_dim: int = 128, num_layers: int = 3, use_attention: bool = True, detection_threshold: float = 0.5, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "too many values to unpack (expected 2)",
+          "input_shape": [
+            2,
+            1,
+            8192
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_config",
+      "class_name": "AudioModuleBase",
+      "status": "init_failed",
+      "error": "'ModuleConfig' object has no attribute 'normalization_method'",
+      "signature": "(self, config: audio_config.AudioModuleConfig)",
+      "attempted_params": {
+        "config": "<robust_module_validator.RobustModuleValidator._build_config_object.<locals>.ModuleConfig object at 0x10d8d3e10>"
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_config",
+      "class_name": "AudioNormalizer",
+      "status": "init_failed",
+      "error": "'ModuleConfig' object has no attribute 'normalization_method'",
+      "signature": "(self, config: audio_config.AudioModuleConfig)",
+      "attempted_params": {
+        "config": "<robust_module_validator.RobustModuleValidator._build_config_object.<locals>.ModuleConfig object at 0x10d7ad390>"
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_config",
+      "class_name": "SpecAugment",
+      "status": "init_failed",
+      "error": "'ModuleConfig' object has no attribute 'freq_mask_param'",
+      "signature": "(self, config: audio_config.AudioModuleConfig)",
+      "attempted_params": {
+        "config": "<robust_module_validator.RobustModuleValidator._build_config_object.<locals>.ModuleConfig object at 0x10dfc9010>"
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/advanced_musical_features",
+      "class_name": "AdvancedMusicalFeatures",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int = 22050, n_fft: int = 2048, hop_length: int = 512, n_mels: int = 128, n_chroma: int = 12, f_min: float = 80.0, f_max: Optional[float] = None, tuning_resolution: float = 0.01, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (1024, 1024) at dimension 2 of input [1, 2, 256]",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/advanced_musical_features",
+      "class_name": "HarmonicAnalyzer",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int, n_chroma: int = 12, tuning_resolution: float = 0.01)",
+      "parameters_used": {
+        "sample_rate": 22050
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "HarmonicAnalyzer.forward() missing 1 required positional argument: 'chroma'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/advanced_musical_features",
+      "class_name": "MelodicAnalyzer",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int, n_fft: int, hop_length: int, f_min: float, f_max: float)",
+      "parameters_used": {
+        "sample_rate": 22050,
+        "n_fft": 1024,
+        "hop_length": 256,
+        "f_min": 50.0,
+        "f_max": 8000.0
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "MelodicAnalyzer.forward() missing 1 required positional argument: 'stft'",
+          "input_shape": [
+            2,
+            1,
+            8192
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/advanced_musical_features",
+      "class_name": "RhythmicAnalyzer",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int, hop_length: int)",
+      "parameters_used": {
+        "sample_rate": 22050,
+        "hop_length": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "RhythmicAnalyzer.forward() missing 1 required positional argument: 'mel_spec'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/advanced_musical_features",
+      "class_name": "StructuralAnalyzer",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int, hop_length: int)",
+      "parameters_used": {
+        "sample_rate": 22050,
+        "hop_length": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "StructuralAnalyzer.forward() missing 2 required positional arguments: 'chroma' and 'mel_spec'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/advanced_musical_features",
+      "class_name": "TimbralAnalyzer",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int, n_fft: int, hop_length: int)",
+      "parameters_used": {
+        "sample_rate": 22050,
+        "n_fft": 1024,
+        "hop_length": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "TimbralAnalyzer.forward() missing 2 required positional arguments: 'stft' and 'mel_spec'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/instrument_classifier",
+      "class_name": "InstrumentClassifier",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int = 22050, n_mels: int = 128, n_fft: int = 2048, hop_length: int = 512, num_families: int = 8, num_instruments: int = 50, num_techniques: int = 20, hidden_dim: int = 512, num_conv_layers: int = 4, num_lstm_layers: int = 2, dropout: float = 0.3, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (1024, 1024) at dimension 2 of input [1, 2, 256]",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/perceptual_quality_assessor",
+      "class_name": "PerceptualQualityAssessor",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int = 16000, n_fft: int = 512, hop_length: int = 160, n_bark_bands: int = 24, quality_metrics: List[str] = ['spectral', 'psychoacoustic', 'temporal', 'learned'], content_aware: bool = True, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "PerceptualQualityAssessor.forward() missing 1 required positional argument: 'degraded'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/perceptual_quality_assessor",
+      "class_name": "PsychoacousticMaskingModel",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int, n_fft: int, n_bark_bands: int)",
+      "parameters_used": {
+        "sample_rate": 22050,
+        "n_fft": 1024,
+        "n_bark_bands": 4
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "PsychoacousticMaskingModel.forward() missing 1 required positional argument: 'degraded'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/perceptual_quality_assessor",
+      "class_name": "QualityFeatureExtractor",
+      "status": "forward_failed",
+      "signature": "(self, input_channels: int, hidden_dim: int, num_scales: int)",
+      "parameters_used": {
+        "input_channels": 1,
+        "hidden_dim": 256,
+        "num_scales": 4
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 3D (unbatched) or 4D (batched) input to conv2d, but got input of size: [2, 256]",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/perceptual_quality_assessor",
+      "class_name": "TemporalQualityAnalyzer",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int, hop_length: int)",
+      "parameters_used": {
+        "sample_rate": 22050,
+        "hop_length": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "TemporalQualityAnalyzer.forward() missing 1 required positional argument: 'degraded'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_spectrogram_transformer",
+      "class_name": "AudioSpectrogramTransformer",
+      "status": "forward_failed",
+      "signature": "(self, img_size: Tuple[int, int] = (1024, 128), patch_size: Tuple[int, int] = (16, 16), num_classes: int = 527, embed_dim: int = 768, depth: int = 12, num_heads: int = 12, mlp_ratio: float = 4.0, dropout: float = 0.1, sample_rate: int = 16000, n_mels: int = 128, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "The size of tensor a (25) must match the size of tensor b (513) at non-singleton dimension 1",
+          "input_shape": [
+            2,
+            1,
+            8192
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_spectrogram_transformer",
+      "class_name": "PatchEmbedding",
+      "status": "forward_failed",
+      "signature": "(self, img_size: Tuple[int, int] = (1024, 128), patch_size: Tuple[int, int] = (16, 16), in_channels: int = 1, embed_dim: int = 768)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "not enough values to unpack (expected 4, got 2)",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_spectrogram_transformer",
+      "class_name": "TransformerBlock",
+      "status": "success",
+      "signature": "(self, dim: int, num_heads: int, mlp_ratio: float = 4.0, dropout: float = 0.1)",
+      "parameters_used": {
+        "dim": 256,
+        "num_heads": 8
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              20,
+              256
+            ],
+            "mean": 0.019558027386665344,
+            "std": 1.0257413387298584,
+            "min": -3.9153804779052734,
+            "max": 3.5482451915740967,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            20,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_similarity_matcher",
+      "class_name": "AudioSimilarityMatcher",
+      "status": "init_failed",
+      "error": "module 'torch.nn' has no attribute 'L2Norm'",
+      "signature": "(self, sample_rate: int = 22050, embedding_dim: int = 512, n_mels: int = 128, n_chroma: int = 12, similarity_metrics: List[str] = ['spectral', 'harmonic', 'temporal', 'learned'], pooling_strategy: str = 'attention', temperature: float = 0.1, **kwargs)",
+      "attempted_params": {
+        "kwargs": 256
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "modules/audio_analysis/audio_similarity_matcher",
+      "class_name": "L2Norm",
+      "status": "success",
+      "signature": "(self, dim: int = 1)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              256
+            ],
+            "mean": 0.0033300798386335373,
+            "std": 0.062472257763147354,
+            "min": -0.17861804366111755,
+            "max": 0.21388046443462372,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/wavenet_resblock",
+      "class_name": "WaveNetResBlock",
+      "status": "forward_failed",
+      "signature": "(self, channels: int, kernel_size: int = 3, dilation: int = 1, skip_channels: int = 256, residual_channels: int = 256, gate_channels: int = 256, dropout: float = 0.0, bias: bool = True, use_1x1_skip: bool = True, conditioning_channels: Optional[int] = None)",
+      "parameters_used": {
+        "channels": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Given groups=1, weight of size [512, 256, 3], expected input[2, 1, 8192] to have 256 channels, but got 1 channels instead",
+          "input_shape": [
+            2,
+            1,
+            8192
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/wavenet_resblock",
+      "class_name": "WaveNetStack",
+      "status": "success",
+      "signature": "(self, in_channels: int, residual_channels: int = 256, skip_channels: int = 256, kernel_size: int = 3, dilations: Optional[List[int]] = None, dropout: float = 0.0, bias: bool = True, conditioning_channels: Optional[int] = None)",
+      "parameters_used": {
+        "in_channels": 1
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              1,
+              8192
+            ],
+            "mean": -0.054613206535577774,
+            "std": 0.029226483777165413,
+            "min": -0.1713171750307083,
+            "max": 0.053931936621665955,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            1,
+            8192
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/pqmf_filterbank",
+      "class_name": "PQMFFilterBank",
+      "status": "forward_failed",
+      "signature": "(self, num_bands: int = 4, filter_length: int = 640, beta: float = 9.0)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (318, 318) at dimension 1 of input [2, 256]",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/spectral_normalization",
+      "class_name": "SNLinear",
+      "status": "success",
+      "signature": "(self, in_features: int, out_features: int, bias: bool = True, power_iterations: int = 1)",
+      "parameters_used": {
+        "in_features": 256,
+        "out_features": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              256
+            ],
+            "mean": 0.4582766890525818,
+            "std": 17.46996307373047,
+            "min": -50.264774322509766,
+            "max": 65.0320053100586,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/audio_gan/spectral_normalization",
+      "class_name": "SpectralNormalization",
+      "status": "init_failed",
+      "error": "'int' object has no attribute 'weight'",
+      "signature": "(self, module: torch.nn.modules.module.Module, power_iterations: int = 1, eps: float = 1e-12, dim: Optional[int] = None)",
+      "attempted_params": {
+        "module": 256
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/orchestration/pipeline_orchestrator",
+      "class_name": "PipelineOrchestrator",
+      "status": "forward_failed",
+      "signature": "(self, target_latency: Optional[float] = None, optimization_goal: str = 'throughput', parallel_execution: bool = True, memory_limit: Optional[int] = None, device: str = 'cpu')",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "'Tensor' object has no attribute 'copy'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/orchestration/model_profiler",
+      "class_name": "ModelProfiler",
+      "status": "forward_failed",
+      "signature": "(self, profile_memory: bool = True, profile_time: bool = True, profile_flops: bool = True, warmup_runs: int = 3, profile_runs: int = 10, detailed: bool = False, device: str = 'cpu')",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Module [ModelProfiler] is missing the required \"forward\" function",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/orchestration/experiment_tracker",
+      "class_name": "ExperimentTracker",
+      "status": "init_failed",
+      "error": "join() argument must be str, bytes, or os.PathLike object, not 'int'",
+      "signature": "(self, project_name: str, base_dir: str = './experiments', auto_save: bool = True, save_interval: int = 100, track_gradients: bool = False, track_parameters: bool = False, version_control: bool = True)",
+      "attempted_params": {
+        "project_name": 256
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/orchestration/hyperparameter_optimizer",
+      "class_name": "HyperparameterOptimizer",
+      "status": "init_failed",
+      "error": "'int' object is not iterable",
+      "signature": "(self, parameter_space: List[hyperparameter_optimizer.ParameterSpace], objective: str = 'maximize', n_trials: int = 100, n_random_starts: int = 10, acquisition: str = 'ei', exploration_weight: float = 1.0, constraints: Optional[List[Callable]] = None, early_stopping_patience: int = 20, seed: Optional[int] = None)",
+      "attempted_params": {
+        "parameter_space": 256
+      },
+      "rave_critical": true
+    },
+    {
+      "module_name": "audio-ml-extensions/orchestration/dataflow_optimizer",
+      "class_name": "DataflowOptimizer",
+      "status": "forward_failed",
+      "signature": "(self, batch_optimization: bool = True, memory_optimization: bool = True, gradient_checkpointing: bool = False, mixed_precision: bool = False, prefetch_factor: int = 2, num_workers: int = 0, pin_memory: bool = True, device: str = 'cpu')",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "DataflowOptimizer.forward() missing 1 required positional argument: 'inputs'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": true
+    },
+    {
+      "module_name": "candidates/agent_claude/time_series_encoder",
+      "class_name": "WaveNetBlock",
+      "status": "forward_failed",
+      "signature": "(self, channels: int, kernel_size: int, dilation: int, dropout: float)",
+      "parameters_used": {
+        "channels": 256,
+        "kernel_size": 3,
+        "dilation": 256,
+        "dropout": 0.1
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Given groups=1, weight of size [512, 256, 3], expected input[2, 1, 8192] to have 256 channels, but got 1 channels instead",
+          "input_shape": [
+            2,
+            1,
+            8192
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/attention_decoder",
+      "class_name": "AttentionDecoder",
+      "status": "forward_failed",
+      "signature": "(self, vocab_size: int = 50000, d_model: int = 512, n_heads: int = 8, n_layers: int = 6, d_ff: int = 2048, max_seq_len: int = 5000, dropout: float = 0.1, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "too many values to unpack (expected 2)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/attention_decoder",
+      "class_name": "TransformerDecoderLayer",
+      "status": "forward_failed",
+      "signature": "(self, d_model: int, n_heads: int, d_ff: int, dropout: float = 0.1)",
+      "parameters_used": {
+        "d_model": 256,
+        "n_heads": 8,
+        "d_ff": 1024
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "query should be unbatched 2D or batched 3D tensor but received 4-D query tensor",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/sequence_encoder",
+      "class_name": "TransformerEncoderLayer",
+      "status": "forward_failed",
+      "signature": "(self, d_model: int, n_heads: int, d_ff: int, dropout: float = 0.1)",
+      "parameters_used": {
+        "d_model": 256,
+        "n_heads": 8,
+        "d_ff": 1024
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "query should be unbatched 2D or batched 3D tensor but received 4-D query tensor",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    }
+  ],
+  "rave_optional": [
+    {
+      "module_name": "modules/stream_joiner",
+      "class_name": "StreamJoiner",
+      "status": "forward_failed",
+      "signature": "(self, join_type: str = 'inner', time_window: float = 1000, interpolation: str = 'linear', max_buffer_size: int = 1000, tolerance: Optional[float] = None, align_keys: Optional[List[str]] = None, primary_stream: Optional[str] = None)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "StreamJoiner.forward() missing 1 required positional argument: 'data'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/adaptive_computation",
+      "class_name": "AdaptiveComputationTime",
+      "status": "forward_failed",
+      "signature": "(self, hidden_size, max_steps=10, threshold=0.01, epsilon=0.01)",
+      "parameters_used": {
+        "hidden_size": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "AdaptiveComputationTime.forward() missing 1 required positional argument: 'compute_fn'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/adaptive_computation",
+      "class_name": "PonderNet",
+      "status": "success",
+      "signature": "(self, input_size, hidden_size, output_size, max_steps=10, lambda_p=0.01, allow_halting=True)",
+      "parameters_used": {
+        "input_size": 256,
+        "hidden_size": 256,
+        "output_size": 128
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "sequence",
+            "length": 2,
+            "element_analysis": [
+              {
+                "type": "tensor",
+                "shape": [
+                  2,
+                  128
+                ],
+                "mean": 0.00011109153274446726,
+                "std": 0.08858201652765274,
+                "min": -0.3416866660118103,
+                "max": 0.20536813139915466,
+                "has_nan": false,
+                "has_inf": false
+              },
+              {
+                "type": "tensor",
+                "shape": [],
+                "mean": 2.080403282889165e-05,
+                "std": NaN,
+                "min": 2.080403282889165e-05,
+                "max": 2.080403282889165e-05,
+                "has_nan": false,
+                "has_inf": false
+              }
+            ]
+          },
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/feature_store",
+      "class_name": "FeatureStore",
+      "status": "forward_failed",
+      "signature": "(self, storage_path: Optional[str] = None, cache_size: int = 1000, enable_versioning: bool = True, enable_lineage: bool = True, default_ttl: Optional[int] = None)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "tensor([-2.6698e+00, -1.0344e+00,  1.2973e+00, -1.8959e-01,  1.1192e+00,\n         2.0830e+00, -1.0338e+00,  4.5684e-01,  7.9520e-01,  1.2832e+00,\n        -5.2348e-01, -3.3126e-01,  9.7336e-01,  1.8247e-02, -4.9020e-02,\n         3.4414e-01, -1.0462e+00,  2.8552e+00, -5.2620e-01, -1.0144e-01,\n         4.6452e-01, -3.1823e-01, -4.0509e-01,  1.1881e+00,  2.4869e-01,\n         5.3019e-01,  2.8760e+00,  1.9003e-01, -9.8941e-02,  7.4209e-01,\n         4.7005e-02,  9.3758e-01,  4.6004e-01,  1.0972e+00,  1.6400e-01,\n         2.3284e-01,  5.2158e-01, -9.7483e-01,  3.6416e-01, -2.3190e-01,\n        -1.3273e+00, -5.1305e-01, -9.2133e-01,  4.7196e-01,  5.9363e-02,\n        -4.7089e-01, -1.1329e+00,  2.8926e+00,  1.4006e+00,  1.4324e+00,\n        -1.1960e+00, -1.4375e-01,  1.0405e+00,  1.6799e+00,  1.1110e+00,\n         1.4778e+00,  1.6012e+00, -2.3337e+00, -1.6495e+00,  7.7922e-01,\n        -1.5416e-01,  8.0177e-01,  1.4846e+00, -7.1864e-01, -3.9652e-01,\n         9.8023e-02,  1.2795e+00, -1.1036e+00, -2.3896e+00, -2.5776e-01,\n         2.6179e-01,  3.1021e+00, -1.9153e+00, -1.4024e+00,  3.3854e-01,\n         4.6294e-01,  4.5462e-01,  2.0443e-01,  6.9308e-01, -2.0262e-01,\n         3.5980e-01, -1.1115e+00,  2.1868e+00,  3.5841e-01,  7.3978e-01,\n        -8.7417e-01, -8.8590e-01,  8.7023e-01,  2.6929e-01, -5.2973e-01,\n        -6.8597e-03,  3.9834e-01, -1.5549e-01, -8.3176e-01,  2.9671e-02,\n        -1.7904e-01,  7.3928e-01, -7.3716e-01,  9.0911e-01, -9.0863e-01,\n         1.4585e+00, -5.6328e-01,  3.9309e-01, -2.3385e-01, -1.1361e+00,\n         4.4760e-01,  6.1965e-01,  5.3222e-03, -9.5655e-02,  6.4793e-01,\n        -2.1791e-01,  5.1812e-01, -1.6011e-01,  1.1928e+00,  3.9742e-01,\n        -5.8537e-01, -1.7240e+00,  8.0715e-01,  1.0373e+00, -8.9164e-01,\n         5.5599e-01,  5.5716e-01, -1.6586e-01,  4.9955e-01, -4.6059e-01,\n         6.2614e-01, -1.6810e-03,  3.6487e-01, -9.5044e-02,  1.4118e+00,\n        -3.7448e-01, -1.7224e-01, -1.6635e-01, -1.9530e+00, -7.6086e-01,\n        -6.4934e-01,  2.9806e-01, -9.6088e-02, -7.7549e-02, -3.5013e-01,\n        -7.1257e-01, -1.0854e+00,  2.2309e+00, -3.7042e-01,  3.0552e-02,\n         2.5763e-01,  1.8747e-01,  1.0175e+00, -2.4497e-01, -4.7688e-01,\n         1.5597e+00, -1.0984e+00, -1.2849e+00, -1.0521e-01, -2.3074e+00,\n         1.7371e+00, -2.4703e-01,  1.1258e-01,  6.2957e-01,  1.2080e-01,\n        -2.7433e-01,  1.2787e+00, -8.9408e-01,  1.8340e-01, -5.9556e-01,\n         7.3149e-01,  8.3051e-01,  5.7763e-01, -2.1420e-01,  2.3219e-02,\n         6.0105e-02, -1.2937e+00,  8.7312e-01,  1.4442e+00, -1.7147e+00,\n        -5.4157e-01,  1.2379e+00, -4.3982e-01, -1.4108e+00,  8.0080e-03,\n         1.1904e+00,  1.5290e-01, -1.6397e+00, -4.6166e-02, -5.1958e-01,\n         1.3356e+00, -1.6244e-01, -5.0931e-01, -4.3378e-01, -5.7794e-01,\n         2.0306e-01,  4.0719e-02,  4.9823e-01,  1.0843e-01,  1.5647e+00,\n        -7.4770e-01, -1.3747e+00, -1.8378e+00,  7.4635e-01,  7.9592e-01,\n         1.0436e+00, -4.2499e-01,  2.1598e-01, -1.6856e+00,  1.6799e+00,\n        -4.2271e-02, -1.5612e-01, -5.4149e-01, -4.1051e-01,  8.7493e-01,\n         1.7538e-01, -9.8587e-02,  7.2107e-01, -1.7518e+00,  5.4145e-01,\n         5.7889e-01,  1.7162e+00, -5.4253e-01,  3.5674e-01,  4.1228e-01,\n        -1.9165e+00, -1.0333e+00, -3.1746e-01, -1.4308e-01, -2.5477e+00,\n        -1.3578e+00,  2.0900e-01,  1.6935e+00, -1.0546e+00, -4.4768e-01,\n         2.2502e-01,  7.0669e-01, -1.4791e+00,  1.5222e+00,  4.8846e-01,\n        -6.0336e-01, -2.8184e-01, -2.7642e+00,  9.1409e-01,  6.9601e-01,\n         2.5503e-01,  3.9943e-02,  3.7960e-01, -2.9509e-01, -1.4199e+00,\n         7.8396e-01, -5.5166e-01, -5.6806e-01,  1.3627e+00, -9.7781e-01,\n         8.4603e-01,  1.2557e+00, -1.5842e+00, -1.1597e+00, -6.1175e-02,\n         1.7499e+00])",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/graph_encoder",
+      "class_name": "GraphEncoder",
+      "status": "forward_failed",
+      "signature": "(self, input_dim, hidden_dim=128, output_dim=128, n_layers=3, layer_type='gcn', n_heads=8, dropout=0.1, pooling='mean')",
+      "parameters_used": {
+        "input_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "GraphEncoder.forward() missing 1 required positional argument: 'edge_index'",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/time_series_encoder",
+      "class_name": "PositionalEncodingTime",
+      "status": "forward_failed",
+      "signature": "(self, d_model, max_len=5000)",
+      "parameters_used": {
+        "d_model": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Dimension out of range (expected to be in range of [-2, 1], but got 2)",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/time_series_encoder",
+      "class_name": "TimeSeriesEncoder",
+      "status": "forward_failed",
+      "signature": "(self, input_dim, d_model=256, n_layers=6, kernel_size=3, architecture='temporal_conv', dropout=0.1, use_positional=True, pooling='adaptive')",
+      "parameters_used": {
+        "input_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 2D (unbatched) or 3D (batched) input to conv1d, but got input of size: [2, 3, 64, 64]",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/sequence_to_sequence",
+      "class_name": "SequenceToSequenceModel",
+      "status": "forward_failed",
+      "signature": "(self, encoder, decoder, src_vocab_size=None, tgt_vocab_size=None, share_embeddings=False, tie_embeddings=False)",
+      "parameters_used": {
+        "encoder": "ConvEncoder(\n  (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (pool): AdaptiveAvgPool2d(output_size=(1, 1))\n)",
+        "decoder": "ConvDecoder(\n  (fc): Linear(in_features=128, out_features=8192, bias=True)\n  (decoder): Sequential(\n    (0): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))\n    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (2): ReLU()\n    (3): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))\n    (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (5): ReLU()\n    (6): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))\n    (7): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (8): ReLU()\n    (9): ConvTranspose2d(64, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))\n    (10): Tanh()\n  )\n)"
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "SequenceToSequenceModel.forward() missing 1 required positional argument: 'tgt'",
+          "input_shape": [
+            2,
+            20,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/vit_patch_encoder",
+      "class_name": "PatchEmbedding",
+      "status": "forward_failed",
+      "signature": "(self, img_size=224, patch_size=16, in_channels=3, embed_dim=768)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "not enough values to unpack (expected 4, got 2)",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/vit_patch_encoder",
+      "class_name": "PositionalEncoding2D",
+      "status": "forward_failed",
+      "signature": "(self, embed_dim, n_patches, temperature=10000)",
+      "parameters_used": {
+        "embed_dim": 256,
+        "n_patches": 4
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "The size of tensor a (2) must match the size of tensor b (4) at non-singleton dimension 0",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/vit_patch_encoder",
+      "class_name": "ViTPatchEncoder",
+      "status": "forward_failed",
+      "signature": "(self, img_size=224, patch_size=16, in_channels=3, embed_dim=768, n_heads=12, n_layers=12, d_ff=3072, dropout=0.1, use_cls_token=True, pool_type='cls')",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Input image size (64x64) doesn't match expected size (224x224)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/memory_bank_retriever",
+      "class_name": "MemoryBank",
+      "status": "forward_failed",
+      "signature": "(self, memory_size=1000, key_dim=128, value_dim=256, similarity='cosine', update_method='fifo')",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mat1 and mat2 shapes cannot be multiplied (2x256 and 128x128)",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/memory_bank_retriever",
+      "class_name": "Retriever",
+      "status": "init_failed",
+      "error": "Given groups=1, weight of size [64, 3, 3, 3], expected input[1, 1, 10, 64] to have 3 channels, but got 1 channels instead",
+      "signature": "(self, encoder, memory_bank=None, memory_size=1000, key_dim=128, value_dim=256, num_heads=8, dropout=0.1)",
+      "attempted_params": {
+        "encoder": "ConvEncoder(\n  (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (pool): AdaptiveAvgPool2d(output_size=(1, 1))\n)"
+      },
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/set_encoder",
+      "class_name": "SetEncoder",
+      "status": "forward_failed",
+      "signature": "(self, input_dim, d_model=256, n_heads=8, n_layers=4, d_ff=1024, dropout=0.1, pooling='mean', use_isab=False, n_inducing_points=32)",
+      "parameters_used": {
+        "input_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mat1 and mat2 shapes cannot be multiplied (384x64 and 256x256)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/guitar_texture_architecture",
+      "class_name": "BlurPool1d",
+      "status": "success",
+      "signature": "(self, channels)",
+      "parameters_used": {
+        "channels": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              257
+            ],
+            "mean": 0.02382638119161129,
+            "std": 0.7325948476791382,
+            "min": -2.140758514404297,
+            "max": 2.082080602645874,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/guitar_texture_architecture",
+      "class_name": "ConditionalDecoder",
+      "status": "forward_failed",
+      "signature": "(self, texture_dim: int, content_dim: int, output_dim: int, hidden_dim: int)",
+      "parameters_used": {
+        "texture_dim": 256,
+        "content_dim": 256,
+        "output_dim": 256,
+        "hidden_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "ConditionalDecoder.forward() missing 1 required positional argument: 'content_z'",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/guitar_texture_architecture",
+      "class_name": "GuitarTextureModel",
+      "status": "init_failed",
+      "error": "'ModuleConfig' object has no attribute 'encoder_hidden_dim'",
+      "signature": "(self, config: guitar_texture_architecture.GuitarTextureConfig)",
+      "attempted_params": {
+        "config": "<robust_module_validator.RobustModuleValidator._build_config_object.<locals>.ModuleConfig object at 0x152bbbb90>"
+      },
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/guitar_texture_architecture",
+      "class_name": "MultiScaleTextureEncoder",
+      "status": "init_failed",
+      "error": "'ModuleConfig' object has no attribute 'encoder_hidden_dim'",
+      "signature": "(self, config: guitar_texture_architecture.GuitarTextureConfig)",
+      "attempted_params": {
+        "config": "<robust_module_validator.RobustModuleValidator._build_config_object.<locals>.ModuleConfig object at 0x152bba2d0>"
+      },
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/cross_modal_fusion",
+      "class_name": "CrossModalFusion",
+      "status": "forward_failed",
+      "signature": "(self, d_model_1, d_model_2, d_hidden=512, n_heads=8, n_layers=4, dropout=0.1, fusion_type='cross_attention', output_dim=None)",
+      "parameters_used": {
+        "d_model_1": 256,
+        "d_model_2": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "CrossModalFusion.forward() missing 1 required positional argument: 'modal_2'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/sequence_encoder",
+      "class_name": "PositionalEncoding",
+      "status": "forward_failed",
+      "signature": "(self, d_model, max_seq_len=5000, dropout=0.1)",
+      "parameters_used": {
+        "d_model": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "The size of tensor a (2) must match the size of tensor b (256) at non-singleton dimension 1",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/sequence_encoder",
+      "class_name": "SequenceEncoder",
+      "status": "forward_failed",
+      "signature": "(self, vocab_size, d_model=512, n_heads=8, n_layers=6, d_ff=2048, max_seq_len=5000, dropout=0.1, pooling_strategy='mean', pad_token_id=0)",
+      "parameters_used": {
+        "vocab_size": 1000
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected tensor for argument #1 'indices' to have one of the following scalar types: Long, Int; but got torch.FloatTensor instead (while checking arguments for embedding)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/contrastive_learner",
+      "class_name": "ContrastiveLearner",
+      "status": "init_failed",
+      "error": "'int' object is not callable",
+      "signature": "(self, encoder_1, encoder_2=None, projection_dim=128, hidden_dim=2048, temperature=0.07, loss_type='simclr', momentum=0.999, use_momentum_encoder=False)",
+      "attempted_params": {
+        "encoder_1": 256
+      },
+      "rave_critical": false
+    },
+    {
+      "module_name": "modules/contrastive_learner",
+      "class_name": "ProjectionHead",
+      "status": "success",
+      "signature": "(self, input_dim, hidden_dim, output_dim, num_layers=2)",
+      "parameters_used": {
+        "input_dim": 256,
+        "hidden_dim": 256,
+        "output_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              256
+            ],
+            "mean": 0.008225588127970695,
+            "std": 0.23924869298934937,
+            "min": -0.7992637157440186,
+            "max": 0.5799874067306519,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "crossfade/beat_grid_extractor",
+      "class_name": "BeatGridExtractor",
+      "status": "forward_failed",
+      "signature": "(self, sample_rate: int = 44100, hop_length: int = 512, n_fft: int = 2048, min_bpm: float = 60.0, max_bpm: float = 200.0)",
+      "parameters_used": {},
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "`x` must be a 1-D array",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/stream_joiner",
+      "class_name": "StreamJoiner",
+      "status": "forward_failed",
+      "signature": "(self, join_type: str = 'inner', window_size: float = 1000, timeout: float = 5.0, tolerance: float = 10.0, interpolate: bool = True, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "StreamJoiner.forward() missing 1 required positional argument: 'data'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/adaptive_computation",
+      "class_name": "AdaptiveComputation",
+      "status": "forward_failed",
+      "signature": "(self, input_dim: int = 512, hidden_dim: int = 512, n_layers: int = 12, threshold: float = 0.5, ponder_cost: float = 0.01, exit_method: str = 'threshold', min_layers: int = 3, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mat1 and mat2 shapes cannot be multiplied (2x256 and 512x1024)",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/adaptive_computation",
+      "class_name": "ExitPredictor",
+      "status": "success",
+      "signature": "(self, input_dim: int, method: str = 'threshold')",
+      "parameters_used": {
+        "input_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              1
+            ],
+            "mean": 0.6183005571365356,
+            "std": 0.006171942222863436,
+            "min": 0.6139363050460815,
+            "max": 0.622664749622345,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/adaptive_computation",
+      "class_name": "TransformLayer",
+      "status": "success",
+      "signature": "(self, input_dim: int, output_dim: int, dropout: float = 0.1)",
+      "parameters_used": {
+        "input_dim": 256,
+        "output_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "passed",
+          "output_analysis": {
+            "type": "tensor",
+            "shape": [
+              2,
+              256
+            ],
+            "mean": 9.313225746154785e-09,
+            "std": 1.000972867012024,
+            "min": -4.232939720153809,
+            "max": 3.134305715560913,
+            "has_nan": false,
+            "has_inf": false
+          },
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/data_versioner",
+      "class_name": "DataVersioner",
+      "status": "forward_failed",
+      "signature": "(self, storage_path: str = './versions', **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Can't pickle <class 'data_versioner.DataVersion'>: it's not the same object as data_versioner.DataVersion",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/feature_store",
+      "class_name": "FeatureStore",
+      "status": "forward_failed",
+      "signature": "(self, max_features: int = 1000, max_versions: int = 10, compute_on_store: bool = True, enable_metadata: bool = True, device: Optional[torch.device] = None, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "FeatureStore.forward() missing 1 required positional argument: 'keys'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/graph_encoder",
+      "class_name": "GATLayer",
+      "status": "forward_failed",
+      "signature": "(self, in_dim: int, out_dim: int, n_heads: int, dropout: float = 0.1)",
+      "parameters_used": {
+        "in_dim": 256,
+        "out_dim": 256,
+        "n_heads": 8
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "GATLayer.forward() missing 1 required positional argument: 'edge_index'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/graph_encoder",
+      "class_name": "GCNLayer",
+      "status": "forward_failed",
+      "signature": "(self, in_dim: int, out_dim: int, dropout: float = 0.1)",
+      "parameters_used": {
+        "in_dim": 256,
+        "out_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "GCNLayer.forward() missing 1 required positional argument: 'edge_index'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/graph_encoder",
+      "class_name": "GraphEncoder",
+      "status": "forward_failed",
+      "signature": "(self, node_dim: int = 64, hidden_dim: int = 128, output_dim: int = 256, n_layers: int = 3, architecture: str = 'gcn', n_heads: int = 8, dropout: float = 0.1, aggregation: str = 'mean', **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "GraphEncoder.forward() missing 1 required positional argument: 'edge_index'",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/graph_encoder",
+      "class_name": "GraphSAGELayer",
+      "status": "forward_failed",
+      "signature": "(self, in_dim: int, out_dim: int, dropout: float = 0.1)",
+      "parameters_used": {
+        "in_dim": 256,
+        "out_dim": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "GraphSAGELayer.forward() missing 1 required positional argument: 'edge_index'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/time_series_encoder",
+      "class_name": "TimeSeriesEncoder",
+      "status": "forward_failed",
+      "signature": "(self, input_dim: int = 1, hidden_dim: int = 256, n_layers: int = 6, kernel_size: int = 3, architecture: str = 'transformer', n_heads: int = 8, dropout: float = 0.1, max_seq_len: int = 5000, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "too many values to unpack (expected 3)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/sequence_to_sequence_model",
+      "class_name": "SequenceToSequenceModel",
+      "status": "init_failed",
+      "error": "Decoder must have attention mechanism when use_attention=True",
+      "signature": "(self, encoder: torch.nn.modules.module.Module, decoder: torch.nn.modules.module.Module, use_attention: bool = True, max_length: int = 100, sos_token_id: int = 0, eos_token_id: int = 1, **kwargs)",
+      "attempted_params": {
+        "encoder": "ConvEncoder(\n  (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (pool): AdaptiveAvgPool2d(output_size=(1, 1))\n)",
+        "decoder": "ConvDecoder(\n  (fc): Linear(in_features=128, out_features=8192, bias=True)\n  (decoder): Sequential(\n    (0): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))\n    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (2): ReLU()\n    (3): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))\n    (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (5): ReLU()\n    (6): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))\n    (7): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (8): ReLU()\n    (9): ConvTranspose2d(64, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))\n    (10): Tanh()\n  )\n)",
+        "kwargs": 256
+      },
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/stream_processor",
+      "class_name": "StreamProcessor",
+      "status": "forward_failed",
+      "signature": "(self, window_size: int, window_type: Literal['sliding', 'tumbling'] = 'sliding', stride: int = 1, aggregation: Literal['mean', 'sum', 'max', 'min', 'std', 'var'] = 'mean', max_buffer_size: Optional[int] = None, dim: int = -1, **kwargs)",
+      "parameters_used": {
+        "window_size": 256,
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "mean(): could not infer output dtype. Input dtype must be either a floating point or complex dtype. Got: Long",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/vit_patch_encoder",
+      "class_name": "ViTEncoderLayer",
+      "status": "forward_failed",
+      "signature": "(self, embed_dim: int, n_heads: int, d_ff: int, dropout: float = 0.1)",
+      "parameters_used": {
+        "embed_dim": 256,
+        "n_heads": 8,
+        "d_ff": 1024
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Given normalized_shape=[256], expected input with shape [*, 256], but got input of size[2, 3, 64, 64]",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/vit_patch_encoder",
+      "class_name": "ViTPatchEncoder",
+      "status": "forward_failed",
+      "signature": "(self, img_size: int = 224, patch_size: int = 16, in_channels: int = 3, embed_dim: int = 768, n_heads: int = 12, n_layers: int = 12, d_ff: int = 3072, dropout: float = 0.1, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected 196 patches, got 16. Check image size (64x64) and patch size (16)",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/set_encoder",
+      "class_name": "SetEncoder",
+      "status": "forward_failed",
+      "signature": "(self, input_dim: int, hidden_dim: int, output_dim: int, num_layers: int = 2, pooling_method: str = 'attention', dropout: float = 0.1, **kwargs)",
+      "parameters_used": {
+        "input_dim": 256,
+        "hidden_dim": 256,
+        "output_dim": 256,
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "Expected input tensor to have 3 dimensions, got 4",
+          "input_shape": [
+            2,
+            3,
+            64,
+            64
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/cross_modal_fusion",
+      "class_name": "CrossModalFusion",
+      "status": "forward_failed",
+      "signature": "(self, modal_dims: dict = None, fusion_dim: int = 512, n_heads: int = 8, fusion_method: str = 'attention', dropout: float = 0.1, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "CrossModalFusion.forward() takes 1 positional argument but 2 were given",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/contrastive_learner",
+      "class_name": "ContrastiveLearner",
+      "status": "init_failed",
+      "error": "Could not determine encoder output dimension",
+      "signature": "(self, encoder: torch.nn.modules.module.Module, projection_dim: int, temperature: float = 0.07, mode: str = 'simclr', momentum: float = 0.999, queue_size: int = 65536, **kwargs)",
+      "attempted_params": {
+        "encoder": "ConvEncoder(\n  (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (pool): AdaptiveAvgPool2d(output_size=(1, 1))\n)",
+        "projection_dim": 256,
+        "kwargs": 256
+      },
+      "rave_critical": false
+    },
+    {
+      "module_name": "candidates/agent_claude/data_sampler",
+      "class_name": "DataSampler",
+      "status": "forward_failed",
+      "signature": "(self, strategy: Literal['oversample', 'undersample', 'smote', 'balanced'] = 'balanced', target_ratio: float = 1.0, k_neighbors: int = 5, seed: Optional[int] = None, min_samples_per_class: int = 1, **kwargs)",
+      "parameters_used": {
+        "kwargs": 256
+      },
+      "test_results": [
+        {
+          "test_id": 1,
+          "status": "failed",
+          "error": "DataSampler.forward() missing 1 required positional argument: 'labels'",
+          "input_shape": [
+            2,
+            256
+          ]
+        }
+      ],
+      "rave_critical": false
+    }
+  ],
+  "summary": {
+    "rave_core": {
+      "total": 34,
+      "successful": 5,
+      "success_rate": 14.705882352941178
+    },
+    "rave_useful": {
+      "total": 42,
+      "successful": 6,
+      "success_rate": 14.285714285714285
+    },
+    "rave_optional": {
+      "total": 43,
+      "successful": 5,
+      "success_rate": 11.627906976744185
+    },
+    "overall_assessment": "NEEDS_WORK",
+    "core_success_rate": 14.705882352941178
+  }
+}

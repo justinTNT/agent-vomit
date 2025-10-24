@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "wave": "wave_2_medium_effort",
+    "strategy": "Build on Wave 1 success, tackle moderate complexity",
+    "total_modules": 8,
+    "passed_modules": 1,
+    "wave_success_rate": 12.5,
+    "total_tests": 2,
+    "passed_tests": 2,
+    "test_success_rate": 100.0,
+    "coverage_progress": {
+      "previous_coverage": 85,
+      "new_coverage": 86,
+      "total_modules": 137,
+      "coverage_percentage": 62.77372262773723,
+      "modules_added": 1
+    },
+    "next_wave_ready": false,
+    "estimated_hours": 8.0
+  },
+  "all_results": [
+    {
+      "module": "GANLoss",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "GANLoss.__init__() got an unexpected keyword argument 'gan_mode'"
+      }
+    },
+    {
+      "module": "WaveNetResBlock",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.01830911636352539,
+            "output_shape": [
+              2,
+              256,
+              100
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.0025037494488060474,
+              "std": 1.0084781646728516,
+              "min": -4.274986267089844,
+              "max": 4.398762226104736,
+              "norm": 228.19107055664062
+            },
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.0013899803161621094,
+            "output_shape": [
+              1,
+              256,
+              50
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.013832435943186283,
+              "std": 1.0109940767288208,
+              "min": -4.111492156982422,
+              "max": 3.6806297302246094,
+              "norm": 114.38713073730469
+            },
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "SpectralNorm",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "Could not import SpectralNorm from spectral_norm"
+      }
+    },
+    {
+      "module": "AdaptiveInstanceNorm",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "Could not import AdaptiveInstanceNorm from adaptive_instance_norm"
+      }
+    },
+    {
+      "module": "PQMFFilterbank",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "Could not import PQMFFilterbank from pqmf_filterbank"
+      }
+    },
+    {
+      "module": "GraphEncoder",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "GraphEncoder.__init__() got an unexpected keyword argument 'num_layers'"
+      }
+    },
+    {
+      "module": "AudioSpectrogramTransformer",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "Could not import AudioSpectrogramTransformer from audio_spectrogram_transformer"
+      }
+    },
+    {
+      "module": "FoundationModel",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "Could not import FoundationModel from foundation_model"
+      }
+    }
+  ]
+}

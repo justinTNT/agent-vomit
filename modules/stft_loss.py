@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import List, Tuple, Optional, Union
 import numpy as np
+from rave_config_system import RAVEConfig
+
 
 
 class SpectralConvergenceLoss(nn.Module):
@@ -41,6 +43,16 @@ class LogSTFTMagnitudeLoss(nn.Module):
         return F.l1_loss(torch.log(x_mag + eps), torch.log(y_mag + eps))
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, window: str, normalized: bool, eps: float, **kwargs):
+# New assignments:
+#         self.fft_size = config.audio.n_fft
+        self.hop_size = config.audio.hop_length
+        self.win_length = config.audio.win_length
+        self.window = window
+        self.normalized = normalized
+        self.eps = eps
 class STFTLoss(nn.Module):
     """
     Single-scale STFT loss combining spectral convergence and log magnitude loss.
@@ -232,6 +244,17 @@ class MultiScaleSTFTLoss(nn.Module):
             return total_loss
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, normalized: bool, **kwargs):
+# New assignments:
+#         self.sample_rate = config.audio.sample_rate
+        self.n_fft = config.audio.n_fft
+        self.hop_length = config.audio.hop_length
+        self.n_mels = config.audio.n_mels
+        self.f_min = config.audio.f_min
+        self.f_max = config.audio.f_max
+        self.normalized = normalized
 class MelSpectrogramLoss(nn.Module):
     """
     Mel-spectrogram loss for perceptually-weighted audio comparison.

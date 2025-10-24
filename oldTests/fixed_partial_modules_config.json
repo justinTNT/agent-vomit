@@ -1,0 +1,180 @@
+{
+  "modules": [
+    {
+      "module_name": "data_versioner",
+      "class_name": "DataVersioner",
+      "class_variations": ["DataVersioner"],
+      "init_params": {
+        "storage_path": "/tmp/test_versions",
+        "chunk_size": 1000,
+        "track_deltas": true,
+        "compression": false
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10, 512],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            "test commit"
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for DataVersioner.forward"
+        },
+        {
+          "name": "load_method",
+          "test_type": "method",
+          "method_name": "load",
+          "args": ["test_version_id"],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for DataVersioner.load"
+        },
+        {
+          "name": "diff_method", 
+          "test_type": "method",
+          "method_name": "diff",
+          "args": ["version1", "version2"],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for DataVersioner.diff"
+        }
+      ],
+      "description": "Fixed config for data_versioner.DataVersioner",
+      "dependencies": null
+    },
+    {
+      "module_name": "sequence_to_sequence",
+      "class_name": "SequenceToSequenceModel",
+      "class_variations": ["SequenceToSequenceModel"],
+      "init_params": {
+        "encoder": null,
+        "decoder": null,
+        "src_vocab_size": 1000,
+        "tgt_vocab_size": 1000,
+        "d_model": 512
+      },
+      "init_param_variations": {
+        "encoder": ["encoder", "enc", "source_encoder"],
+        "decoder": ["decoder", "dec", "target_decoder"]
+      },
+      "tests": [
+        {
+          "name": "forward_dual_input",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10],
+              "dtype": "torch.long",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor", 
+              "shape": [2, 8],
+              "dtype": "torch.long",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test with src and tgt for SequenceToSequenceModel.forward"
+        },
+        {
+          "name": "encode_method",
+          "test_type": "method",
+          "method_name": "encode",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10],
+              "dtype": "torch.long",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for SequenceToSequenceModel.encode"
+        },
+        {
+          "name": "generate_method",
+          "test_type": "method", 
+          "method_name": "generate",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 10],
+              "dtype": "torch.long",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for SequenceToSequenceModel.generate"
+        }
+      ],
+      "description": "Fixed config for sequence_to_sequence.SequenceToSequenceModel",
+      "dependencies": null
+    },
+    {
+      "module_name": "stream_processor",
+      "class_name": "StreamProcessor", 
+      "class_variations": ["StreamProcessor"],
+      "init_params": {
+        "window_type": "tumbling",
+        "window_size": 1000,
+        "aggregation": "mean",
+        "max_buffer_size": 10000
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [2, 512],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for StreamProcessor.forward"
+        },
+        {
+          "name": "flush_method",
+          "test_type": "method",
+          "method_name": "flush",
+          "args": [],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for StreamProcessor.flush"
+        },
+        {
+          "name": "get_metrics_method",
+          "test_type": "method",
+          "method_name": "get_metrics", 
+          "args": [],
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "method test for StreamProcessor.get_metrics"
+        }
+      ],
+      "description": "Fixed config for stream_processor.StreamProcessor",
+      "dependencies": null
+    }
+  ]
+}

@@ -34,7 +34,7 @@ class FoundationModelType(Enum):
 @dataclass
 class FoundationModelConfig(AudioModuleConfig):
     """Configuration for foundation models."""
-    model_type: FoundationModelType
+    model_type: FoundationModelType = FoundationModelType.AUDIO_MAE
     input_size: int = 768
     hidden_size: int = 768
     num_layers: int = 12

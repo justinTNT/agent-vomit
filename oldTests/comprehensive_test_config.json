@@ -1,0 +1,496 @@
+{
+  "modules": [
+    {
+      "module_name": "transformer_block",
+      "class_name": "MultiHeadAttention",
+      "class_variations": [
+        "MultiHeadAttention"
+      ],
+      "init_params": {
+        "d_model": 256,
+        "n_heads": 8
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for MultiHeadAttention.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for MultiHeadAttention"
+        }
+      ],
+      "description": "Auto-generated config for transformer_block.MultiHeadAttention",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "transformer_block",
+      "class_name": "FeedForwardNetwork",
+      "class_variations": [
+        "FeedForwardNetwork"
+      ],
+      "init_params": {
+        "d_model": 256,
+        "d_ff": 256
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for FeedForwardNetwork.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for FeedForwardNetwork"
+        }
+      ],
+      "description": "Auto-generated config for transformer_block.FeedForwardNetwork",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "transformer_block",
+      "class_name": "TransformerBlock",
+      "class_variations": [
+        "TransformerBlock"
+      ],
+      "init_params": {},
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for TransformerBlock.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for TransformerBlock"
+        }
+      ],
+      "description": "Auto-generated config for transformer_block.TransformerBlock",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "snake_activation",
+      "class_name": "SnakeActivation",
+      "class_variations": [
+        "SnakeActivation"
+      ],
+      "init_params": {},
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for SnakeActivation.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for SnakeActivation"
+        }
+      ],
+      "description": "Auto-generated config for snake_activation.SnakeActivation",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "snake_activation",
+      "class_name": "SnakeBeta",
+      "class_variations": [
+        "SnakeBeta"
+      ],
+      "init_params": {},
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for SnakeBeta.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for SnakeBeta"
+        }
+      ],
+      "description": "Auto-generated config for snake_activation.SnakeBeta",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "autoencoder_vae",
+      "class_name": "ConvDecoder",
+      "class_variations": [
+        "ConvDecoder"
+      ],
+      "init_params": {
+        "latent_dim": 256
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for ConvDecoder.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for ConvDecoder"
+        }
+      ],
+      "description": "Auto-generated config for autoencoder_vae.ConvDecoder",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "adaptive_computation",
+      "class_name": "UniversalTransformer",
+      "class_variations": [
+        "UniversalTransformer"
+      ],
+      "init_params": {},
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for UniversalTransformer.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for UniversalTransformer"
+        }
+      ],
+      "description": "Auto-generated config for adaptive_computation.UniversalTransformer",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "graph_encoder",
+      "class_name": "GraphConvLayer",
+      "class_variations": [
+        "GraphConvLayer"
+      ],
+      "init_params": {
+        "in_features": 256,
+        "out_features": 256
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for GraphConvLayer.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for GraphConvLayer"
+        }
+      ],
+      "description": "Auto-generated config for graph_encoder.GraphConvLayer",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "graph_encoder",
+      "class_name": "GraphAttentionLayer",
+      "class_variations": [
+        "GraphAttentionLayer"
+      ],
+      "init_params": {
+        "in_features": 256,
+        "out_features": 256
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for GraphAttentionLayer.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for GraphAttentionLayer"
+        }
+      ],
+      "description": "Auto-generated config for graph_encoder.GraphAttentionLayer",
+      "complexity": "complex",
+      "category": "core"
+    },
+    {
+      "module_name": "graph_encoder",
+      "class_name": "EdgeConvLayer",
+      "class_variations": [
+        "EdgeConvLayer"
+      ],
+      "init_params": {
+        "in_features": 256,
+        "out_features": 256
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "forward test for EdgeConvLayer.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "description": "shape test for EdgeConvLayer"
+        }
+      ],
+      "description": "Auto-generated config for graph_encoder.EdgeConvLayer",
+      "complexity": "complex",
+      "category": "core"
+    }
+  ],
+  "metadata": {
+    "total_modules": 10,
+    "generation_strategy": "comprehensive_discovery",
+    "priority_order": "simple->medium->complex, core->audio->data->advanced"
+  }
+}

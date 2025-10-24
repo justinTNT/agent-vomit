@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "test_type": "focused_working_modules",
+    "total_modules": 10,
+    "passed_modules": 4,
+    "module_success_rate": 40.0,
+    "total_tests": 10,
+    "passed_tests": 8,
+    "test_success_rate": 80.0
+  },
+  "results": [
+    {
+      "module": "TransformerBlock",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.027065753936767578,
+            "output_shape": [
+              2,
+              10,
+              512
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 6.705522359595761e-09,
+              "std": 1.0000439882278442,
+              "min": -3.728919744491577,
+              "max": 3.476923942565918,
+              "norm": 101.1924057006836
+            },
+            "gradient_norm": null,
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.003454923629760742,
+            "output_shape": [
+              2,
+              10,
+              512
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -2.0489097085629737e-09,
+              "std": 1.0000439882278442,
+              "min": -4.085770130157471,
+              "max": 3.891880989074707,
+              "norm": 101.19239807128906
+            },
+            "gradient_norm": 3.5784324836640735e-07,
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "MultiHeadAttention",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.0002770423889160156,
+            "output_shape": [
+              2,
+              10,
+              256
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.007109887897968292,
+              "std": 0.11749272793531418,
+              "min": -0.4405287504196167,
+              "max": 0.3887338638305664,
+              "norm": 8.42165470123291
+            },
+            "gradient_norm": null,
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.00020575523376464844,
+            "output_shape": [
+              2,
+              10,
+              256
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.0022171942982822657,
+              "std": 0.11265210062265396,
+              "min": -0.363652765750885,
+              "max": 0.39819419384002686,
+              "norm": 8.061501502990723
+            },
+            "gradient_norm": 24.61025619506836,
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "FeedForwardNetwork",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.00024890899658203125,
+            "output_shape": [
+              2,
+              10,
+              256
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.0011056587100028992,
+              "std": 0.20061513781547546,
+              "min": -0.6991631984710693,
+              "max": 0.8294540643692017,
+              "norm": 14.353667259216309
+            },
+            "gradient_norm": null,
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.00012969970703125,
+            "output_shape": [
+              2,
+              10,
+              256
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.0025689960457384586,
+              "std": 0.20380409061908722,
+              "min": -0.7455289363861084,
+              "max": 0.6735032796859741,
+              "norm": 14.582769393920898
+            },
+            "gradient_norm": 14.467473030090332,
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "SnakeActivation",
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "SnakeActivation.__init__() got an unexpected keyword argument 'n_channels'"
+      }
+    },
+    {
+      "module": "ConvEncoder",
+      "result": {
+        "module_passed": false,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": false,
+            "execution_time": 0,
+            "output_shape": null,
+            "output_dtype": null,
+            "numerical_summary": null,
+            "gradient_norm": null,
+            "error": "Expected input with 4 dims (batch, channels, height, width), got torch.Size([2, 3, 256])"
+          },
+          {
+            "test_name": "test_2",
+            "passed": false,
+            "execution_time": 0,
+            "output_shape": null,
+            "output_dtype": null,
+            "numerical_summary": null,
+            "gradient_norm": null,
+            "error": "Expected input with 4 dims (batch, channels, height, width), got torch.Size([2, 3, 256])"
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "ResidualVectorQuantizer",
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "ResidualVectorQuantizer.__init__() got an unexpected keyword argument 'dim'"
+      }
+    },
+    {
+      "module": "AntialiasedConv",
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "module 'modules.antialiased_conv' has no attribute 'AntialiasedConv'"
+      }
+    },
+    {
+      "module": "MultiScaleSTFTLoss",
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "MultiScaleSTFTLoss.__init__() got an unexpected keyword argument 'fft_sizes'"
+      }
+    },
+    {
+      "module": "CausalConv1d",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.006354808807373047,
+            "output_shape": [
+              2,
+              512,
+              100
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.00339337345212698,
+              "std": 0.5738255977630615,
+              "min": -2.5330915451049805,
+              "max": 2.5388879776000977,
+              "norm": 183.62652587890625
+            },
+            "gradient_norm": null,
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.0008640289306640625,
+            "output_shape": [
+              2,
+              512,
+              100
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.0008806530968286097,
+              "std": 0.5743306875228882,
+              "min": -2.2926719188690186,
+              "max": 2.403825044631958,
+              "norm": 183.7850341796875
+            },
+            "gradient_norm": 189.74798583984375,
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "TimeSeriesEncoder",
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "TimeSeriesEncoder.__init__() got an unexpected keyword argument 'hidden_dim'"
+      }
+    }
+  ]
+}

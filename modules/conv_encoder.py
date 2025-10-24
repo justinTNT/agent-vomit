@@ -6,8 +6,17 @@ import torch
 from torch import nn
 
 from .utils import warn_on_unused_kwargs
+from rave_config_system import RAVEConfig
 
 
+
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, base_channels: int, num_layers: int, **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.base_channels = base_channels
+        self.num_layers = num_layers
 class ConvEncoder(nn.Module):
     """Hierarchical CNN encoder that reports intermediate feature maps."""
 

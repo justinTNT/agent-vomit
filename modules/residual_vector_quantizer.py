@@ -2,8 +2,20 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from typing import List, Tuple, Optional, Union
+from rave_config_system import RAVEConfig
 
 
+
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, decay: float, epsilon: float, distance_metric: str, **kwargs):
+# New assignments:
+#         self.num_embeddings = config.quantization.codebook_size
+        self.embedding_dim = config.quantization.codebook_dim
+        self.commitment_cost = config.quantization.commitment_cost
+        self.decay = decay
+        self.epsilon = epsilon
+        self.distance_metric = distance_metric
 class VectorQuantizer(nn.Module):
     """
     Basic vector quantizer for discrete representation learning.
@@ -126,6 +138,19 @@ class VectorQuantizer(nn.Module):
         self.embedding.weight.data.copy_(embed_normalized)
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, decay: float, epsilon: float, shared_codebook: bool, quantizer_dropout: float, distance_metric: str, **kwargs):
+# New assignments:
+#         self.num_quantizers = config.quantization.num_quantizers
+        self.num_embeddings = config.quantization.codebook_size
+        self.embedding_dim = config.quantization.codebook_dim
+        self.commitment_cost = config.quantization.commitment_cost
+        self.decay = decay
+        self.epsilon = epsilon
+        self.shared_codebook = shared_codebook
+        self.quantizer_dropout = quantizer_dropout
+        self.distance_metric = distance_metric
 class ResidualVectorQuantizer(nn.Module):
     """
     Residual Vector Quantizer for hierarchical discrete representation.
@@ -311,6 +336,19 @@ class ResidualVectorQuantizer(nn.Module):
                 f'shared_codebook={self.shared_codebook}')
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, decay: float, epsilon: float, shared_codebook: bool, quantizer_dropout: float, distance_metric: str, **kwargs):
+# New assignments:
+#         self.num_quantizers = config.quantization.num_quantizers
+        self.num_embeddings = config.quantization.codebook_size
+        self.embedding_dim = config.quantization.codebook_dim
+        self.commitment_cost = config.quantization.commitment_cost
+        self.decay = decay
+        self.epsilon = epsilon
+        self.shared_codebook = shared_codebook
+        self.quantizer_dropout = quantizer_dropout
+        self.distance_metric = distance_metric
 class ResidualVectorQuantizerWrapper(nn.Module):
     """
     Wrapper to handle different input shapes and add projection layers.

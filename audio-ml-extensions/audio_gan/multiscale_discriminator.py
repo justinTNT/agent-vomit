@@ -2,8 +2,20 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from typing import List, Tuple, Dict, Optional
+from rave_config_system import RAVEConfig
 
 
+
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, use_spectral_norm: bool, activation: str, **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.out_channels = config.convolution.out_channels
+        self.kernel_size = config.convolution.kernel_size
+        self.stride = config.convolution.stride
+        self.use_spectral_norm = use_spectral_norm
+        self.activation = activation
 class DiscriminatorBlock(nn.Module):
     """Single discriminator block with downsampling."""
     def __init__(self, 
@@ -39,6 +51,16 @@ class DiscriminatorBlock(nn.Module):
         return self.activation(self.conv(x))
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, channels: List[int], kernel_sizes: List[int], strides: List[int], use_spectral_norm: bool, **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.channels = channels
+        self.kernel_sizes = kernel_sizes
+        self.strides = strides
+        self.groups = config.convolution.groups
+        self.use_spectral_norm = use_spectral_norm
 class ScaleDiscriminator(nn.Module):
     """Single scale discriminator."""
     def __init__(self,
@@ -88,6 +110,18 @@ class ScaleDiscriminator(nn.Module):
         return output, features
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, num_scales: int, channels: List[int], kernel_sizes: List[int], strides: List[int], downsample_factor: int, use_spectral_norm: bool, **kwargs):
+# New assignments:
+#         self.num_scales = num_scales
+        self.in_channels = config.convolution.in_channels
+        self.channels = channels
+        self.kernel_sizes = kernel_sizes
+        self.strides = strides
+        self.groups = config.convolution.groups
+        self.downsample_factor = downsample_factor
+        self.use_spectral_norm = use_spectral_norm
 class MultiScaleDiscriminator(nn.Module):
     """Multi-scale discriminator for audio GANs."""
     def __init__(self,

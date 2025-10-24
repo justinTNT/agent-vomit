@@ -3,8 +3,18 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Optional, Tuple, Union
 import numpy as np
+from rave_config_system import RAVEConfig
 
 
+
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, filter_type: str, cutoff_ratio: Optional[float], filter_size: int, **kwargs):
+# New assignments:
+#         self.filter_type = filter_type
+        self.cutoff_ratio = cutoff_ratio
+        self.filter_size = filter_size
+        self.stride = config.convolution.stride
 class LowPassFilter1d(nn.Module):
     """
     1D low-pass filter for anti-aliasing.
@@ -137,6 +147,20 @@ class LowPassFilter1d(nn.Module):
         return filtered
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, filter_type: str, filter_size: Optional[int], **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.out_channels = config.convolution.out_channels
+        self.kernel_size = config.convolution.kernel_size
+        self.stride = config.convolution.stride
+        self.padding = config.convolution.padding
+        self.dilation = config.convolution.dilation
+        self.groups = config.convolution.groups
+        self.bias = config.convolution.bias
+        self.filter_type = filter_type
+        self.filter_size = filter_size
 class AntialiasedConv1d(nn.Module):
     """
     Anti-aliased 1D convolution with downsampling.
@@ -244,6 +268,21 @@ class AntialiasedConv1d(nn.Module):
         return s
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, output_padding: int, filter_type: str, filter_size: Optional[int], **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.out_channels = config.convolution.out_channels
+        self.kernel_size = config.convolution.kernel_size
+        self.stride = config.convolution.stride
+        self.padding = config.convolution.padding
+        self.output_padding = output_padding
+        self.groups = config.convolution.groups
+        self.bias = config.convolution.bias
+        self.dilation = config.convolution.dilation
+        self.filter_type = filter_type
+        self.filter_size = filter_size
 class AntialiasedConvTranspose1d(nn.Module):
     """
     Anti-aliased transposed 1D convolution with upsampling.
@@ -336,6 +375,14 @@ class AntialiasedConvTranspose1d(nn.Module):
         return x
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, channels: int, filter_type: str, filter_size: int, **kwargs):
+# New assignments:
+#         self.channels = channels
+        self.filter_type = filter_type
+        self.filter_size = filter_size
+        self.stride = config.convolution.stride
 class BlurPool1d(nn.Module):
     """
     Blur pooling layer for anti-aliased downsampling.

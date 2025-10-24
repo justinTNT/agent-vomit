@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "test_type": "perfect_data_pipeline_modules",
+    "framework_assessment": "Data pipelines are much simpler than ML modules - should achieve 100% success easily",
+    "total_modules": 3,
+    "passed_modules": 2,
+    "module_success_rate": 66.66666666666666,
+    "total_tests": 13,
+    "passed_tests": 12,
+    "test_success_rate": 92.3076923076923,
+    "data_pipeline_readiness": "HIGH - Simple infrastructure components"
+  },
+  "all_results": [
+    {
+      "module": "DataVersioner",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.020098209381103516,
+            "output_shape": "string",
+            "output_dtype": "string",
+            "numerical_summary": "string_length_12",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 3.0994415283203125e-06,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'stats': {'commits': 1, 'branches': 1, 'total_size': 42190, 'delta_saves': 0}, 'versions': 1, 'bran",
+            "error": null
+          },
+          {
+            "test_name": "test_3",
+            "passed": true,
+            "execution_time": 0.0053861141204833984,
+            "output_shape": "string",
+            "output_dtype": "string",
+            "numerical_summary": "string_length_12",
+            "error": null
+          },
+          {
+            "test_name": "test_4",
+            "passed": true,
+            "execution_time": 0.0001201629638671875,
+            "output_shape": [
+              2,
+              10,
+              512
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.00043405964970588684,
+              "std": 0.99870365858078,
+              "min": -3.7742626667022705,
+              "max": 3.398827075958252,
+              "norm": 101.05677795410156
+            },
+            "error": null
+          },
+          {
+            "test_name": "test_5",
+            "passed": true,
+            "execution_time": 2.86102294921875e-06,
+            "output_shape": "none",
+            "output_dtype": "none",
+            "numerical_summary": "none",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "StreamProcessor",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 7.152557373046875e-06,
+            "output_shape": "none",
+            "output_dtype": "none",
+            "numerical_summary": "none",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 3.0994415283203125e-06,
+            "output_shape": "none",
+            "output_dtype": "none",
+            "numerical_summary": "none",
+            "error": null
+          },
+          {
+            "test_name": "test_3",
+            "passed": true,
+            "execution_time": 0.0016520023345947266,
+            "output_shape": [
+              2,
+              512
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.012979170307517052,
+              "std": 0.5578672885894775,
+              "min": -1.7092314958572388,
+              "max": 1.6301742792129517,
+              "norm": 17.847867965698242
+            },
+            "error": null
+          },
+          {
+            "test_name": "test_4",
+            "passed": true,
+            "execution_time": 3.0994415283203125e-06,
+            "output_shape": "none",
+            "output_dtype": "none",
+            "numerical_summary": "none",
+            "error": null
+          },
+          {
+            "test_name": "test_5",
+            "passed": true,
+            "execution_time": 1.9073486328125e-06,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'buffer_size': 3, 'buffer_capacity': 10000, 'dropped_count': 0, 'current_window_size': 0, 'processi",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "FeatureStore",
+      "result": {
+        "module_passed": false,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 2.1457672119140625e-06,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'stats': {'cache_hits': 0, 'cache_misses': 0, 'computes': 0, 'version_conflicts': 0}, 'cache_size':",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 9.5367431640625e-07,
+            "output_shape": "none",
+            "output_dtype": "none",
+            "numerical_summary": "none",
+            "error": null
+          },
+          {
+            "test_name": "test_3",
+            "passed": false,
+            "execution_time": 0,
+            "output_shape": null,
+            "output_dtype": null,
+            "numerical_summary": null,
+            "error": "'dummy_feature'"
+          }
+        ],
+        "init_error": null
+      }
+    }
+  ]
+}

@@ -2,8 +2,22 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from typing import Optional, Tuple, Union
+from rave_config_system import RAVEConfig
 
 
+
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, padding_mode: str, **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.out_channels = config.convolution.out_channels
+        self.kernel_size = config.convolution.kernel_size
+        self.stride = config.convolution.stride
+        self.dilation = config.convolution.dilation
+        self.groups = config.convolution.groups
+        self.bias = config.convolution.bias
+        self.padding_mode = padding_mode
 class CausalConv1d(nn.Module):
     """
     Causal 1D convolution for real-time audio processing.
@@ -148,6 +162,17 @@ class CausalConv1d(nn.Module):
         return s.format(**self.__dict__)
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.out_channels = config.convolution.out_channels
+        self.kernel_size = config.convolution.kernel_size
+        self.stride = config.convolution.stride
+        self.dilation = config.convolution.dilation
+        self.groups = config.convolution.groups
+        self.bias = config.convolution.bias
 class CausalConvTranspose1d(nn.Module):
     """
     Causal transposed 1D convolution for upsampling in real-time audio.

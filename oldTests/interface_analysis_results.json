@@ -1,0 +1,2939 @@
+{
+  "module_signatures": [
+    {
+      "class_name": "AutoEncoder",
+      "module": "autoencoder_vae",
+      "signature_str": "(self, encoder, decoder=None, latent_dim=128)",
+      "parameters": {
+        "encoder": {
+          "name": "encoder",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "decoder": {
+          "name": "decoder",
+          "annotation": null,
+          "default": null,
+          "required": false
+        },
+        "latent_dim": {
+          "name": "latent_dim",
+          "annotation": null,
+          "default": 128,
+          "required": false
+        }
+      },
+      "required_params": [
+        "encoder"
+      ],
+      "optional_params": [
+        "decoder",
+        "latent_dim"
+      ],
+      "type_hints": {},
+      "defaults": {
+        "decoder": null,
+        "latent_dim": 128
+      },
+      "file_path": "modules/autoencoder_vae.py"
+    },
+    {
+      "class_name": "ConvDecoder",
+      "module": "autoencoder_vae",
+      "signature_str": "(self, latent_dim, output_channels=3, base_channels=64, num_layers=4)",
+      "parameters": {
+        "latent_dim": {
+          "name": "latent_dim",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "output_channels": {
+          "name": "output_channels",
+          "annotation": null,
+          "default": 3,
+          "required": false
+        },
+        "base_channels": {
+          "name": "base_channels",
+          "annotation": null,
+          "default": 64,
+          "required": false
+        },
+        "num_layers": {
+          "name": "num_layers",
+          "annotation": null,
+          "default": 4,
+          "required": false
+        }
+      },
+      "required_params": [
+        "latent_dim"
+      ],
+      "optional_params": [
+        "output_channels",
+        "base_channels",
+        "num_layers"
+      ],
+      "type_hints": {},
+      "defaults": {
+        "output_channels": 3,
+        "base_channels": 64,
+        "num_layers": 4
+      },
+      "file_path": "modules/autoencoder_vae.py"
+    },
+    {
+      "class_name": "VAE",
+      "module": "autoencoder_vae",
+      "signature_str": "(self, encoder, decoder=None, latent_dim=128)",
+      "parameters": {
+        "encoder": {
+          "name": "encoder",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "decoder": {
+          "name": "decoder",
+          "annotation": null,
+          "default": null,
+          "required": false
+        },
+        "latent_dim": {
+          "name": "latent_dim",
+          "annotation": null,
+          "default": 128,
+          "required": false
+        }
+      },
+      "required_params": [
+        "encoder"
+      ],
+      "optional_params": [
+        "decoder",
+        "latent_dim"
+      ],
+      "type_hints": {},
+      "defaults": {
+        "decoder": null,
+        "latent_dim": 128
+      },
+      "file_path": "modules/autoencoder_vae.py"
+    },
+    {
+      "class_name": "CausalConv1d",
+      "module": "causal_conv",
+      "signature_str": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 1, dilation: int = 1, groups: int = 1, bias: bool = True, padding_mode: str = 'zeros')",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "out_channels": {
+          "name": "out_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "kernel_size": {
+          "name": "kernel_size",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "dilation": {
+          "name": "dilation",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "groups": {
+          "name": "groups",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "bias": {
+          "name": "bias",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        },
+        "padding_mode": {
+          "name": "padding_mode",
+          "annotation": "<class 'str'>",
+          "default": "zeros",
+          "required": false
+        }
+      },
+      "required_params": [
+        "in_channels",
+        "out_channels",
+        "kernel_size"
+      ],
+      "optional_params": [
+        "stride",
+        "dilation",
+        "groups",
+        "bias",
+        "padding_mode"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "out_channels": "<class 'int'>",
+        "kernel_size": "<class 'int'>",
+        "stride": "<class 'int'>",
+        "dilation": "<class 'int'>",
+        "groups": "<class 'int'>",
+        "bias": "<class 'bool'>",
+        "padding_mode": "<class 'str'>"
+      },
+      "defaults": {
+        "stride": 1,
+        "dilation": 1,
+        "groups": 1,
+        "bias": true,
+        "padding_mode": "zeros"
+      },
+      "file_path": "modules/causal_conv.py"
+    },
+    {
+      "class_name": "CausalConvTranspose1d",
+      "module": "causal_conv",
+      "signature_str": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 1, dilation: int = 1, groups: int = 1, bias: bool = True)",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "out_channels": {
+          "name": "out_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "kernel_size": {
+          "name": "kernel_size",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "dilation": {
+          "name": "dilation",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "groups": {
+          "name": "groups",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "bias": {
+          "name": "bias",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        }
+      },
+      "required_params": [
+        "in_channels",
+        "out_channels",
+        "kernel_size"
+      ],
+      "optional_params": [
+        "stride",
+        "dilation",
+        "groups",
+        "bias"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "out_channels": "<class 'int'>",
+        "kernel_size": "<class 'int'>",
+        "stride": "<class 'int'>",
+        "dilation": "<class 'int'>",
+        "groups": "<class 'int'>",
+        "bias": "<class 'bool'>"
+      },
+      "defaults": {
+        "stride": 1,
+        "dilation": 1,
+        "groups": 1,
+        "bias": true
+      },
+      "file_path": "modules/causal_conv.py"
+    },
+    {
+      "class_name": "AntialiasedConv1d",
+      "module": "antialiased_conv",
+      "signature_str": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 2, padding: int = 0, dilation: int = 1, groups: int = 1, bias: bool = True, filter_type: str = 'lanczos', filter_size: Optional[int] = None)",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "out_channels": {
+          "name": "out_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "kernel_size": {
+          "name": "kernel_size",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "<class 'int'>",
+          "default": 2,
+          "required": false
+        },
+        "padding": {
+          "name": "padding",
+          "annotation": "<class 'int'>",
+          "default": 0,
+          "required": false
+        },
+        "dilation": {
+          "name": "dilation",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "groups": {
+          "name": "groups",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "bias": {
+          "name": "bias",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        },
+        "filter_type": {
+          "name": "filter_type",
+          "annotation": "<class 'str'>",
+          "default": "lanczos",
+          "required": false
+        },
+        "filter_size": {
+          "name": "filter_size",
+          "annotation": "typing.Optional[int]",
+          "default": null,
+          "required": false
+        }
+      },
+      "required_params": [
+        "in_channels",
+        "out_channels",
+        "kernel_size"
+      ],
+      "optional_params": [
+        "stride",
+        "padding",
+        "dilation",
+        "groups",
+        "bias",
+        "filter_type",
+        "filter_size"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "out_channels": "<class 'int'>",
+        "kernel_size": "<class 'int'>",
+        "stride": "<class 'int'>",
+        "padding": "<class 'int'>",
+        "dilation": "<class 'int'>",
+        "groups": "<class 'int'>",
+        "bias": "<class 'bool'>",
+        "filter_type": "<class 'str'>",
+        "filter_size": "typing.Optional[int]"
+      },
+      "defaults": {
+        "stride": 2,
+        "padding": 0,
+        "dilation": 1,
+        "groups": 1,
+        "bias": true,
+        "filter_type": "lanczos",
+        "filter_size": null
+      },
+      "file_path": "modules/antialiased_conv.py"
+    },
+    {
+      "class_name": "AntialiasedConvTranspose1d",
+      "module": "antialiased_conv",
+      "signature_str": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 2, padding: int = 0, output_padding: int = 0, groups: int = 1, bias: bool = True, dilation: int = 1, filter_type: str = 'lanczos', filter_size: Optional[int] = None)",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "out_channels": {
+          "name": "out_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "kernel_size": {
+          "name": "kernel_size",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "<class 'int'>",
+          "default": 2,
+          "required": false
+        },
+        "padding": {
+          "name": "padding",
+          "annotation": "<class 'int'>",
+          "default": 0,
+          "required": false
+        },
+        "output_padding": {
+          "name": "output_padding",
+          "annotation": "<class 'int'>",
+          "default": 0,
+          "required": false
+        },
+        "groups": {
+          "name": "groups",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "bias": {
+          "name": "bias",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        },
+        "dilation": {
+          "name": "dilation",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "filter_type": {
+          "name": "filter_type",
+          "annotation": "<class 'str'>",
+          "default": "lanczos",
+          "required": false
+        },
+        "filter_size": {
+          "name": "filter_size",
+          "annotation": "typing.Optional[int]",
+          "default": null,
+          "required": false
+        }
+      },
+      "required_params": [
+        "in_channels",
+        "out_channels",
+        "kernel_size"
+      ],
+      "optional_params": [
+        "stride",
+        "padding",
+        "output_padding",
+        "groups",
+        "bias",
+        "dilation",
+        "filter_type",
+        "filter_size"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "out_channels": "<class 'int'>",
+        "kernel_size": "<class 'int'>",
+        "stride": "<class 'int'>",
+        "padding": "<class 'int'>",
+        "output_padding": "<class 'int'>",
+        "groups": "<class 'int'>",
+        "bias": "<class 'bool'>",
+        "dilation": "<class 'int'>",
+        "filter_type": "<class 'str'>",
+        "filter_size": "typing.Optional[int]"
+      },
+      "defaults": {
+        "stride": 2,
+        "padding": 0,
+        "output_padding": 0,
+        "groups": 1,
+        "bias": true,
+        "dilation": 1,
+        "filter_type": "lanczos",
+        "filter_size": null
+      },
+      "file_path": "modules/antialiased_conv.py"
+    },
+    {
+      "class_name": "BlurPool1d",
+      "module": "antialiased_conv",
+      "signature_str": "(self, channels: int, filter_type: str = 'lanczos', filter_size: int = 5, stride: int = 2)",
+      "parameters": {
+        "channels": {
+          "name": "channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "filter_type": {
+          "name": "filter_type",
+          "annotation": "<class 'str'>",
+          "default": "lanczos",
+          "required": false
+        },
+        "filter_size": {
+          "name": "filter_size",
+          "annotation": "<class 'int'>",
+          "default": 5,
+          "required": false
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "<class 'int'>",
+          "default": 2,
+          "required": false
+        }
+      },
+      "required_params": [
+        "channels"
+      ],
+      "optional_params": [
+        "filter_type",
+        "filter_size",
+        "stride"
+      ],
+      "type_hints": {
+        "channels": "<class 'int'>",
+        "filter_type": "<class 'str'>",
+        "filter_size": "<class 'int'>",
+        "stride": "<class 'int'>"
+      },
+      "defaults": {
+        "filter_type": "lanczos",
+        "filter_size": 5,
+        "stride": 2
+      },
+      "file_path": "modules/antialiased_conv.py"
+    },
+    {
+      "class_name": "LowPassFilter1d",
+      "module": "antialiased_conv",
+      "signature_str": "(self, filter_type: str = 'lanczos', cutoff_ratio: Optional[float] = None, filter_size: int = 5, stride: int = 2)",
+      "parameters": {
+        "filter_type": {
+          "name": "filter_type",
+          "annotation": "<class 'str'>",
+          "default": "lanczos",
+          "required": false
+        },
+        "cutoff_ratio": {
+          "name": "cutoff_ratio",
+          "annotation": "typing.Optional[float]",
+          "default": null,
+          "required": false
+        },
+        "filter_size": {
+          "name": "filter_size",
+          "annotation": "<class 'int'>",
+          "default": 5,
+          "required": false
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "<class 'int'>",
+          "default": 2,
+          "required": false
+        }
+      },
+      "required_params": [],
+      "optional_params": [
+        "filter_type",
+        "cutoff_ratio",
+        "filter_size",
+        "stride"
+      ],
+      "type_hints": {
+        "filter_type": "<class 'str'>",
+        "cutoff_ratio": "typing.Optional[float]",
+        "filter_size": "<class 'int'>",
+        "stride": "<class 'int'>"
+      },
+      "defaults": {
+        "filter_type": "lanczos",
+        "cutoff_ratio": null,
+        "filter_size": 5,
+        "stride": 2
+      },
+      "file_path": "modules/antialiased_conv.py"
+    },
+    {
+      "class_name": "LogSTFTMagnitudeLoss",
+      "module": "stft_loss",
+      "signature_str": "(self, *args, **kwargs) -> None",
+      "parameters": {
+        "args": {
+          "name": "args",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "kwargs": {
+          "name": "kwargs",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "args",
+        "kwargs"
+      ],
+      "optional_params": [],
+      "type_hints": {},
+      "defaults": {},
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "class_name": "MelSpectrogramLoss",
+      "module": "stft_loss",
+      "signature_str": "(self, sample_rate: int = 16000, n_fft: int = 1024, hop_length: int = 256, n_mels: int = 80, f_min: float = 0.0, f_max: Optional[float] = None, normalized: bool = False)",
+      "parameters": {
+        "sample_rate": {
+          "name": "sample_rate",
+          "annotation": "<class 'int'>",
+          "default": 16000,
+          "required": false
+        },
+        "n_fft": {
+          "name": "n_fft",
+          "annotation": "<class 'int'>",
+          "default": 1024,
+          "required": false
+        },
+        "hop_length": {
+          "name": "hop_length",
+          "annotation": "<class 'int'>",
+          "default": 256,
+          "required": false
+        },
+        "n_mels": {
+          "name": "n_mels",
+          "annotation": "<class 'int'>",
+          "default": 80,
+          "required": false
+        },
+        "f_min": {
+          "name": "f_min",
+          "annotation": "<class 'float'>",
+          "default": 0.0,
+          "required": false
+        },
+        "f_max": {
+          "name": "f_max",
+          "annotation": "typing.Optional[float]",
+          "default": null,
+          "required": false
+        },
+        "normalized": {
+          "name": "normalized",
+          "annotation": "<class 'bool'>",
+          "default": false,
+          "required": false
+        }
+      },
+      "required_params": [],
+      "optional_params": [
+        "sample_rate",
+        "n_fft",
+        "hop_length",
+        "n_mels",
+        "f_min",
+        "f_max",
+        "normalized"
+      ],
+      "type_hints": {
+        "sample_rate": "<class 'int'>",
+        "n_fft": "<class 'int'>",
+        "hop_length": "<class 'int'>",
+        "n_mels": "<class 'int'>",
+        "f_min": "<class 'float'>",
+        "f_max": "typing.Optional[float]",
+        "normalized": "<class 'bool'>"
+      },
+      "defaults": {
+        "sample_rate": 16000,
+        "n_fft": 1024,
+        "hop_length": 256,
+        "n_mels": 80,
+        "f_min": 0.0,
+        "f_max": null,
+        "normalized": false
+      },
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "class_name": "MultiScaleSTFTLoss",
+      "module": "stft_loss",
+      "signature_str": "(self, scales: Optional[List[Tuple[int, int, int]]] = None, window: str = 'hann', normalized: bool = False, loss_weights: Optional[List[float]] = None, eps: float = 1e-07)",
+      "parameters": {
+        "scales": {
+          "name": "scales",
+          "annotation": "typing.Optional[typing.List[typing.Tuple[int, int, int]]]",
+          "default": null,
+          "required": false
+        },
+        "window": {
+          "name": "window",
+          "annotation": "<class 'str'>",
+          "default": "hann",
+          "required": false
+        },
+        "normalized": {
+          "name": "normalized",
+          "annotation": "<class 'bool'>",
+          "default": false,
+          "required": false
+        },
+        "loss_weights": {
+          "name": "loss_weights",
+          "annotation": "typing.Optional[typing.List[float]]",
+          "default": null,
+          "required": false
+        },
+        "eps": {
+          "name": "eps",
+          "annotation": "<class 'float'>",
+          "default": 1e-07,
+          "required": false
+        }
+      },
+      "required_params": [],
+      "optional_params": [
+        "scales",
+        "window",
+        "normalized",
+        "loss_weights",
+        "eps"
+      ],
+      "type_hints": {
+        "scales": "typing.Optional[typing.List[typing.Tuple[int, int, int]]]",
+        "window": "<class 'str'>",
+        "normalized": "<class 'bool'>",
+        "loss_weights": "typing.Optional[typing.List[float]]",
+        "eps": "<class 'float'>"
+      },
+      "defaults": {
+        "scales": null,
+        "window": "hann",
+        "normalized": false,
+        "loss_weights": null,
+        "eps": 1e-07
+      },
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "class_name": "STFTLoss",
+      "module": "stft_loss",
+      "signature_str": "(self, fft_size: int = 1024, hop_size: int = 256, win_length: Optional[int] = None, window: str = 'hann', normalized: bool = False, eps: float = 1e-07)",
+      "parameters": {
+        "fft_size": {
+          "name": "fft_size",
+          "annotation": "<class 'int'>",
+          "default": 1024,
+          "required": false
+        },
+        "hop_size": {
+          "name": "hop_size",
+          "annotation": "<class 'int'>",
+          "default": 256,
+          "required": false
+        },
+        "win_length": {
+          "name": "win_length",
+          "annotation": "typing.Optional[int]",
+          "default": null,
+          "required": false
+        },
+        "window": {
+          "name": "window",
+          "annotation": "<class 'str'>",
+          "default": "hann",
+          "required": false
+        },
+        "normalized": {
+          "name": "normalized",
+          "annotation": "<class 'bool'>",
+          "default": false,
+          "required": false
+        },
+        "eps": {
+          "name": "eps",
+          "annotation": "<class 'float'>",
+          "default": 1e-07,
+          "required": false
+        }
+      },
+      "required_params": [],
+      "optional_params": [
+        "fft_size",
+        "hop_size",
+        "win_length",
+        "window",
+        "normalized",
+        "eps"
+      ],
+      "type_hints": {
+        "fft_size": "<class 'int'>",
+        "hop_size": "<class 'int'>",
+        "win_length": "typing.Optional[int]",
+        "window": "<class 'str'>",
+        "normalized": "<class 'bool'>",
+        "eps": "<class 'float'>"
+      },
+      "defaults": {
+        "fft_size": 1024,
+        "hop_size": 256,
+        "win_length": null,
+        "window": "hann",
+        "normalized": false,
+        "eps": 1e-07
+      },
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "class_name": "SpectralConvergenceLoss",
+      "module": "stft_loss",
+      "signature_str": "(self, *args, **kwargs) -> None",
+      "parameters": {
+        "args": {
+          "name": "args",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "kwargs": {
+          "name": "kwargs",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "args",
+        "kwargs"
+      ],
+      "optional_params": [],
+      "type_hints": {},
+      "defaults": {},
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "class_name": "ResidualVectorQuantizer",
+      "module": "residual_vector_quantizer",
+      "signature_str": "(self, num_quantizers: int, num_embeddings: Union[int, List[int]] = 1024, embedding_dim: int = 128, commitment_cost: float = 0.25, decay: float = 0.99, epsilon: float = 1e-05, shared_codebook: bool = False, quantizer_dropout: float = 0.0, distance_metric: str = 'euclidean')",
+      "parameters": {
+        "num_quantizers": {
+          "name": "num_quantizers",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "num_embeddings": {
+          "name": "num_embeddings",
+          "annotation": "typing.Union[int, typing.List[int]]",
+          "default": 1024,
+          "required": false
+        },
+        "embedding_dim": {
+          "name": "embedding_dim",
+          "annotation": "<class 'int'>",
+          "default": 128,
+          "required": false
+        },
+        "commitment_cost": {
+          "name": "commitment_cost",
+          "annotation": "<class 'float'>",
+          "default": 0.25,
+          "required": false
+        },
+        "decay": {
+          "name": "decay",
+          "annotation": "<class 'float'>",
+          "default": 0.99,
+          "required": false
+        },
+        "epsilon": {
+          "name": "epsilon",
+          "annotation": "<class 'float'>",
+          "default": 1e-05,
+          "required": false
+        },
+        "shared_codebook": {
+          "name": "shared_codebook",
+          "annotation": "<class 'bool'>",
+          "default": false,
+          "required": false
+        },
+        "quantizer_dropout": {
+          "name": "quantizer_dropout",
+          "annotation": "<class 'float'>",
+          "default": 0.0,
+          "required": false
+        },
+        "distance_metric": {
+          "name": "distance_metric",
+          "annotation": "<class 'str'>",
+          "default": "euclidean",
+          "required": false
+        }
+      },
+      "required_params": [
+        "num_quantizers"
+      ],
+      "optional_params": [
+        "num_embeddings",
+        "embedding_dim",
+        "commitment_cost",
+        "decay",
+        "epsilon",
+        "shared_codebook",
+        "quantizer_dropout",
+        "distance_metric"
+      ],
+      "type_hints": {
+        "num_quantizers": "<class 'int'>",
+        "num_embeddings": "typing.Union[int, typing.List[int]]",
+        "embedding_dim": "<class 'int'>",
+        "commitment_cost": "<class 'float'>",
+        "decay": "<class 'float'>",
+        "epsilon": "<class 'float'>",
+        "shared_codebook": "<class 'bool'>",
+        "quantizer_dropout": "<class 'float'>",
+        "distance_metric": "<class 'str'>"
+      },
+      "defaults": {
+        "num_embeddings": 1024,
+        "embedding_dim": 128,
+        "commitment_cost": 0.25,
+        "decay": 0.99,
+        "epsilon": 1e-05,
+        "shared_codebook": false,
+        "quantizer_dropout": 0.0,
+        "distance_metric": "euclidean"
+      },
+      "file_path": "modules/residual_vector_quantizer.py"
+    },
+    {
+      "class_name": "ResidualVectorQuantizerWrapper",
+      "module": "residual_vector_quantizer",
+      "signature_str": "(self, input_dim: int, **rvq_kwargs)",
+      "parameters": {
+        "input_dim": {
+          "name": "input_dim",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "rvq_kwargs": {
+          "name": "rvq_kwargs",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "input_dim",
+        "rvq_kwargs"
+      ],
+      "optional_params": [],
+      "type_hints": {
+        "input_dim": "<class 'int'>"
+      },
+      "defaults": {},
+      "file_path": "modules/residual_vector_quantizer.py"
+    },
+    {
+      "class_name": "VectorQuantizer",
+      "module": "residual_vector_quantizer",
+      "signature_str": "(self, num_embeddings: int, embedding_dim: int, commitment_cost: float = 0.25, decay: float = 0.99, epsilon: float = 1e-05, distance_metric: str = 'euclidean')",
+      "parameters": {
+        "num_embeddings": {
+          "name": "num_embeddings",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "embedding_dim": {
+          "name": "embedding_dim",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "commitment_cost": {
+          "name": "commitment_cost",
+          "annotation": "<class 'float'>",
+          "default": 0.25,
+          "required": false
+        },
+        "decay": {
+          "name": "decay",
+          "annotation": "<class 'float'>",
+          "default": 0.99,
+          "required": false
+        },
+        "epsilon": {
+          "name": "epsilon",
+          "annotation": "<class 'float'>",
+          "default": 1e-05,
+          "required": false
+        },
+        "distance_metric": {
+          "name": "distance_metric",
+          "annotation": "<class 'str'>",
+          "default": "euclidean",
+          "required": false
+        }
+      },
+      "required_params": [
+        "num_embeddings",
+        "embedding_dim"
+      ],
+      "optional_params": [
+        "commitment_cost",
+        "decay",
+        "epsilon",
+        "distance_metric"
+      ],
+      "type_hints": {
+        "num_embeddings": "<class 'int'>",
+        "embedding_dim": "<class 'int'>",
+        "commitment_cost": "<class 'float'>",
+        "decay": "<class 'float'>",
+        "epsilon": "<class 'float'>",
+        "distance_metric": "<class 'str'>"
+      },
+      "defaults": {
+        "commitment_cost": 0.25,
+        "decay": 0.99,
+        "epsilon": 1e-05,
+        "distance_metric": "euclidean"
+      },
+      "file_path": "modules/residual_vector_quantizer.py"
+    },
+    {
+      "class_name": "BlurPool1d",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, channels)",
+      "parameters": {
+        "channels": {
+          "name": "channels",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "channels"
+      ],
+      "optional_params": [],
+      "type_hints": {},
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "ConditionalDecoder",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, texture_dim: int, content_dim: int, output_dim: int, hidden_dim: int)",
+      "parameters": {
+        "texture_dim": {
+          "name": "texture_dim",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "content_dim": {
+          "name": "content_dim",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "output_dim": {
+          "name": "output_dim",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "hidden_dim": {
+          "name": "hidden_dim",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "texture_dim",
+        "content_dim",
+        "output_dim",
+        "hidden_dim"
+      ],
+      "optional_params": [],
+      "type_hints": {
+        "texture_dim": "<class 'int'>",
+        "content_dim": "<class 'int'>",
+        "output_dim": "<class 'int'>",
+        "hidden_dim": "<class 'int'>"
+      },
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "GuitarTextureModel",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, config: guitar_texture_architecture.GuitarTextureConfig)",
+      "parameters": {
+        "config": {
+          "name": "config",
+          "annotation": "<class 'guitar_texture_architecture.GuitarTextureConfig'>",
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "config"
+      ],
+      "optional_params": [],
+      "type_hints": {
+        "config": "<class 'guitar_texture_architecture.GuitarTextureConfig'>"
+      },
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "HierarchicalTextureQuantizer",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, config: guitar_texture_architecture.GuitarTextureConfig)",
+      "parameters": {
+        "config": {
+          "name": "config",
+          "annotation": "<class 'guitar_texture_architecture.GuitarTextureConfig'>",
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "config"
+      ],
+      "optional_params": [],
+      "type_hints": {
+        "config": "<class 'guitar_texture_architecture.GuitarTextureConfig'>"
+      },
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "MelSpectrogramLoss",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, *args, **kwargs)",
+      "parameters": {
+        "args": {
+          "name": "args",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "kwargs": {
+          "name": "kwargs",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "args",
+        "kwargs"
+      ],
+      "optional_params": [],
+      "type_hints": {},
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "MultiScaleSTFTLoss",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, *args, **kwargs)",
+      "parameters": {
+        "args": {
+          "name": "args",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "kwargs": {
+          "name": "kwargs",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "args",
+        "kwargs"
+      ],
+      "optional_params": [],
+      "type_hints": {},
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "MultiScaleTextureEncoder",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, config: guitar_texture_architecture.GuitarTextureConfig)",
+      "parameters": {
+        "config": {
+          "name": "config",
+          "annotation": "<class 'guitar_texture_architecture.GuitarTextureConfig'>",
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "config"
+      ],
+      "optional_params": [],
+      "type_hints": {
+        "config": "<class 'guitar_texture_architecture.GuitarTextureConfig'>"
+      },
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "ResidualVectorQuantizer",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, num_quantizers, codebook_size, codebook_dim, commitment_cost)",
+      "parameters": {
+        "num_quantizers": {
+          "name": "num_quantizers",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "codebook_size": {
+          "name": "codebook_size",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "codebook_dim": {
+          "name": "codebook_dim",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        "commitment_cost": {
+          "name": "commitment_cost",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "num_quantizers",
+        "codebook_size",
+        "codebook_dim",
+        "commitment_cost"
+      ],
+      "optional_params": [],
+      "type_hints": {},
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "TextureContentVAE",
+      "module": "guitar_texture_architecture",
+      "signature_str": "(self, config: guitar_texture_architecture.GuitarTextureConfig)",
+      "parameters": {
+        "config": {
+          "name": "config",
+          "annotation": "<class 'guitar_texture_architecture.GuitarTextureConfig'>",
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "config"
+      ],
+      "optional_params": [],
+      "type_hints": {
+        "config": "<class 'guitar_texture_architecture.GuitarTextureConfig'>"
+      },
+      "defaults": {},
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "class_name": "DiscriminatorBlock",
+      "module": "multiscale_discriminator",
+      "signature_str": "(self, in_channels: int, out_channels: int, kernel_size: int = 15, stride: int = 1, use_spectral_norm: bool = True, activation: str = 'lrelu')",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "out_channels": {
+          "name": "out_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "kernel_size": {
+          "name": "kernel_size",
+          "annotation": "<class 'int'>",
+          "default": 15,
+          "required": false
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "use_spectral_norm": {
+          "name": "use_spectral_norm",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        },
+        "activation": {
+          "name": "activation",
+          "annotation": "<class 'str'>",
+          "default": "lrelu",
+          "required": false
+        }
+      },
+      "required_params": [
+        "in_channels",
+        "out_channels"
+      ],
+      "optional_params": [
+        "kernel_size",
+        "stride",
+        "use_spectral_norm",
+        "activation"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "out_channels": "<class 'int'>",
+        "kernel_size": "<class 'int'>",
+        "stride": "<class 'int'>",
+        "use_spectral_norm": "<class 'bool'>",
+        "activation": "<class 'str'>"
+      },
+      "defaults": {
+        "kernel_size": 15,
+        "stride": 1,
+        "use_spectral_norm": true,
+        "activation": "lrelu"
+      },
+      "file_path": "audio-ml-extensions/audio_gan/multiscale_discriminator.py"
+    },
+    {
+      "class_name": "MultiScaleDiscriminator",
+      "module": "multiscale_discriminator",
+      "signature_str": "(self, num_scales: int = 3, in_channels: int = 1, channels: List[int] = [16, 64, 256, 1024, 1024], kernel_sizes: List[int] = [15, 41, 41, 41, 5], strides: List[int] = [1, 4, 4, 4, 1], groups: List[int] = [1, 4, 16, 64, 256], downsample_factor: int = 4, use_spectral_norm: bool = True)",
+      "parameters": {
+        "num_scales": {
+          "name": "num_scales",
+          "annotation": "<class 'int'>",
+          "default": 3,
+          "required": false
+        },
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "channels": {
+          "name": "channels",
+          "annotation": "typing.List[int]",
+          "default": [
+            16,
+            64,
+            256,
+            1024,
+            1024
+          ],
+          "required": false
+        },
+        "kernel_sizes": {
+          "name": "kernel_sizes",
+          "annotation": "typing.List[int]",
+          "default": [
+            15,
+            41,
+            41,
+            41,
+            5
+          ],
+          "required": false
+        },
+        "strides": {
+          "name": "strides",
+          "annotation": "typing.List[int]",
+          "default": [
+            1,
+            4,
+            4,
+            4,
+            1
+          ],
+          "required": false
+        },
+        "groups": {
+          "name": "groups",
+          "annotation": "typing.List[int]",
+          "default": [
+            1,
+            4,
+            16,
+            64,
+            256
+          ],
+          "required": false
+        },
+        "downsample_factor": {
+          "name": "downsample_factor",
+          "annotation": "<class 'int'>",
+          "default": 4,
+          "required": false
+        },
+        "use_spectral_norm": {
+          "name": "use_spectral_norm",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        }
+      },
+      "required_params": [],
+      "optional_params": [
+        "num_scales",
+        "in_channels",
+        "channels",
+        "kernel_sizes",
+        "strides",
+        "groups",
+        "downsample_factor",
+        "use_spectral_norm"
+      ],
+      "type_hints": {
+        "num_scales": "<class 'int'>",
+        "in_channels": "<class 'int'>",
+        "channels": "typing.List[int]",
+        "kernel_sizes": "typing.List[int]",
+        "strides": "typing.List[int]",
+        "groups": "typing.List[int]",
+        "downsample_factor": "<class 'int'>",
+        "use_spectral_norm": "<class 'bool'>"
+      },
+      "defaults": {
+        "num_scales": 3,
+        "in_channels": 1,
+        "channels": [
+          16,
+          64,
+          256,
+          1024,
+          1024
+        ],
+        "kernel_sizes": [
+          15,
+          41,
+          41,
+          41,
+          5
+        ],
+        "strides": [
+          1,
+          4,
+          4,
+          4,
+          1
+        ],
+        "groups": [
+          1,
+          4,
+          16,
+          64,
+          256
+        ],
+        "downsample_factor": 4,
+        "use_spectral_norm": true
+      },
+      "file_path": "audio-ml-extensions/audio_gan/multiscale_discriminator.py"
+    },
+    {
+      "class_name": "ScaleDiscriminator",
+      "module": "multiscale_discriminator",
+      "signature_str": "(self, in_channels: int = 1, channels: List[int] = [16, 64, 256, 1024, 1024], kernel_sizes: List[int] = [15, 41, 41, 41, 5], strides: List[int] = [1, 4, 4, 4, 1], groups: List[int] = [1, 4, 16, 64, 256], use_spectral_norm: bool = True)",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "channels": {
+          "name": "channels",
+          "annotation": "typing.List[int]",
+          "default": [
+            16,
+            64,
+            256,
+            1024,
+            1024
+          ],
+          "required": false
+        },
+        "kernel_sizes": {
+          "name": "kernel_sizes",
+          "annotation": "typing.List[int]",
+          "default": [
+            15,
+            41,
+            41,
+            41,
+            5
+          ],
+          "required": false
+        },
+        "strides": {
+          "name": "strides",
+          "annotation": "typing.List[int]",
+          "default": [
+            1,
+            4,
+            4,
+            4,
+            1
+          ],
+          "required": false
+        },
+        "groups": {
+          "name": "groups",
+          "annotation": "typing.List[int]",
+          "default": [
+            1,
+            4,
+            16,
+            64,
+            256
+          ],
+          "required": false
+        },
+        "use_spectral_norm": {
+          "name": "use_spectral_norm",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        }
+      },
+      "required_params": [],
+      "optional_params": [
+        "in_channels",
+        "channels",
+        "kernel_sizes",
+        "strides",
+        "groups",
+        "use_spectral_norm"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "channels": "typing.List[int]",
+        "kernel_sizes": "typing.List[int]",
+        "strides": "typing.List[int]",
+        "groups": "typing.List[int]",
+        "use_spectral_norm": "<class 'bool'>"
+      },
+      "defaults": {
+        "in_channels": 1,
+        "channels": [
+          16,
+          64,
+          256,
+          1024,
+          1024
+        ],
+        "kernel_sizes": [
+          15,
+          41,
+          41,
+          41,
+          5
+        ],
+        "strides": [
+          1,
+          4,
+          4,
+          4,
+          1
+        ],
+        "groups": [
+          1,
+          4,
+          16,
+          64,
+          256
+        ],
+        "use_spectral_norm": true
+      },
+      "file_path": "audio-ml-extensions/audio_gan/multiscale_discriminator.py"
+    },
+    {
+      "class_name": "SNConv1d",
+      "module": "spectral_normalization",
+      "signature_str": "(self, in_channels: int, out_channels: int, kernel_size: int, stride: int = 1, padding: int = 0, dilation: int = 1, groups: int = 1, bias: bool = True, power_iterations: int = 1)",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "out_channels": {
+          "name": "out_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "kernel_size": {
+          "name": "kernel_size",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "padding": {
+          "name": "padding",
+          "annotation": "<class 'int'>",
+          "default": 0,
+          "required": false
+        },
+        "dilation": {
+          "name": "dilation",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "groups": {
+          "name": "groups",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "bias": {
+          "name": "bias",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        },
+        "power_iterations": {
+          "name": "power_iterations",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        }
+      },
+      "required_params": [
+        "in_channels",
+        "out_channels",
+        "kernel_size"
+      ],
+      "optional_params": [
+        "stride",
+        "padding",
+        "dilation",
+        "groups",
+        "bias",
+        "power_iterations"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "out_channels": "<class 'int'>",
+        "kernel_size": "<class 'int'>",
+        "stride": "<class 'int'>",
+        "padding": "<class 'int'>",
+        "dilation": "<class 'int'>",
+        "groups": "<class 'int'>",
+        "bias": "<class 'bool'>",
+        "power_iterations": "<class 'int'>"
+      },
+      "defaults": {
+        "stride": 1,
+        "padding": 0,
+        "dilation": 1,
+        "groups": 1,
+        "bias": true,
+        "power_iterations": 1
+      },
+      "file_path": "audio-ml-extensions/audio_gan/spectral_normalization.py"
+    },
+    {
+      "class_name": "SNConv2d",
+      "module": "spectral_normalization",
+      "signature_str": "(self, in_channels: int, out_channels: int, kernel_size: Union[int, tuple], stride: Union[int, tuple] = 1, padding: Union[int, tuple] = 0, dilation: Union[int, tuple] = 1, groups: int = 1, bias: bool = True, power_iterations: int = 1)",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "out_channels": {
+          "name": "out_channels",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "kernel_size": {
+          "name": "kernel_size",
+          "annotation": "typing.Union[int, tuple]",
+          "default": null,
+          "required": true
+        },
+        "stride": {
+          "name": "stride",
+          "annotation": "typing.Union[int, tuple]",
+          "default": 1,
+          "required": false
+        },
+        "padding": {
+          "name": "padding",
+          "annotation": "typing.Union[int, tuple]",
+          "default": 0,
+          "required": false
+        },
+        "dilation": {
+          "name": "dilation",
+          "annotation": "typing.Union[int, tuple]",
+          "default": 1,
+          "required": false
+        },
+        "groups": {
+          "name": "groups",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "bias": {
+          "name": "bias",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        },
+        "power_iterations": {
+          "name": "power_iterations",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        }
+      },
+      "required_params": [
+        "in_channels",
+        "out_channels",
+        "kernel_size"
+      ],
+      "optional_params": [
+        "stride",
+        "padding",
+        "dilation",
+        "groups",
+        "bias",
+        "power_iterations"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "out_channels": "<class 'int'>",
+        "kernel_size": "typing.Union[int, tuple]",
+        "stride": "typing.Union[int, tuple]",
+        "padding": "typing.Union[int, tuple]",
+        "dilation": "typing.Union[int, tuple]",
+        "groups": "<class 'int'>",
+        "bias": "<class 'bool'>",
+        "power_iterations": "<class 'int'>"
+      },
+      "defaults": {
+        "stride": 1,
+        "padding": 0,
+        "dilation": 1,
+        "groups": 1,
+        "bias": true,
+        "power_iterations": 1
+      },
+      "file_path": "audio-ml-extensions/audio_gan/spectral_normalization.py"
+    },
+    {
+      "class_name": "SNLinear",
+      "module": "spectral_normalization",
+      "signature_str": "(self, in_features: int, out_features: int, bias: bool = True, power_iterations: int = 1)",
+      "parameters": {
+        "in_features": {
+          "name": "in_features",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "out_features": {
+          "name": "out_features",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "bias": {
+          "name": "bias",
+          "annotation": "<class 'bool'>",
+          "default": true,
+          "required": false
+        },
+        "power_iterations": {
+          "name": "power_iterations",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        }
+      },
+      "required_params": [
+        "in_features",
+        "out_features"
+      ],
+      "optional_params": [
+        "bias",
+        "power_iterations"
+      ],
+      "type_hints": {
+        "in_features": "<class 'int'>",
+        "out_features": "<class 'int'>",
+        "bias": "<class 'bool'>",
+        "power_iterations": "<class 'int'>"
+      },
+      "defaults": {
+        "bias": true,
+        "power_iterations": 1
+      },
+      "file_path": "audio-ml-extensions/audio_gan/spectral_normalization.py"
+    },
+    {
+      "class_name": "SpectralNormalization",
+      "module": "spectral_normalization",
+      "signature_str": "(self, module: torch.nn.modules.module.Module, power_iterations: int = 1, eps: float = 1e-12, dim: Optional[int] = None)",
+      "parameters": {
+        "module": {
+          "name": "module",
+          "annotation": "<class 'torch.nn.modules.module.Module'>",
+          "default": null,
+          "required": true
+        },
+        "power_iterations": {
+          "name": "power_iterations",
+          "annotation": "<class 'int'>",
+          "default": 1,
+          "required": false
+        },
+        "eps": {
+          "name": "eps",
+          "annotation": "<class 'float'>",
+          "default": 1e-12,
+          "required": false
+        },
+        "dim": {
+          "name": "dim",
+          "annotation": "typing.Optional[int]",
+          "default": null,
+          "required": false
+        }
+      },
+      "required_params": [
+        "module"
+      ],
+      "optional_params": [
+        "power_iterations",
+        "eps",
+        "dim"
+      ],
+      "type_hints": {
+        "module": "<class 'torch.nn.modules.module.Module'>",
+        "power_iterations": "<class 'int'>",
+        "eps": "<class 'float'>",
+        "dim": "typing.Optional[int]"
+      },
+      "defaults": {
+        "power_iterations": 1,
+        "eps": 1e-12,
+        "dim": null
+      },
+      "file_path": "audio-ml-extensions/audio_gan/spectral_normalization.py"
+    },
+    {
+      "class_name": "PQMFFilterBank",
+      "module": "pqmf_filterbank",
+      "signature_str": "(self, num_bands: int = 4, filter_length: int = 640, beta: float = 9.0)",
+      "parameters": {
+        "num_bands": {
+          "name": "num_bands",
+          "annotation": "<class 'int'>",
+          "default": 4,
+          "required": false
+        },
+        "filter_length": {
+          "name": "filter_length",
+          "annotation": "<class 'int'>",
+          "default": 640,
+          "required": false
+        },
+        "beta": {
+          "name": "beta",
+          "annotation": "<class 'float'>",
+          "default": 9.0,
+          "required": false
+        }
+      },
+      "required_params": [],
+      "optional_params": [
+        "num_bands",
+        "filter_length",
+        "beta"
+      ],
+      "type_hints": {
+        "num_bands": "<class 'int'>",
+        "filter_length": "<class 'int'>",
+        "beta": "<class 'float'>"
+      },
+      "defaults": {
+        "num_bands": 4,
+        "filter_length": 640,
+        "beta": 9.0
+      },
+      "file_path": "audio-ml-extensions/audio_gan/pqmf_filterbank.py"
+    },
+    {
+      "class_name": "ConvEncoder",
+      "module": "conv_encoder",
+      "signature_str": "(self, in_channels: int = 3, base_channels: int = 64, num_layers: int = 4, **kwargs)",
+      "parameters": {
+        "in_channels": {
+          "name": "in_channels",
+          "annotation": "<class 'int'>",
+          "default": 3,
+          "required": false
+        },
+        "base_channels": {
+          "name": "base_channels",
+          "annotation": "<class 'int'>",
+          "default": 64,
+          "required": false
+        },
+        "num_layers": {
+          "name": "num_layers",
+          "annotation": "<class 'int'>",
+          "default": 4,
+          "required": false
+        },
+        "kwargs": {
+          "name": "kwargs",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "kwargs"
+      ],
+      "optional_params": [
+        "in_channels",
+        "base_channels",
+        "num_layers"
+      ],
+      "type_hints": {
+        "in_channels": "<class 'int'>",
+        "base_channels": "<class 'int'>",
+        "num_layers": "<class 'int'>"
+      },
+      "defaults": {
+        "in_channels": 3,
+        "base_channels": 64,
+        "num_layers": 4
+      },
+      "file_path": "candidates/agent_claude/conv_encoder.py"
+    },
+    {
+      "class_name": "MultiScaleSTFTLoss",
+      "module": "multi_scale_stft_loss",
+      "signature_str": "(self, fft_sizes: List[int] = [512, 1024, 2048], hop_sizes: Optional[List[int]] = None, win_lengths: Optional[List[int]] = None, window_fn: Literal['hann', 'hamming', 'blackman', 'bartlett'] = 'hann', mag_weight: float = 1.0, log_weight: float = 1.0, spectral_weight: float = 1.0, epsilon: float = 1e-08, log_base: Literal[2, 10, 'e'] = 'e', reduction: Literal['mean', 'sum', 'none'] = 'mean', **kwargs)",
+      "parameters": {
+        "fft_sizes": {
+          "name": "fft_sizes",
+          "annotation": "typing.List[int]",
+          "default": [
+            512,
+            1024,
+            2048
+          ],
+          "required": false
+        },
+        "hop_sizes": {
+          "name": "hop_sizes",
+          "annotation": "typing.Optional[typing.List[int]]",
+          "default": null,
+          "required": false
+        },
+        "win_lengths": {
+          "name": "win_lengths",
+          "annotation": "typing.Optional[typing.List[int]]",
+          "default": null,
+          "required": false
+        },
+        "window_fn": {
+          "name": "window_fn",
+          "annotation": "typing.Literal['hann', 'hamming', 'blackman', 'bartlett']",
+          "default": "hann",
+          "required": false
+        },
+        "mag_weight": {
+          "name": "mag_weight",
+          "annotation": "<class 'float'>",
+          "default": 1.0,
+          "required": false
+        },
+        "log_weight": {
+          "name": "log_weight",
+          "annotation": "<class 'float'>",
+          "default": 1.0,
+          "required": false
+        },
+        "spectral_weight": {
+          "name": "spectral_weight",
+          "annotation": "<class 'float'>",
+          "default": 1.0,
+          "required": false
+        },
+        "epsilon": {
+          "name": "epsilon",
+          "annotation": "<class 'float'>",
+          "default": 1e-08,
+          "required": false
+        },
+        "log_base": {
+          "name": "log_base",
+          "annotation": "typing.Literal[2, 10, 'e']",
+          "default": "e",
+          "required": false
+        },
+        "reduction": {
+          "name": "reduction",
+          "annotation": "typing.Literal['mean', 'sum', 'none']",
+          "default": "mean",
+          "required": false
+        },
+        "kwargs": {
+          "name": "kwargs",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "kwargs"
+      ],
+      "optional_params": [
+        "fft_sizes",
+        "hop_sizes",
+        "win_lengths",
+        "window_fn",
+        "mag_weight",
+        "log_weight",
+        "spectral_weight",
+        "epsilon",
+        "log_base",
+        "reduction"
+      ],
+      "type_hints": {
+        "fft_sizes": "typing.List[int]",
+        "hop_sizes": "typing.Optional[typing.List[int]]",
+        "win_lengths": "typing.Optional[typing.List[int]]",
+        "window_fn": "typing.Literal['hann', 'hamming', 'blackman', 'bartlett']",
+        "mag_weight": "<class 'float'>",
+        "log_weight": "<class 'float'>",
+        "spectral_weight": "<class 'float'>",
+        "epsilon": "<class 'float'>",
+        "log_base": "typing.Literal[2, 10, 'e']",
+        "reduction": "typing.Literal['mean', 'sum', 'none']"
+      },
+      "defaults": {
+        "fft_sizes": [
+          512,
+          1024,
+          2048
+        ],
+        "hop_sizes": null,
+        "win_lengths": null,
+        "window_fn": "hann",
+        "mag_weight": 1.0,
+        "log_weight": 1.0,
+        "spectral_weight": 1.0,
+        "epsilon": 1e-08,
+        "log_base": "e",
+        "reduction": "mean"
+      },
+      "file_path": "candidates/agent_claude/multi_scale_stft_loss.py"
+    },
+    {
+      "class_name": "ResidualVectorQuantizer",
+      "module": "residual_vector_quantizer",
+      "signature_str": "(self, dim: int, codebook_size: int = 1024, num_quantizers: int = 8, commitment_weight: float = 1.0, ema_decay: Optional[float] = 0.99, epsilon: float = 1e-05, kmeans_init: bool = False, threshold_ema_dead_code: int = 2, **kwargs)",
+      "parameters": {
+        "dim": {
+          "name": "dim",
+          "annotation": "<class 'int'>",
+          "default": null,
+          "required": true
+        },
+        "codebook_size": {
+          "name": "codebook_size",
+          "annotation": "<class 'int'>",
+          "default": 1024,
+          "required": false
+        },
+        "num_quantizers": {
+          "name": "num_quantizers",
+          "annotation": "<class 'int'>",
+          "default": 8,
+          "required": false
+        },
+        "commitment_weight": {
+          "name": "commitment_weight",
+          "annotation": "<class 'float'>",
+          "default": 1.0,
+          "required": false
+        },
+        "ema_decay": {
+          "name": "ema_decay",
+          "annotation": "typing.Optional[float]",
+          "default": 0.99,
+          "required": false
+        },
+        "epsilon": {
+          "name": "epsilon",
+          "annotation": "<class 'float'>",
+          "default": 1e-05,
+          "required": false
+        },
+        "kmeans_init": {
+          "name": "kmeans_init",
+          "annotation": "<class 'bool'>",
+          "default": false,
+          "required": false
+        },
+        "threshold_ema_dead_code": {
+          "name": "threshold_ema_dead_code",
+          "annotation": "<class 'int'>",
+          "default": 2,
+          "required": false
+        },
+        "kwargs": {
+          "name": "kwargs",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      },
+      "required_params": [
+        "dim",
+        "kwargs"
+      ],
+      "optional_params": [
+        "codebook_size",
+        "num_quantizers",
+        "commitment_weight",
+        "ema_decay",
+        "epsilon",
+        "kmeans_init",
+        "threshold_ema_dead_code"
+      ],
+      "type_hints": {
+        "dim": "<class 'int'>",
+        "codebook_size": "<class 'int'>",
+        "num_quantizers": "<class 'int'>",
+        "commitment_weight": "<class 'float'>",
+        "ema_decay": "typing.Optional[float]",
+        "epsilon": "<class 'float'>",
+        "kmeans_init": "<class 'bool'>",
+        "threshold_ema_dead_code": "<class 'int'>"
+      },
+      "defaults": {
+        "codebook_size": 1024,
+        "num_quantizers": 8,
+        "commitment_weight": 1.0,
+        "ema_decay": 0.99,
+        "epsilon": 1e-05,
+        "kmeans_init": false,
+        "threshold_ema_dead_code": 2
+      },
+      "file_path": "candidates/agent_claude/residual_vector_quantizer.py"
+    }
+  ],
+  "forward_analyses": [
+    {
+      "signature": "(self, x)",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": null
+        }
+      ],
+      "source_preview": "    def forward(self, x):\n        z = self.encode(x)\n        x_recon = self.decode(z)\n        \n        return {\n            'reconstruction': x_recon,\n            'latent': z\n        }\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output"
+      ],
+      "class_name": "AutoEncoder",
+      "file_path": "modules/autoencoder_vae.py"
+    },
+    {
+      "signature": "(self, z)",
+      "parameters": [
+        {
+          "name": "z",
+          "annotation": null
+        }
+      ],
+      "source_preview": "    def forward(self, z):\n        # Project and reshape\n        x = self.fc(z)\n        x = x.view(x.size(0), -1, self.initial_size, self.initial_size)\n        \n        # Decode\n        x = self.decoder(x)\n        \n        return x\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output"
+      ],
+      "class_name": "ConvDecoder",
+      "file_path": "modules/autoencoder_vae.py"
+    },
+    {
+      "signature": "(self, x)",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": null
+        }
+      ],
+      "source_preview": "    def forward(self, x):\n        mu, logvar = self.encode(x)\n        z = self.reparameterize(mu, logvar)\n        x_recon = self.decode(z)\n        \n        return {\n            'reconstruction': x_recon,\n            'mu': mu,\n            'logvar': logvar,\n            'latent': z\n        }\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output"
+      ],
+      "class_name": "VAE",
+      "file_path": "modules/autoencoder_vae.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor, return_state: bool = False) -> Union[torch.Tensor, Tuple[torch.Tensor, torch.Tensor]]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "return_state",
+          "annotation": "<class 'bool'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor, return_state: bool = False) -> Union[torch.Tensor, Tuple[torch.Tensor, torch.Tensor]]:\n        \"\"\"\n        Apply causal convolution.\n        \n        Args:\n            x: Input tensor [batch, channels, time]\n            return_state: If True, return the state for streaming\n        \n        Returns:\n            Output tensor [batch, channels, time] and optionally the state\n        \"\"\"\n        # Apply causal padding (only pad the left side)\n        if self.ca",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "CausalConv1d",
+      "file_path": "modules/causal_conv.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Apply causal transposed convolution.\n        \n        Args:\n            x: Input tensor [batch, channels, time]\n        \n        Returns:\n            Upsampled output tensor\n        \"\"\"\n        # Apply transposed convolution\n        output = self.conv_transpose(x)\n        \n        # Trim future samples to maintain causality\n        if self.causal_trim > 0:\n            output = output[:, :, :-self.causal_trim]\n        \n  ",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "CausalConvTranspose1d",
+      "file_path": "modules/causal_conv.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Apply anti-aliased convolution.\n        \n        Args:\n            x: Input tensor [batch, channels, length]\n            \n        Returns:\n            Output tensor with downsampling\n        \"\"\"\n        # Apply convolution\n        x = self.conv(x)\n        \n        # Apply anti-aliasing and downsampling\n        if self.stride > 1 and self.filter is not None:\n            x = self.filter(x)\n            # Downsample\n        ",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "AntialiasedConv1d",
+      "file_path": "modules/antialiased_conv.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Apply anti-aliased transposed convolution.\n        \n        Args:\n            x: Input tensor [batch, channels, length]\n            \n        Returns:\n            Upsampled output tensor\n        \"\"\"\n        # Apply transposed convolution (upsampling)\n        x = self.conv_transpose(x)\n        \n        # Apply anti-aliasing filter to remove upsampling artifacts\n        if self.filter is not None:\n            x = self.filte",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "AntialiasedConvTranspose1d",
+      "file_path": "modules/antialiased_conv.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Apply blur pooling.\n        \n        Args:\n            x: Input tensor [batch, channels, length]\n            \n        Returns:\n            Blurred and downsampled tensor\n        \"\"\"\n        # Apply blur\n        x = self.blur(x)\n        \n        # Subsample\n        return x[:, :, ::self.stride]\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "BlurPool1d",
+      "file_path": "modules/antialiased_conv.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Apply low-pass filter.\n        \n        Args:\n            x: Input tensor [batch, channels, length]\n            \n        Returns:\n            Filtered tensor\n        \"\"\"\n        batch, channels, length = x.shape\n        \n        # Reshape kernel for depthwise convolution\n        kernel = self.kernel.view(1, 1, -1).repeat(channels, 1, 1)\n        \n        # Apply padding\n        padding = self.filter_size // 2\n        \n   ",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "LowPassFilter1d",
+      "file_path": "modules/antialiased_conv.py"
+    },
+    {
+      "signature": "(self, x_mag: torch.Tensor, y_mag: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x_mag",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "y_mag",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x_mag: torch.Tensor, y_mag: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Calculate log STFT magnitude loss.\n        \n        Args:\n            x_mag: Magnitude spectrogram of prediction\n            y_mag: Magnitude spectrogram of target\n            \n        Returns:\n            Log magnitude loss value\n        \"\"\"\n        # Add small epsilon to avoid log(0)\n        eps = 1e-7\n        return F.l1_loss(torch.log(x_mag + eps), torch.log(y_mag + eps))\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "LogSTFTMagnitudeLoss",
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor, y: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "y",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Calculate mel-spectrogram loss.\n        \n        Args:\n            x: Predicted waveform\n            y: Target waveform\n            \n        Returns:\n            Mel-spectrogram L1 loss\n        \"\"\"\n        # Compute STFT\n        x_stft = torch.stft(\n            x.squeeze(1) if x.dim() == 3 else x,\n            n_fft=self.n_fft,\n            hop_length=self.hop_length,\n            window=self.window,\n      ",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "MelSpectrogramLoss",
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor, y: torch.Tensor, return_losses_per_scale: bool = False) -> Union[torch.Tensor, Tuple[torch.Tensor, List[torch.Tensor]]]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "y",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "return_losses_per_scale",
+          "annotation": "<class 'bool'>"
+        }
+      ],
+      "source_preview": "    def forward(\n        self,\n        x: torch.Tensor,\n        y: torch.Tensor,\n        return_losses_per_scale: bool = False\n    ) -> Union[torch.Tensor, Tuple[torch.Tensor, List[torch.Tensor]]]:\n        \"\"\"\n        Calculate multi-scale STFT loss.\n        \n        Args:\n            x: Predicted waveform [batch, time] or [batch, channels, time]\n            y: Target waveform [batch, time] or [batch, channels, time]\n            return_losses_per_scale: If True, return individual scale losses\n  ",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "MultiScaleSTFTLoss",
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor, y: torch.Tensor, return_stfts: bool = False) -> Union[torch.Tensor, Tuple[torch.Tensor, torch.Tensor, torch.Tensor]]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "y",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "return_stfts",
+          "annotation": "<class 'bool'>"
+        }
+      ],
+      "source_preview": "    def forward(\n        self, \n        x: torch.Tensor, \n        y: torch.Tensor,\n        return_stfts: bool = False\n    ) -> Union[torch.Tensor, Tuple[torch.Tensor, torch.Tensor, torch.Tensor]]:\n        \"\"\"\n        Calculate STFT loss.\n        \n        Args:\n            x: Predicted waveform [batch, time] or [batch, channels, time]\n            y: Target waveform [batch, time] or [batch, channels, time]\n            return_stfts: If True, also return computed STFTs\n            \n        Returns:\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "STFTLoss",
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "signature": "(self, x_mag: torch.Tensor, y_mag: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x_mag",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "y_mag",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x_mag: torch.Tensor, y_mag: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Calculate spectral convergence loss.\n        \n        Args:\n            x_mag: Magnitude spectrogram of prediction\n            y_mag: Magnitude spectrogram of target\n            \n        Returns:\n            Spectral convergence loss value\n        \"\"\"\n        return torch.norm(y_mag - x_mag, p='fro') / torch.norm(y_mag, p='fro')\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "SpectralConvergenceLoss",
+      "file_path": "modules/stft_loss.py"
+    },
+    {
+      "signature": "(self, inputs: torch.Tensor, num_quantizers: Optional[int] = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]",
+      "parameters": [
+        {
+          "name": "inputs",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "num_quantizers",
+          "annotation": "typing.Optional[int]"
+        }
+      ],
+      "source_preview": "    def forward(\n        self,\n        inputs: torch.Tensor,\n        num_quantizers: Optional[int] = None\n    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:\n        \"\"\"\n        Hierarchically quantize input tensor.\n        \n        Args:\n            inputs: Input tensor [..., embedding_dim]\n            num_quantizers: Number of quantizers to use (for progressive training)\n            \n        Returns:\n            quantized: Quantized reconstruction\n            indices: Codebook indices [b",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "ResidualVectorQuantizer",
+      "file_path": "modules/residual_vector_quantizer.py"
+    },
+    {
+      "signature": "(self, inputs: torch.Tensor, **kwargs) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]",
+      "parameters": [
+        {
+          "name": "inputs",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "kwargs",
+          "annotation": null
+        }
+      ],
+      "source_preview": "    def forward(self, inputs: torch.Tensor, **kwargs) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:\n        \"\"\"Forward with projection.\"\"\"\n        x = self.project_in(inputs)\n        quantized, indices, loss = self.rvq(x, **kwargs)\n        quantized = self.project_out(quantized)\n        return quantized, indices, loss\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "ResidualVectorQuantizerWrapper",
+      "file_path": "modules/residual_vector_quantizer.py"
+    },
+    {
+      "signature": "(self, inputs: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]",
+      "parameters": [
+        {
+          "name": "inputs",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(\n        self, \n        inputs: torch.Tensor\n    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:\n        \"\"\"\n        Quantize input tensor.\n        \n        Args:\n            inputs: Input tensor [..., embedding_dim]\n            \n        Returns:\n            quantized: Quantized tensor (same shape as input)\n            indices: Codebook indices\n            commitment_loss: Commitment loss for training\n        \"\"\"\n        # Flatten input\n        input_shape = inputs.shape\n  ",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "VectorQuantizer",
+      "file_path": "modules/residual_vector_quantizer.py"
+    },
+    {
+      "signature": "(self, x)",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": null
+        }
+      ],
+      "source_preview": "        def forward(self, x):\n            return self.pool(x)\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output"
+      ],
+      "class_name": "BlurPool1d",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, texture_z: torch.Tensor, content_z: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "texture_z",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "content_z",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, texture_z: torch.Tensor, content_z: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Args:\n            texture_z: [batch, texture_dim] texture latent\n            content_z: [batch, content_dim] content latent\n            \n        Returns:\n            [batch, output_dim] reconstructed mel-spectrogram\n        \"\"\"\n        combined = torch.cat([texture_z, content_z], dim=-1)\n        return self.decoder(combined)\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "ConditionalDecoder",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor, quantize_texture: bool = True) -> Dict[str, torch.Tensor]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "quantize_texture",
+          "annotation": "<class 'bool'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor, quantize_texture: bool = True) -> Dict[str, torch.Tensor]:\n        \"\"\"\n        Complete forward pass through the superior architecture\n        \n        Args:\n            x: [batch, 1, time] audio waveform\n            quantize_texture: Whether to apply hierarchical quantization\n            \n        Returns:\n            Complete model output with all components\n        \"\"\"\n        \n        # VAE encoding and reconstruction\n        vae_output = self.vae(x)\n   ",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "GuitarTextureModel",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, texture_embedding: torch.Tensor) -> Dict[str, torch.Tensor]",
+      "parameters": [
+        {
+          "name": "texture_embedding",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, texture_embedding: torch.Tensor) -> Dict[str, torch.Tensor]:\n        \"\"\"\n        Quantize texture embedding into hierarchical codes\n        \n        Args:\n            texture_embedding: [batch, texture_dim] continuous texture representation\n            \n        Returns:\n            Dict with quantized codes, indices, and losses\n        \"\"\"\n        \n        # Project to quantizer dimension\n        projected = self.texture_projection(texture_embedding)  # [batch, codebook_dim",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "HierarchicalTextureQuantizer",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, pred, target)",
+      "parameters": [
+        {
+          "name": "pred",
+          "annotation": null
+        },
+        {
+          "name": "target",
+          "annotation": null
+        }
+      ],
+      "source_preview": "        def forward(self, pred, target):\n            return F.l1_loss(pred, target)\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output"
+      ],
+      "class_name": "MelSpectrogramLoss",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, pred, target)",
+      "parameters": [
+        {
+          "name": "pred",
+          "annotation": null
+        },
+        {
+          "name": "target",
+          "annotation": null
+        }
+      ],
+      "source_preview": "        def forward(self, pred, target):\n            return F.l1_loss(pred, target)\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output"
+      ],
+      "class_name": "MultiScaleSTFTLoss",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> Dict[str, torch.Tensor]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> Dict[str, torch.Tensor]:\n        \"\"\"\n        Args:\n            x: [batch, 1, time] audio waveform\n            \n        Returns:\n            Dict with:\n                'features': [batch, hidden_dim] final features\n                'scale_features': List of [batch, hidden_dim, time] features per scale\n                'skip_connections': List of skip connection features\n        \"\"\"\n        \n        batch_size = x.shape[0]\n        \n        # Multi-scale proc",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "MultiScaleTextureEncoder",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, x)",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": null
+        }
+      ],
+      "source_preview": "        def forward(self, x):\n            # Simplified quantization for testing\n            batch_size, seq_len, dim = x.shape\n            indices = torch.randint(0, 64, (batch_size, seq_len, len(self.quantizers)))\n            quantized = x  # Pass through for now\n            return {\n                'quantized': quantized,\n                'indices': indices,\n                'commitment_loss': torch.tensor(0.1)\n            }\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "ResidualVectorQuantizer",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor, sample_texture: bool = True, sample_content: bool = True) -> Dict[str, torch.Tensor]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "sample_texture",
+          "annotation": "<class 'bool'>"
+        },
+        {
+          "name": "sample_content",
+          "annotation": "<class 'bool'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor, sample_texture: bool = True, sample_content: bool = True) -> Dict[str, torch.Tensor]:\n        \"\"\"\n        Full forward pass with optional sampling\n        \n        Args:\n            x: [batch, 1, time] audio waveform\n            sample_texture: Whether to sample from texture distribution\n            sample_content: Whether to sample from content distribution\n            \n        Returns:\n            Dict with reconstruction, latents, and loss components\n   ",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "TextureContentVAE",
+      "file_path": "modules/guitar_texture_architecture.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        return self.activation(self.conv(x))\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "DiscriminatorBlock",
+      "file_path": "audio-ml-extensions/audio_gan/multiscale_discriminator.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> Tuple[List[torch.Tensor], List[List[torch.Tensor]]]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> Tuple[List[torch.Tensor], List[List[torch.Tensor]]]:\n        \"\"\"\n        Forward pass through all discriminators.\n        \n        Args:\n            x: Input audio [batch, channels, time]\n            \n        Returns:\n            outputs: List of discriminator outputs (one per scale)\n            features: List of feature lists (one list per scale)\n        \"\"\"\n        outputs = []\n        all_features = []\n        \n        for i, disc in enumerate(self.di",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "MultiScaleDiscriminator",
+      "file_path": "audio-ml-extensions/audio_gan/multiscale_discriminator.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> Tuple[torch.Tensor, List[torch.Tensor]]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, List[torch.Tensor]]:\n        \"\"\"Forward pass returning final output and intermediate features.\"\"\"\n        features = []\n        \n        for layer in self.layers:\n            x = layer(x)\n            # Save features from conv layers (skip activations)\n            if isinstance(layer, nn.Conv1d):\n                features.append(x)\n                \n        # Final prediction\n        output = self.final(x)\n        \n        return output,",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "ScaleDiscriminator",
+      "file_path": "audio-ml-extensions/audio_gan/multiscale_discriminator.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        return self.conv(x)\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "SNConv1d",
+      "file_path": "audio-ml-extensions/audio_gan/spectral_normalization.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        return self.conv(x)\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "SNConv2d",
+      "file_path": "audio-ml-extensions/audio_gan/spectral_normalization.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        return self.linear(x)\n",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "SNLinear",
+      "file_path": "audio-ml-extensions/audio_gan/spectral_normalization.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"Forward pass with spectral normalization.\"\"\"\n        # Get normalized weight\n        normalized = self.normalized_weight()\n        \n        # Temporarily replace module's weight for forward pass\n        # We need to use setattr to properly update parameter\n        with torch.no_grad():\n            original_weight = self.module.weight.data\n            self.module.weight.data = normalized\n            \n        output = self.module(x",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "SpectralNormalization",
+      "file_path": "audio-ml-extensions/audio_gan/spectral_normalization.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor, return_bands: bool = False) -> torch.Tensor",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "return_bands",
+          "annotation": "<class 'bool'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor, return_bands: bool = False) -> torch.Tensor:\n        \"\"\"\n        Apply analysis and synthesis (perfect reconstruction).\n        \n        Args:\n            x: Input signal [batch, 1, time]\n            return_bands: If True, return decomposed bands as well\n            \n        Returns:\n            x_reconstructed: Reconstructed signal\n            bands (optional): Decomposed bands if return_bands=True\n        \"\"\"\n        # Analysis\n        bands = self.analys",
+      "input_patterns": [],
+      "output_patterns": [
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "PQMFFilterBank",
+      "file_path": "audio-ml-extensions/audio_gan/pqmf_filterbank.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> dict",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> dict:\n        \"\"\"\n        Forward pass of the convolutional encoder.\n        \n        Args:\n            x: Input tensor of shape (batch, channels, height, width)\n        \n        Returns:\n            Dictionary with keys:\n                - 'features': Final feature map before pooling\n                - 'pooled': Global pooled features (batch, channels)\n                - 'shape': Tuple of (height, width) of final feature map\n        \"\"\"\n        # Ensure in",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "ConvEncoder",
+      "file_path": "candidates/agent_claude/conv_encoder.py"
+    },
+    {
+      "signature": "(self, pred: torch.Tensor, target: torch.Tensor) -> Dict[str, torch.Tensor]",
+      "parameters": [
+        {
+          "name": "pred",
+          "annotation": "<class 'torch.Tensor'>"
+        },
+        {
+          "name": "target",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(\n        self, \n        pred: torch.Tensor, \n        target: torch.Tensor\n    ) -> Dict[str, torch.Tensor]:\n        \"\"\"\n        Compute multi-scale STFT loss.\n        \n        Args:\n            pred: Predicted audio of shape (batch, time) or (batch, channels, time)\n            target: Target audio of shape (batch, time) or (batch, channels, time)\n            \n        Returns:\n            Dictionary containing:\n                - loss: Total loss\n                - mag_loss: Magnitu",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "MultiScaleSTFTLoss",
+      "file_path": "candidates/agent_claude/multi_scale_stft_loss.py"
+    },
+    {
+      "signature": "(self, x: torch.Tensor) -> Dict[str, Any]",
+      "parameters": [
+        {
+          "name": "x",
+          "annotation": "<class 'torch.Tensor'>"
+        }
+      ],
+      "source_preview": "    def forward(self, x: torch.Tensor) -> Dict[str, Any]:\n        \"\"\"\n        Apply hierarchical residual vector quantization.\n        \n        Args:\n            x: Input tensor of shape (..., dim)\n            \n        Returns:\n            Dictionary containing:\n                - quantized: Final quantized output\n                - indices: Indices for each quantization level\n                - commitment_loss: Commitment loss value\n                - quantized_levels: Quantized values at each leve",
+      "input_patterns": [],
+      "output_patterns": [
+        "dict_output",
+        "tuple_output",
+        "tensor_output"
+      ],
+      "class_name": "ResidualVectorQuantizer",
+      "file_path": "candidates/agent_claude/residual_vector_quantizer.py"
+    }
+  ],
+  "inconsistencies": {
+    "parameter_naming": {
+      

@@ -1,0 +1,357 @@
+{
+  "metadata": {
+    "source": "enhanced_python_test_results.json",
+    "timestamp": "2025-10-24",
+    "purpose": "F# cross-language validation baseline",
+    "source_language": "python",
+    "target_language": "fsharp"
+  },
+  "successfully_tested_modules": {
+    "transformer_block": {
+      "class_name": "TransformerBlock",
+      "module_name": "transformer_block",
+      "tests_passed": [
+        {
+          "test_name": "forward",
+          "test_type": "forward",
+          "execution_time": 0.032598018646240234,
+          "output_validation": {
+            "shape": [2, 10, 512],
+            "dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 2.514570995870713e-09,
+              "std": 0.9999952912330627,
+              "min": -3.691042423248291,
+              "max": 3.751338005065918,
+              "norm": 101.19240742423564
+            }
+          }
+        },
+        {
+          "test_name": "shape_preserve",
+          "test_type": "shape",
+          "execution_time": 0.0027179718017578125,
+          "output_validation": {
+            "shape": [2, 10, 512],
+            "preserves_input_shape": true
+          }
+        },
+        {
+          "test_name": "gradient",
+          "test_type": "gradient",
+          "execution_time": 0.03951907157897949,
+          "gradient_validation": {
+            "gradient_norm": 0.04564119685899262,
+            "gradient_flow_confirmed": true
+          }
+        }
+      ],
+      "input_configuration": {
+        "batch_size": 2,
+        "sequence_length": 10,
+        "hidden_size": 512
+      }
+    },
+    "conv_encoder": {
+      "class_name": "ConvEncoder", 
+      "module_name": "conv_encoder",
+      "tests_passed": [
+        {
+          "test_name": "forward",
+          "test_type": "forward",
+          "execution_time": 0.009324073791503906,
+          "output_validation": {
+            "forward_pass_successful": true
+          }
+        },
+        {
+          "test_name": "shape_reduce",
+          "test_type": "shape",
+          "execution_time": 0.0018329620361328125,
+          "output_validation": {
+            "shape_test_successful": true
+          }
+        },
+        {
+          "test_name": "gradient",
+          "test_type": "gradient", 
+          "execution_time": 0.001611948013305664,
+          "gradient_validation": {
+            "gradient_flow_confirmed": true
+          }
+        }
+      ]
+    },
+    "snake_activation": {
+      "class_name": "SnakeActivation",
+      "module_name": "snake_activation", 
+      "tests_passed": [
+        {
+          "test_name": "forward",
+          "test_type": "forward",
+          "execution_time": 0.0031938552856445312,
+          "output_validation": {
+            "shape": [2, 64, 100],
+            "dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.41499602794647217,
+              "std": 1.045902967453003,
+              "min": -3.4390082359313965,
+              "max": 4.414289474487305,
+              "norm": 127.30485602359205
+            }
+          }
+        },
+        {
+          "test_name": "shape_preserve",
+          "test_type": "shape",
+          "execution_time": 0.00020122528076171875,
+          "output_validation": {
+            "shape": [2, 64, 100],
+            "preserves_input_shape": true
+          }
+        },
+        {
+          "test_name": "gradient",
+          "test_type": "gradient",
+          "execution_time": 0.000990152359008789,
+          "gradient_validation": {
+            "gradient_norm": 0.018911568447947502,
+            "gradient_flow_confirmed": true
+          }
+        }
+      ],
+      "input_configuration": {
+        "batch_size": 2,
+        "channels": 64,
+        "length": 100
+      }
+    },
+    "residual_vector_quantizer": {
+      "class_name": "ResidualVectorQuantizer",
+      "module_name": "residual_vector_quantizer",
+      "tests_passed": [
+        {
+          "test_name": "forward",
+          "test_type": "forward",
+          "execution_time": 0.01558995246887207,
+          "output_validation": {
+            "shape": [2, 10, 256],
+            "dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 5.0061535148415715e-06,
+              "std": 0.001803465187549591,
+              "min": -0.005787849426269531,
+              "max": 0.005798816680908203,
+              "norm": 0.12904595982598532
+            }
+          }
+        },
+        {
+          "test_name": "shape_preserve",
+          "test_type": "shape",
+          "execution_time": 0.0036780834197998047,
+          "output_validation": {
+            "shape": [2, 10, 256],
+            "preserves_input_shape": true
+          }
+        },
+        {
+          "test_name": "gradient",
+          "test_type": "gradient",
+          "execution_time": 0.004275798797607422,
+          "gradient_validation": {
+            "gradient_flow_confirmed": true
+          }
+        }
+      ],
+      "input_configuration": {
+        "batch_size": 2,
+        "sequence_length": 10,
+        "embed_dim": 256
+      }
+    },
+    "causal_conv": {
+      "class_name": "CausalConv1d",
+      "module_name": "causal_conv",
+      "tests_passed": [
+        {
+          "test_name": "forward",
+          "test_type": "forward",
+          "execution_time": 0.0027849674224853516,
+          "output_validation": {
+            "shape": [2, 512, 100],
+            "dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.003072415478527546,
+              "std": 0.5758718848228455,
+              "min": -2.612029552459717,
+              "max": 2.629782199859619,
+              "norm": 184.28162889989875
+            }
+          }
+        },
+        {
+          "test_name": "shape_preserve",
+          "test_type": "shape",
+          "execution_time": 0.0008020401000976562,
+          "output_validation": {
+            "shape": [2, 512, 100],
+            "preserves_input_shape": true
+          }
+        },
+        {
+          "test_name": "gradient",
+          "test_type": "gradient",
+          "execution_time": 0.0024871826171875,
+          "gradient_validation": {
+            "gradient_norm": 0.0948705730170185,
+            "gradient_flow_confirmed": true
+          }
+        }
+      ],
+      "input_configuration": {
+        "batch_size": 2,
+        "channels": 512,
+        "length": 100
+      }
+    },
+    "data_versioner": {
+      "class_name": "DataVersioner",
+      "module_name": "data_versioner",
+      "tests_passed": [
+        {
+          "test_name": "callable",
+          "test_type": "callable",
+          "execution_time": 0.002737283706665039,
+          "output_validation": {
+            "callable_confirmed": true
+          }
+        },
+        {
+          "test_name": "load_method",
+          "test_type": "method",
+          "execution_time": 2.1457672119140625e-06,
+          "output_validation": {
+            "method_exists": true,
+            "method_callable": true
+          }
+        }
+      ]
+    }
+  },
+  "additional_successful_modules": {
+    "sequence_encoder": {
+      "class_name": "SequenceEncoder",
+      "module_name": "sequence_encoder",
+      "status": "passed",
+      "validation": {
+        "initialization": true,
+        "forward_pass": true,
+        "output_type": "dict",
+        "output_keys": ["sequence_output", "pooled_output", "attention_mask"]
+      },
+      "source": "all_modules_20251012_170732.json"
+    },
+    "attention_decoder": {
+      "class_name": "AttentionDecoder", 
+      "module_name": "attention_decoder",
+      "status": "passed",
+      "validation": {
+        "initialization": true,
+        "forward_pass": true,
+        "output_type": "dict",
+        "output_keys": ["logits", "hidden_states"]
+      },
+      "source": "all_modules_20251012_170732.json"
+    },
+    "cross_modal_fusion": {
+      "class_name": "CrossModalFusion",
+      "module_name": "cross_modal_fusion", 
+      "status": "passed",
+      "validation": {
+        "initialization": true,
+        "forward_pass": true,
+        "output_type": "Tensor",
+        "output_keys": ["output"]
+      },
+      "source": "all_modules_20251012_170732.json"
+    },
+    "guitar_texture_quantizer": {
+      "class_name": "HierarchicalTextureQuantizer",
+      "module_name": "guitar_texture_architecture",
+      "tests_passed": [
+        {
+          "test_name": "decode_method",
+          "test_type": "method",
+          "execution_time": 7.152557373046875e-06,
+          "output_validation": {
+            "method_exists": true,
+            "method_callable": true
+          }
+        }
+      ],
+      "source": "guitar_texture_test_results.json"
+    }
+  },
+  "validation_criteria": {
+    "numerical_tolerance": {
+      "absolute_tolerance": 1e-6,
+      "relative_tolerance": 1e-5,
+      "description": "Tolerance levels for cross-language numerical validation"
+    },
+    "shape_validation": {
+      "exact_match_required": true,
+      "description": "Output shapes must match exactly between languages"
+    },
+    "gradient_validation": {
+      "norm_tolerance": 1e-4,
+      "flow_required": true,
+      "description": "Gradient norms should be within tolerance and flow must be confirmed"
+    }
+  },
+  "core_modules_summary": {
+    "fully_validated_modules": [
+      "transformer_block",
+      "snake_activation", 
+      "residual_vector_quantizer",
+      "causal_conv"
+    ],
+    "partially_validated_modules": [
+      "conv_encoder",
+      "data_versioner"
+    ],
+    "recommended_for_fsharp_implementation": [
+      "transformer_block",
+      "snake_activation",
+      "causal_conv",
+      "residual_vector_quantizer"
+    ]
+  },
+  "implementation_notes": {
+    "transformer_block": {
+      "complexity": "high",
+      "key_features": ["multi-head attention", "feed-forward network", "layer normalization"],
+      "numerical_stability": "good",
+      "gradient_flow": "confirmed"
+    },
+    "snake_activation": {
+      "complexity": "medium",
+      "key_features": ["learnable frequency parameter", "sine-based activation"],
+      "numerical_stability": "good", 
+      "gradient_flow": "confirmed"
+    },
+    "causal_conv": {
+      "complexity": "medium",
+      "key_features": ["causal padding", "1D convolution", "temporal modeling"],
+      "numerical_stability": "good",
+      "gradient_flow": "confirmed"
+    },
+    "residual_vector_quantizer": {
+      "complexity": "high",
+      "key_features": ["vector quantization", "residual learning", "codebook management"],
+      "numerical_stability": "excellent",
+      "gradient_flow": "confirmed"
+    }
+  }
+}

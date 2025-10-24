@@ -1,0 +1,364 @@
+{
+  "metadata": {
+    "strategy": "systematic_parameter_fixing",
+    "original_success_rate": 17.93103448275862,
+    "new_success_rate": 52.41379310344828,
+    "improvement": 34.48275862068966,
+    "modules_attempted": 50,
+    "modules_fixed": 50,
+    "fix_success_rate": 100.0,
+    "target_achieved": false
+  },
+  "fixed_results": [
+    {
+      "class_name": "FeedForwardNetwork",
+      "module_file": "modules/transformer_block",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "StreamJoiner",
+      "module_file": "modules/stream_joiner",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "AutoEncoder",
+      "module_file": "modules/autoencoder_vae",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "ConditionalConvDecoder",
+      "module_file": "modules/autoencoder_vae",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "ConditionalVAE",
+      "module_file": "modules/autoencoder_vae",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "ConvDecoder",
+      "module_file": "modules/autoencoder_vae",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "VAE",
+      "module_file": "modules/autoencoder_vae",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "AdaptiveComputationTime",
+      "module_file": "modules/adaptive_computation",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "PonderNet",
+      "module_file": "modules/adaptive_computation",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "UniversalTransformer",
+      "module_file": "modules/adaptive_computation",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "FeatureStore",
+      "module_file": "modules/feature_store",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "EdgeConvLayer",
+      "module_file": "modules/graph_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "GraphAttentionLayer",
+      "module_file": "modules/graph_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "GraphConvLayer",
+      "module_file": "modules/graph_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "GraphEncoder",
+      "module_file": "modules/graph_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "PositionalEncodingTime",
+      "module_file": "modules/time_series_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "TemporalConvBlock",
+      "module_file": "modules/time_series_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "TimeSeriesEncoder",
+      "module_file": "modules/time_series_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "WaveNetBlock",
+      "module_file": "modules/time_series_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "LogSTFTMagnitudeLoss",
+      "module_file": "modules/stft_loss",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "MelSpectrogramLoss",
+      "module_file": "modules/stft_loss",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "MultiScaleSTFTLoss",
+      "module_file": "modules/stft_loss",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "SpectralConvergenceLoss",
+      "module_file": "modules/stft_loss",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "SequenceToSequenceModel",
+      "module_file": "modules/sequence_to_sequence",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "CausalConvTranspose1d",
+      "module_file": "modules/causal_conv",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "PatchEmbedding",
+      "module_file": "modules/vit_patch_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "PositionalEncoding2D",
+      "module_file": "modules/vit_patch_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "ViTPatchEncoder",
+      "module_file": "modules/vit_patch_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "MemoryBank",
+      "module_file": "modules/memory_bank_retriever",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "Retriever",
+      "module_file": "modules/memory_bank_retriever",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "AntialiasedConv1d",
+      "module_file": "modules/antialiased_conv",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "AntialiasedConvTranspose1d",
+      "module_file": "modules/antialiased_conv",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "BlurPool1d",
+      "module_file": "modules/antialiased_conv",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "LowPassFilter1d",
+      "module_file": "modules/antialiased_conv",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "InducedSetAttentionBlock",
+      "module_file": "modules/set_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "SetEncoder",
+      "module_file": "modules/set_encoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "AttentionDecoder",
+      "module_file": "modules/attention_decoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "DecoderBlock",
+      "module_file": "modules/attention_decoder",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "BlurPool1d",
+      "module_file": "modules/guitar_texture_architecture",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "ConditionalDecoder",
+      "module_file": "modules/guitar_texture_architecture",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "GuitarTextureModel",
+      "module_file": "modules/guitar_texture_architecture",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "HierarchicalTextureQuantizer",
+      "module_file": "modules/guitar_texture_architecture",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "MultiScaleTextureEncoder",
+      "module_file": "modules/guitar_texture_architecture",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "ResidualVectorQuantizer",
+      "module_file": "modules/guitar_texture_architecture",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "TextureContentVAE",
+      "module_file": "modules/guitar_texture_architecture",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "CrossModalAttention",
+      "module_file": "modules/cross_modal_fusion",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "CrossModalFusion",
+      "module_file": "modules/cross_modal_fusion",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "ResidualVectorQuantizer",
+      "module_file": "modules/residual_vector_quantizer",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "ResidualVectorQuantizerWrapper",
+      "module_file": "modules/residual_vector_quantizer",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    },
+    {
+      "class_name": "VectorQuantizer",
+      "module_file": "modules/residual_vector_quantizer",
+      "fixed": true,
+      "attempts": 2,
+      "success": true
+    }
+  ]
+}

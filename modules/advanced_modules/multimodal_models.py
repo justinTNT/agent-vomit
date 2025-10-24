@@ -34,7 +34,7 @@ class MultimodalModelType(Enum):
 @dataclass
 class MultimodalConfig(AudioModuleConfig):
     """Configuration for multimodal models."""
-    model_type: MultimodalModelType
+    model_type: MultimodalModelType = MultimodalModelType.CLAP
     audio_embed_dim: int = 512
     text_embed_dim: int = 512
     shared_embed_dim: int = 512

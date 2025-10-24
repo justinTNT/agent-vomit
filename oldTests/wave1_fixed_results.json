@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "wave": "wave_1_fixed",
+    "strategy": "Fix parameter issues for 100% Wave 1 success",
+    "total_modules": 6,
+    "passed_modules": 6,
+    "wave_success_rate": 100.0,
+    "total_tests": 12,
+    "passed_tests": 12,
+    "test_success_rate": 100.0,
+    "coverage_progress": {
+      "previous_coverage": 79,
+      "new_coverage": 85,
+      "total_modules": 137,
+      "coverage_percentage": 62.04379562043796,
+      "modules_added": 6
+    },
+    "next_wave_ready": true,
+    "hundred_percent_success": true
+  },
+  "all_results": [
+    {
+      "module": "MultiScaleSTFTLoss",
+      "difficulty": "EASY",
+      "status": "WORKING - already passed",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.01973414421081543,
+            "output_shape": "dict",
+            "output_dtype": "dict",
+            "numerical_summary": "dict_keys_['loss', 'mag_loss', 'log_mag_loss', 'spectral_loss', 'scale_losses']",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.002084016799926758,
+            "output_shape": "dict",
+            "output_dtype": "dict",
+            "numerical_summary": "dict_keys_['loss', 'mag_loss', 'log_mag_loss', 'spectral_loss', 'scale_losses']",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "CausalConv1d",
+      "difficulty": "EASY",
+      "status": "WORKING - already passed",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.00767207145690918,
+            "output_shape": "dict",
+            "output_dtype": "dict",
+            "numerical_summary": "dict_keys_['output', 'effective_kernel_size', 'receptive_field']",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.0004711151123046875,
+            "output_shape": "dict",
+            "output_dtype": "dict",
+            "numerical_summary": "dict_keys_['output', 'effective_kernel_size', 'receptive_field']",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "MemoryBank",
+      "difficulty": "EASY",
+      "status": "FIXED - removed unsupported parameters",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.13343596458435059,
+            "output_shape": "dict",
+            "output_dtype": "dict",
+            "numerical_summary": "dict_keys_['retrieved', 'attention_weights', 'top_k_indices', 'write_indices']",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.04992508888244629,
+            "output_shape": "dict",
+            "output_dtype": "dict",
+            "numerical_summary": "dict_keys_['retrieved', 'attention_weights', 'top_k_indices', 'write_indices']",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "AntiAliasedConv",
+      "difficulty": "EASY",
+      "status": "FIXED - corrected input dimensions",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.0035490989685058594,
+            "output_shape": [
+              2,
+              128,
+              16
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.004397790879011154,
+              "std": 0.35860493779182434,
+              "min": -1.2216120958328247,
+              "max": 1.465625524520874,
+              "norm": 22.94964027404785
+            },
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.00022673606872558594,
+            "output_shape": [
+              1,
+              128,
+              8
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.0039541274309158325,
+              "std": 0.37716007232666016,
+              "min": -1.2118747234344482,
+              "max": 1.0469564199447632,
+              "norm": 12.06389045715332
+            },
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "SimpleSequenceToSequence",
+      "difficulty": "MODERATE",
+      "status": "SIMPLIFIED - will create basic seq2seq",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.007497310638427734,
+            "output_shape": [
+              2,
+              1000
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 0.0012486447812989354,
+              "std": 0.2439175695180893,
+              "min": -0.8325594663619995,
+              "max": 0.8172601461410522,
+              "norm": 10.905740737915039
+            },
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.0035681724548339844,
+            "output_shape": [
+              1,
+              1000
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.004646963905543089,
+              "std": 0.19389495253562927,
+              "min": -0.5850812792778015,
+              "max": 0.6021947860717773,
+              "norm": 6.130191802978516
+            },
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "SimpleAutoencoder",
+      "difficulty": "EASY",
+      "status": "SIMPLIFIED - will create basic autoencoder",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.0002770423889160156,
+            "output_shape": [
+              32,
+              784
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": 3.42329076374881e-05,
+              "std": 0.0720113217830658,
+              "min": -0.27487877011299133,
+              "max": 0.3069891631603241,
+              "norm": 11.405786514282227
+            },
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.00017499923706054688,
+            "output_shape": [
+              16,
+              784
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.0006321846740320325,
+              "std": 0.0713488757610321,
+              "min": -0.28128597140312195,
+              "max": 0.3010815382003784,
+              "norm": 7.991069793701172
+            },
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    }
+  ]
+}

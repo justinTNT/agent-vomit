@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "test_type": "corrected_data_pipeline_modules",
+    "total_modules": 3,
+    "passed_modules": 1,
+    "module_success_rate": 33.33333333333333,
+    "total_tests": 11,
+    "passed_tests": 8,
+    "test_success_rate": 72.72727272727273
+  },
+  "all_results": [
+    {
+      "module": "DataVersioner",
+      "result": {
+        "module_passed": false,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.018996000289916992,
+            "output_shape": "string",
+            "output_dtype": "string",
+            "numerical_summary": "string_length_12",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": false,
+            "execution_time": 0,
+            "output_shape": null,
+            "output_dtype": null,
+            "numerical_summary": null,
+            "error": "Version test_version_id not found"
+          },
+          {
+            "test_name": "test_3",
+            "passed": false,
+            "execution_time": 0,
+            "output_shape": null,
+            "output_dtype": null,
+            "numerical_summary": null,
+            "error": "Version not found"
+          },
+          {
+            "test_name": "test_4",
+            "passed": true,
+            "execution_time": 1.1920928955078125e-06,
+            "output_shape": "none",
+            "output_dtype": "none",
+            "numerical_summary": "none",
+            "error": null
+          },
+          {
+            "test_name": "test_5",
+            "passed": true,
+            "execution_time": 1.6689300537109375e-06,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'stats': {'commits': 1, 'branches': 2, 'total_size': 42190, 'delta_saves': 0}, 'versions': 1, 'bran",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "StreamProcessor",
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 7.867813110351562e-06,
+            "output_shape": "none",
+            "output_dtype": "none",
+            "numerical_summary": "none",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.0017609596252441406,
+            "output_shape": [
+              2,
+              512
+            ],
+            "output_dtype": "torch.float32",
+            "numerical_summary": {
+              "mean": -0.01610856130719185,
+              "std": 1.0132238864898682,
+              "min": -3.44708514213562,
+              "max": 3.5321807861328125,
+              "norm": 32.41143035888672
+            },
+            "error": null
+          },
+          {
+            "test_name": "test_3",
+            "passed": true,
+            "execution_time": 9.5367431640625e-07,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'buffer_size': 1, 'buffer_capacity': 10000, 'dropped_count': 0, 'current_window_size': 0, 'processi",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "FeatureStore",
+      "result": {
+        "module_passed": false,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": false,
+            "execution_time": 0,
+            "output_shape": null,
+            "output_dtype": null,
+            "numerical_summary": null,
+            "error": "'dummy_feature'"
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 1.9073486328125e-06,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'stats': {'cache_hits': 0, 'cache_misses': 0, 'computes': 0, 'version_conflicts': 0}, 'cache_size':",
+            "error": null
+          },
+          {
+            "test_name": "test_3",
+            "passed": true,
+            "execution_time": 9.5367431640625e-07,
+            "output_shape": "none",
+            "output_dtype": "none",
+            "numerical_summary": "none",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    }
+  ]
+}

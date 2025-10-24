@@ -1,0 +1,2151 @@
+{
+  "modules": [
+    {
+      "module_name": "transformer_block",
+      "class_name": "TransformerBlock",
+      "class_variations": [
+        "TransformerBlock"
+      ],
+      "init_params": {
+        "d_model": 512,
+        "n_heads": 8,
+        "d_ff": 2048,
+        "dropout": 0.1
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                10,
+                512
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for TransformerBlock.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for TransformerBlock.shape_preserve"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for TransformerBlock.gradient"
+        }
+      ],
+      "description": "Standardized config for transformer_block.TransformerBlock",
+      "dependencies": null
+    },
+    {
+      "module_name": "conv_encoder",
+      "class_name": "ConvEncoder",
+      "class_variations": [
+        "ConvEncoder"
+      ],
+      "init_params": {
+        "in_channels": 3,
+        "base_channels": 64,
+        "num_layers": 4,
+        "latent_dim": 512
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                3,
+                64,
+                64
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for ConvEncoder.forward"
+        },
+        {
+          "name": "shape_reduce",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              3,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": "reduce",
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for ConvEncoder.shape_reduce"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              3,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for ConvEncoder.gradient"
+        }
+      ],
+      "description": "Standardized config for conv_encoder.ConvEncoder",
+      "dependencies": null
+    },
+    {
+      "module_name": "snake_activation",
+      "class_name": "SnakeActivation",
+      "class_variations": [
+        "SnakeActivation",
+        "Snake"
+      ],
+      "init_params": {
+        "n_channels": 64,
+        "alpha_init": 1.0
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                64,
+                100
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for SnakeActivation.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              64,
+              100
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for SnakeActivation.shape_preserve"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              64,
+              100
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for SnakeActivation.gradient"
+        }
+      ],
+      "description": "Standardized config for snake_activation.SnakeActivation",
+      "dependencies": null
+    },
+    {
+      "module_name": "residual_vector_quantizer",
+      "class_name": "ResidualVectorQuantizer",
+      "class_variations": [
+        "ResidualVectorQuantizer",
+        "ResidualVQ"
+      ],
+      "init_params": {
+        "dim": 256,
+        "num_quantizers": 8,
+        "codebook_size": 1024,
+        "decay": 0.8,
+        "commitment_weight": 1.0
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                10,
+                256
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for ResidualVectorQuantizer.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              256
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for ResidualVectorQuantizer.shape_preserve"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              256
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for ResidualVectorQuantizer.gradient"
+        }
+      ],
+      "description": "Standardized config for residual_vector_quantizer.ResidualVectorQuantizer",
+      "dependencies": null
+    },
+    {
+      "module_name": "antialiased_conv",
+      "class_name": "AntialiasedConv",
+      "class_variations": [
+        "AntialiasedConv",
+        "AntiAliasedConv",
+        "AAConv"
+      ],
+      "init_params": {
+        "in_channels": 64,
+        "out_channels": 128,
+        "kernel_size": 3,
+        "stride": 2
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                64,
+                32,
+                32
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for AntialiasedConv.forward"
+        },
+        {
+          "name": "shape_reduce",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              64,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": "reduce",
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for AntialiasedConv.shape_reduce"
+        }
+      ],
+      "description": "Standardized config for antialiased_conv.AntialiasedConv",
+      "dependencies": null
+    },
+    {
+      "module_name": "stft_loss",
+      "class_name": "MultiScaleSTFTLoss",
+      "class_variations": [
+        "MultiScaleSTFTLoss",
+        "STFTLoss",
+        "multi_scale_stft_loss"
+      ],
+      "init_params": {
+        "fft_sizes": [
+          2048,
+          1024,
+          512
+        ],
+        "hop_sizes": [
+          512,
+          256,
+          128
+        ],
+        "win_lengths": [
+          2048,
+          1024,
+          512
+        ]
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                16000
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                16000
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for MultiScaleSTFTLoss.forward"
+        },
+        {
+          "name": "callable",
+          "test_type": "callable",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                16000
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                16000
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "callable test for MultiScaleSTFTLoss.callable"
+        }
+      ],
+      "description": "Standardized config for stft_loss.MultiScaleSTFTLoss",
+      "dependencies": null
+    },
+    {
+      "module_name": "causal_conv",
+      "class_name": "CausalConv1d",
+      "class_variations": [
+        "CausalConv1d",
+        "CausalConv"
+      ],
+      "init_params": {
+        "in_channels": 256,
+        "out_channels": 512,
+        "kernel_size": 3,
+        "dilation": 1,
+        "groups": 1
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                256,
+                100
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for CausalConv1d.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              256,
+              100
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for CausalConv1d.shape_preserve"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              256,
+              100
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for CausalConv1d.gradient"
+        }
+      ],
+      "description": "Standardized config for causal_conv.CausalConv1d",
+      "dependencies": null
+    },
+    {
+      "module_name": "stream_joiner",
+      "class_name": "StreamJoiner",
+      "class_variations": [
+        "StreamJoiner"
+      ],
+      "init_params": {
+        "join_type": "inner",
+        "time_window": 1.0,
+        "buffer_size": 100
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            "stream1",
+            {
+              "type": "tensor",
+              "shape": [
+                4
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            1.0
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for StreamJoiner.forward"
+        },
+        {
+          "name": "add_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "add",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for StreamJoiner.add_method"
+        },
+        {
+          "name": "join_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "join",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for StreamJoiner.join_method"
+        }
+      ],
+      "description": "Standardized config for stream_joiner.StreamJoiner",
+      "dependencies": null
+    },
+    {
+      "module_name": "data_versioner",
+      "class_name": "DataVersioner",
+      "class_variations": [
+        "DataVersioner"
+      ],
+      "init_params": {},
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "callable",
+          "test_type": "callable",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                10,
+                10
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            "test"
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "callable test for DataVersioner.callable"
+        },
+        {
+          "name": "save_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "save",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for DataVersioner.save_method"
+        },
+        {
+          "name": "load_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "load",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for DataVersioner.load_method"
+        }
+      ],
+      "description": "Standardized config for data_versioner.DataVersioner",
+      "dependencies": null
+    },
+    {
+      "module_name": "data_sampler",
+      "class_name": "DataSampler",
+      "class_variations": [
+        "DataSampler"
+      ],
+      "init_params": {
+        "dataset_size": 1000,
+        "batch_size": 32,
+        "num_replicas": 1,
+        "rank": 0,
+        "shuffle": true,
+        "seed": 42,
+        "drop_last": false
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "callable",
+          "test_type": "callable",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "callable test for DataSampler.callable"
+        },
+        {
+          "name": "iter_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "__iter__",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for DataSampler.iter_method"
+        },
+        {
+          "name": "len_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "__len__",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for DataSampler.len_method"
+        }
+      ],
+      "description": "Standardized config for data_sampler.DataSampler",
+      "dependencies": null
+    },
+    {
+      "module_name": "feature_store",
+      "class_name": "FeatureStore",
+      "class_variations": [
+        "FeatureStore"
+      ],
+      "init_params": {
+        "dim": 256,
+        "max_size": 10000,
+        "replacement": "fifo"
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "add_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "add",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for FeatureStore.add_method"
+        },
+        {
+          "name": "query_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "query",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for FeatureStore.query_method"
+        },
+        {
+          "name": "clear_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "clear",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for FeatureStore.clear_method"
+        }
+      ],
+      "description": "Standardized config for feature_store.FeatureStore",
+      "dependencies": null
+    },
+    {
+      "module_name": "data_validator",
+      "class_name": "DataValidator",
+      "class_variations": [
+        "DataValidator"
+      ],
+      "init_params": {
+        "schema": {
+          "type": "tensor",
+          "shape": [
+            null,
+            10
+          ],
+          "dtype": "float32"
+        }
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "validate_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "validate",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for DataValidator.validate_method"
+        },
+        {
+          "name": "callable",
+          "test_type": "callable",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                5,
+                10
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "callable test for DataValidator.callable"
+        }
+      ],
+      "description": "Standardized config for data_validator.DataValidator",
+      "dependencies": null
+    },
+    {
+      "module_name": "stream_processor",
+      "class_name": "StreamProcessor",
+      "class_variations": [
+        "StreamProcessor"
+      ],
+      "init_params": {
+        "window_size": 1000,
+        "step_size": 100,
+        "transform": "fft"
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "process_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "process",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for StreamProcessor.process_method"
+        },
+        {
+          "name": "reset_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "reset",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for StreamProcessor.reset_method"
+        }
+      ],
+      "description": "Standardized config for stream_processor.StreamProcessor",
+      "dependencies": null
+    },
+    {
+      "module_name": "adaptive_computation",
+      "class_name": "AdaptiveComputation",
+      "class_variations": [
+        "AdaptiveComputation"
+      ],
+      "init_params": {
+        "d_model": 512,
+        "max_steps": 10,
+        "threshold": 0.01
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                10,
+                512
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for AdaptiveComputation.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for AdaptiveComputation.shape_preserve"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for AdaptiveComputation.gradient"
+        }
+      ],
+      "description": "Standardized config for adaptive_computation.AdaptiveComputation",
+      "dependencies": null
+    },
+    {
+      "module_name": "memory_bank_retriever",
+      "class_name": "MemoryBankRetriever",
+      "class_variations": [
+        "MemoryBankRetriever"
+      ],
+      "init_params": {
+        "dim": 256,
+        "num_slots": 1024,
+        "num_heads": 8
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                10,
+                256
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for MemoryBankRetriever.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              256
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for MemoryBankRetriever.shape_preserve"
+        },
+        {
+          "name": "update_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "update",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for MemoryBankRetriever.update_method"
+        }
+      ],
+      "description": "Standardized config for memory_bank_retriever.MemoryBankRetriever",
+      "dependencies": null
+    },
+    {
+      "module_name": "graph_encoder",
+      "class_name": "GraphEncoder",
+      "class_variations": [
+        "GraphEncoder"
+      ],
+      "init_params": {
+        "in_features": 128,
+        "hidden_features": 256,
+        "out_features": 512,
+        "num_layers": 3,
+        "dropout": 0.1
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                10,
+                128
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                20
+              ],
+              "dtype": "torch.int64",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for GraphEncoder.forward"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              10,
+              128
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for GraphEncoder.gradient"
+        }
+      ],
+      "description": "Standardized config for graph_encoder.GraphEncoder",
+      "dependencies": null
+    },
+    {
+      "module_name": "sequence_to_sequence",
+      "class_name": "SequenceToSequenceModel",
+      "class_variations": [
+        "SequenceToSequenceModel",
+        "Seq2Seq"
+      ],
+      "init_params": {
+        "input_dim": 100,
+        "hidden_dim": 256,
+        "output_dim": 100,
+        "num_layers": 2,
+        "dropout": 0.1
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                10,
+                100
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                15,
+                100
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for SequenceToSequenceModel.forward"
+        },
+        {
+          "name": "encode_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "encode",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for SequenceToSequenceModel.encode_method"
+        },
+        {
+          "name": "decode_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "decode",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for SequenceToSequenceModel.decode_method"
+        }
+      ],
+      "description": "Standardized config for sequence_to_sequence.SequenceToSequenceModel",
+      "dependencies": null
+    },
+    {
+      "module_name": "autoencoder_vae",
+      "class_name": "AutoencoderVAE",
+      "class_variations": [
+        "AutoencoderVAE",
+        "VAE",
+        "VariationalAutoencoder"
+      ],
+      "init_params": {
+        "input_dim": 784,
+        "hidden_dim": 400,
+        "latent_dim": 20
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                784
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for AutoencoderVAE.forward"
+        },
+        {
+          "name": "encode_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "encode",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for AutoencoderVAE.encode_method"
+        },
+        {
+          "name": "decode_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "decode",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for AutoencoderVAE.decode_method"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              784
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for AutoencoderVAE.gradient"
+        }
+      ],
+      "description": "Standardized config for autoencoder_vae.AutoencoderVAE",
+      "dependencies": null
+    },
+    {
+      "module_name": "contrastive_learner",
+      "class_name": "ContrastiveLearner",
+      "class_variations": [
+        "ContrastiveLearner"
+      ],
+      "init_params": {
+        "encoder_dim": 512,
+        "projection_dim": 128,
+        "temperature": 0.07
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                8,
+                3,
+                224,
+                224
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [
+                8,
+                3,
+                224,
+                224
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for ContrastiveLearner.forward"
+        },
+        {
+          "name": "compute_loss_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "compute_loss",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for ContrastiveLearner.compute_loss_method"
+        }
+      ],
+      "description": "Standardized config for contrastive_learner.ContrastiveLearner",
+      "dependencies": null
+    },
+    {
+      "module_name": "set_encoder",
+      "class_name": "SetEncoder",
+      "class_variations": [
+        "SetEncoder"
+      ],
+      "init_params": {
+        "in_features": 128,
+        "hidden_features": 256,
+        "out_features": 512,
+        "num_seeds": 1,
+        "num_heads": 8
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                10,
+                128
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for SetEncoder.forward"
+        },
+        {
+          "name": "shape_reduce",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              128
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": "reduce",
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for SetEncoder.shape_reduce"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              128
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for SetEncoder.gradient"
+        }
+      ],
+      "description": "Standardized config for set_encoder.SetEncoder",
+      "dependencies": null
+    },
+    {
+      "module_name": "time_series_encoder",
+      "class_name": "TimeSeriesEncoder",
+      "class_variations": [
+        "TimeSeriesEncoder"
+      ],
+      "init_params": {
+        "input_dim": 10,
+        "hidden_dim": 128,
+        "num_layers": 3,
+        "dropout": 0.1,
+        "bidirectional": true
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                50,
+                10
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for TimeSeriesEncoder.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              50,
+              10
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for TimeSeriesEncoder.shape_preserve"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              50,
+              10
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for TimeSeriesEncoder.gradient"
+        }
+      ],
+      "description": "Standardized config for time_series_encoder.TimeSeriesEncoder",
+      "dependencies": null
+    },
+    {
+      "module_name": "cross_modal_fusion",
+      "class_name": "CrossModalFusion",
+      "class_variations": [
+        "CrossModalFusion"
+      ],
+      "init_params": {
+        "dim_a": 512,
+        "dim_b": 768,
+        "hidden_dim": 512,
+        "output_dim": 256,
+        "num_heads": 8
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                10,
+                512
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                20,
+                768
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for CrossModalFusion.forward"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              10,
+              512
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for CrossModalFusion.gradient"
+        }
+      ],
+      "description": "Standardized config for cross_modal_fusion.CrossModalFusion",
+      "dependencies": null
+    },
+    {
+      "module_name": "vit_patch_encoder",
+      "class_name": "ViTPatchEncoder",
+      "class_variations": [
+        "ViTPatchEncoder",
+        "VitPatchEncoder",
+        "PatchEncoder"
+      ],
+      "init_params": {
+        "image_size": 224,
+        "patch_size": 16,
+        "in_channels": 3,
+        "embed_dim": 768,
+        "depth": 12,
+        "num_heads": 12,
+        "mlp_ratio": 4.0,
+        "num_classes": 1000
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                3,
+                224,
+                224
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for ViTPatchEncoder.forward"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              3,
+              224,
+              224
+            ],
+            "dtype": "torch.float32",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for ViTPatchEncoder.gradient"
+        }
+      ],
+      "description": "Standardized config for vit_patch_encoder.ViTPatchEncoder",
+      "dependencies": null
+    },
+    {
+      "module_name": "attention_decoder",
+      "class_name": "AttentionDecoder",
+      "class_variations": [
+        "AttentionDecoder"
+      ],
+      "init_params": {
+        "d_model": 512,
+        "vocab_size": 32000,
+        "max_length": 100,
+        "num_layers": 6,
+        "num_heads": 8,
+        "dropout": 0.1
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                20
+              ],
+              "dtype": "torch.int64",
+              "requires_grad": false,
+              "device": "cpu"
+            },
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                10,
+                512
+              ],
+              "dtype": "torch.float32",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for AttentionDecoder.forward"
+        },
+        {
+          "name": "generate_method",
+          "test_type": "method",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": "generate",
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "method test for AttentionDecoder.generate_method"
+        }
+      ],
+      "description": "Standardized config for attention_decoder.AttentionDecoder",
+      "dependencies": null
+    },
+    {
+      "module_name": "sequence_encoder",
+      "class_name": "SequenceEncoder",
+      "class_variations": [
+        "SequenceEncoder"
+      ],
+      "init_params": {
+        "vocab_size": 32000,
+        "d_model": 512,
+        "num_layers": 6,
+        "num_heads": 8,
+        "max_length": 1000,
+        "dropout": 0.1
+      },
+      "init_param_variations": null,
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "args": [
+            {
+              "type": "tensor",
+              "shape": [
+                2,
+                50
+              ],
+              "dtype": "torch.int64",
+              "requires_grad": false,
+              "device": "cpu"
+            }
+          ],
+          "kwargs": null,
+          "input_tensor": null,
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "forward test for SequenceEncoder.forward"
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              50
+            ],
+            "dtype": "torch.int64",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "shape test for SequenceEncoder.shape_preserve"
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "args": null,
+          "kwargs": null,
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              50
+            ],
+            "dtype": "torch.int64",
+            "requires_grad": false,
+            "device": "cpu"
+          },
+          "expected_shape": null,
+          "method_name": null,
+          "tolerance": 0.0001,
+          "timeout": 10.0,
+          "requires_grad": false,
+          "description": "gradient test for SequenceEncoder.gradient"
+        }
+      ],
+      "description": "Standardized config for sequence_encoder.SequenceEncoder",
+      "dependencies": null
+    },
+    {
+      "module_name": "crossfade",
+      "class_name": "EnergyProfileExtractor",
+      "init_params": {
+        "sample_rate": 44100,
+        "hop_length": 512,
+        "n_fft": 2048
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "crossfade",
+      "class_name": "BeatGridExtractor",
+      "init_params": {
+        "sample_rate": 44100,
+        "hop_length": 512,
+        "min_bpm": 60.0,
+        "max_bpm": 200.0
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "crossfade",
+      "class_name": "MusicalKeyExtractor",
+      "init_params": {
+        "sample_rate": 44100,
+        "hop_length": 512,
+        "n_fft": 4096,
+        "n_chroma": 12
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              44100
+            ],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "modules.audio_analysis",
+      "class_name": "StandardAudioPreprocessor",
+      "init_params": {
+        "sample_rate": 22050,
+        "n_fft": 2048,
+        "hop_length": 512,
+        "n_mels": 128
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              22050
+            ],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              22050
+            ],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [
+              2,
+              22050
+            ],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    }
+  ]
+}

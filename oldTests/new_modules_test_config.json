@@ -1,0 +1,340 @@
+{
+  "modules": [
+    {
+      "module_name": "crossfade",
+      "class_name": "EnergyProfileExtractor",
+      "init_params": {
+        "sample_rate": 44100,
+        "hop_length": 512,
+        "n_fft": 2048
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "crossfade",
+      "class_name": "BeatGridExtractor",
+      "init_params": {
+        "sample_rate": 44100,
+        "hop_length": 512,
+        "min_bpm": 60.0,
+        "max_bpm": 200.0
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "crossfade",
+      "class_name": "MusicalKeyExtractor",
+      "init_params": {
+        "sample_rate": 44100,
+        "hop_length": 512,
+        "n_fft": 4096,
+        "n_chroma": 12
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "crossfade",
+      "class_name": "AdaptiveThresholdCalculator",
+      "init_params": {
+        "adaptation_sensitivity": 0.8,
+        "learning_rate": 0.1
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 12],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 12],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 12],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "crossfade",
+      "class_name": "SpectralMatchingEQ",
+      "init_params": {
+        "sample_rate": 44100,
+        "hop_length": 512,
+        "n_fft": 2048
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 44100],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "crossfade",
+      "class_name": "ProcessingParameterCalculator",
+      "init_params": {
+        "max_pitch_shift": 2.0,
+        "max_rate_change": 0.05,
+        "artifact_threshold": 0.3,
+        "quality_threshold": 0.5
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 16],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 16],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 16],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "modules.audio_analysis",
+      "class_name": "AudioModuleConfig",
+      "init_params": {
+        "sample_rate": 22050,
+        "n_fft": 2048,
+        "hop_length": 512,
+        "n_mels": 128
+      },
+      "tests": [
+        {
+          "name": "instantiation",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "modules.audio_analysis",
+      "class_name": "StandardAudioPreprocessor",
+      "init_params": {
+        "sample_rate": 22050,
+        "n_fft": 2048,
+        "hop_length": 512,
+        "n_mels": 128
+      },
+      "tests": [
+        {
+          "name": "forward",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 22050],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "shape_preserve",
+          "test_type": "shape",
+          "expected_shape": "expand",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 22050],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        },
+        {
+          "name": "gradient",
+          "test_type": "gradient",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 22050],
+            "dtype": "float32",
+            "requires_grad": true
+          }
+        }
+      ]
+    },
+    {
+      "module_name": "modules.audio_analysis",
+      "class_name": "AudioFeatureValidator",
+      "init_params": {},
+      "tests": [
+        {
+          "name": "instantiation",
+          "test_type": "forward",
+          "input_tensor": {
+            "type": "tensor",
+            "shape": [2, 10],
+            "dtype": "float32",
+            "requires_grad": false
+          }
+        }
+      ]
+    }
+  ]
+}

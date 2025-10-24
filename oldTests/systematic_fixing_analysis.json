@@ -1,0 +1,918 @@
+{
+  "failure_categories": {
+    "missing_required_args": [
+      {
+        "class": "FeedForwardNetwork",
+        "missing_args": [
+          "d_model",
+          "d_ff"
+        ],
+        "error": "FeedForwardNetwork.__init__() missing 2 required positional arguments: 'd_model' and 'd_ff'"
+      },
+      {
+        "class": "ConditionalVAE",
+        "missing_args": [
+          "encoder"
+        ],
+        "error": "ConditionalVAE.__init__() missing 1 required positional argument: 'encoder'"
+      },
+      {
+        "class": "VAE",
+        "missing_args": [
+          "encoder"
+        ],
+        "error": "VAE.__init__() missing 1 required positional argument: 'encoder'"
+      },
+      {
+        "class": "AdaptiveComputationTime",
+        "missing_args": [
+          "hidden_size"
+        ],
+        "error": "AdaptiveComputationTime.__init__() missing 1 required positional argument: 'hidden_size'"
+      },
+      {
+        "class": "PonderNet",
+        "missing_args": [
+          "input_size",
+          "hidden_size",
+          "output_size"
+        ],
+        "error": "PonderNet.__init__() missing 3 required positional arguments: 'input_size', 'hidden_size', and 'output_size'"
+      },
+      {
+        "class": "PositionalEncodingTime",
+        "missing_args": [
+          "d_model"
+        ],
+        "error": "PositionalEncodingTime.__init__() missing 1 required positional argument: 'd_model'"
+      },
+      {
+        "class": "WaveNetBlock",
+        "missing_args": [
+          "residual_channels",
+          "skip_channels"
+        ],
+        "error": "WaveNetBlock.__init__() missing 2 required positional arguments: 'residual_channels' and 'skip_channels'"
+      },
+      {
+        "class": "SequenceToSequenceModel",
+        "missing_args": [
+          "encoder",
+          "decoder"
+        ],
+        "error": "SequenceToSequenceModel.__init__() missing 2 required positional arguments: 'encoder' and 'decoder'"
+      },
+      {
+        "class": "PositionalEncoding2D",
+        "missing_args": [
+          "embed_dim",
+          "n_patches"
+        ],
+        "error": "PositionalEncoding2D.__init__() missing 2 required positional arguments: 'embed_dim' and 'n_patches'"
+      },
+      {
+        "class": "Retriever",
+        "missing_args": [
+          "encoder"
+        ],
+        "error": "Retriever.__init__() missing 1 required positional argument: 'encoder'"
+      },
+      {
+        "class": "BlurPool1d",
+        "missing_args": [
+          "channels"
+        ],
+        "error": "BlurPool1d.__init__() missing 1 required positional argument: 'channels'"
+      },
+      {
+        "class": "InducedSetAttentionBlock",
+        "missing_args": [
+          "n_inducing_points"
+        ],
+        "error": "InducedSetAttentionBlock.__init__() missing 1 required positional argument: 'n_inducing_points'"
+      },
+      {
+        "class": "BlurPool1d",
+        "missing_args": [
+          "channels"
+        ],
+        "error": "BlurPool1d.__init__() missing 1 required positional argument: 'channels'"
+      },
+      {
+        "class": "GuitarTextureModel",
+        "missing_args": [
+          "config"
+        ],
+        "error": "GuitarTextureModel.__init__() missing 1 required positional argument: 'config'"
+      },
+      {
+        "class": "HierarchicalTextureQuantizer",
+        "missing_args": [
+          "config"
+        ],
+        "error": "HierarchicalTextureQuantizer.__init__() missing 1 required positional argument: 'config'"
+      },
+      {
+        "class": "ResidualVectorQuantizer",
+        "missing_args": [
+          "num_quantizers",
+          "codebook_size",
+          "codebook_dim",
+          "commitment_cost"
+        ],
+        "error": "ResidualVectorQuantizer.__init__() missing 4 required positional arguments: 'num_quantizers', 'codebook_size', 'codebook_dim', and 'commitment_cost'"
+      },
+      {
+        "class": "TextureContentVAE",
+        "missing_args": [
+          "config"
+        ],
+        "error": "TextureContentVAE.__init__() missing 1 required positional argument: 'config'"
+      },
+      {
+        "class": "CrossModalFusion",
+        "missing_args": [
+          "d_model_1",
+          "d_model_2"
+        ],
+        "error": "CrossModalFusion.__init__() missing 2 required positional arguments: 'd_model_1' and 'd_model_2'"
+      },
+      {
+        "class": "ResidualVectorQuantizer",
+        "missing_args": [
+          "num_quantizers"
+        ],
+        "error": "ResidualVectorQuantizer.__init__() missing 1 required positional argument: 'num_quantizers'"
+      },
+      {
+        "class": "ResidualVectorQuantizerWrapper",
+        "missing_args": [
+          "input_dim"
+        ],
+        "error": "ResidualVectorQuantizerWrapper.__init__() missing 1 required positional argument: 'input_dim'"
+      },
+      {
+        "class": "VectorQuantizer",
+        "missing_args": [
+          "num_embeddings",
+          "embedding_dim"
+        ],
+        "error": "VectorQuantizer.__init__() missing 2 required positional arguments: 'num_embeddings' and 'embedding_dim'"
+      },
+      {
+        "class": "PositionalEncoding",
+        "missing_args": [
+          "d_model"
+        ],
+        "error": "PositionalEncoding.__init__() missing 1 required positional argument: 'd_model'"
+      },
+      {
+        "class": "ContrastiveLearner",
+        "missing_args": [
+          "encoder_1"
+        ],
+        "error": "ContrastiveLearner.__init__() missing 1 required positional argument: 'encoder_1'"
+      },
+      {
+        "class": "ProjectionHead",
+        "missing_args": [
+          "input_dim",
+          "hidden_dim",
+          "output_dim"
+        ],
+        "error": "ProjectionHead.__init__() missing 3 required positional arguments: 'input_dim', 'hidden_dim', and 'output_dim'"
+      },
+      {
+        "class": "AudioModuleBase",
+        "missing_args": [
+          "config"
+        ],
+        "error": "AudioModuleBase.__init__() missing 1 required positional argument: 'config'"
+      },
+      {
+        "class": "SpecAugment",
+        "missing_args": [
+          "config"
+        ],
+        "error": "SpecAugment.__init__() missing 1 required positional argument: 'config'"
+      },
+      {
+        "class": "HarmonicAnalyzer",
+        "missing_args": [
+          "sample_rate"
+        ],
+        "error": "HarmonicAnalyzer.__init__() missing 1 required positional argument: 'sample_rate'"
+      },
+      {
+        "class": "MelodicAnalyzer",
+        "missing_args": [
+          "sample_rate",
+          "n_fft",
+          "hop_length",
+          "f_min",
+          "f_max"
+        ],
+        "error": "MelodicAnalyzer.__init__() missing 5 required positional arguments: 'sample_rate', 'n_fft', 'hop_length', 'f_min', and 'f_max'"
+      },
+      {
+        "class": "RhythmicAnalyzer",
+        "missing_args": [
+          "sample_rate",
+          "hop_length"
+        ],
+        "error": "RhythmicAnalyzer.__init__() missing 2 required positional arguments: 'sample_rate' and 'hop_length'"
+      },
+      {
+        "class": "StructuralAnalyzer",
+        "missing_args": [
+          "sample_rate",
+          "hop_length"
+        ],
+        "error": "StructuralAnalyzer.__init__() missing 2 required positional arguments: 'sample_rate' and 'hop_length'"
+      },
+      {
+        "class": "TimbralAnalyzer",
+        "missing_args": [
+          "sample_rate",
+          "n_fft",
+          "hop_length"
+        ],
+        "error": "TimbralAnalyzer.__init__() missing 3 required positional arguments: 'sample_rate', 'n_fft', and 'hop_length'"
+      },
+      {
+        "class": "PsychoacousticMaskingModel",
+        "missing_args": [
+          "sample_rate",
+          "n_fft",
+          "n_bark_bands"
+        ],
+        "error": "PsychoacousticMaskingModel.__init__() missing 3 required positional arguments: 'sample_rate', 'n_fft', and 'n_bark_bands'"
+      },
+      {
+        "class": "QualityFeatureExtractor",
+        "missing_args": [
+          "input_channels",
+          "hidden_dim",
+          "num_scales"
+        ],
+        "error": "QualityFeatureExtractor.__init__() missing 3 required positional arguments: 'input_channels', 'hidden_dim', and 'num_scales'"
+      },
+      {
+        "class": "TemporalQualityAnalyzer",
+        "missing_args": [
+          "sample_rate",
+          "hop_length"
+        ],
+        "error": "TemporalQualityAnalyzer.__init__() missing 2 required positional arguments: 'sample_rate' and 'hop_length'"
+      },
+      {
+        "class": "WaveNetResBlock",
+        "missing_args": [
+          "channels"
+        ],
+        "error": "WaveNetResBlock.__init__() missing 1 required positional argument: 'channels'"
+      },
+      {
+        "class": "WaveNetStack",
+        "missing_args": [
+          "in_channels"
+        ],
+        "error": "WaveNetStack.__init__() missing 1 required positional argument: 'in_channels'"
+      },
+      {
+        "class": "DiscriminatorBlock",
+        "missing_args": [
+          "in_channels",
+          "out_channels"
+        ],
+        "error": "DiscriminatorBlock.__init__() missing 2 required positional arguments: 'in_channels' and 'out_channels'"
+      },
+      {
+        "class": "ExperimentTracker",
+        "missing_args": [
+          "project_name"
+        ],
+        "error": "ExperimentTracker.__init__() missing 1 required positional argument: 'project_name'"
+      },
+      {
+        "class": "HyperparameterOptimizer",
+        "missing_args": [
+          "parameter_space"
+        ],
+        "error": "HyperparameterOptimizer.__init__() missing 1 required positional argument: 'parameter_space'"
+      },
+      {
+        "class": "AutoEncoder",
+        "missing_args": [
+          "hidden_dims",
+          "latent_dim"
+        ],
+        "error": "AutoEncoder.__init__() missing 2 required positional arguments: 'hidden_dims' and 'latent_dim'"
+      },
+      {
+        "class": "ExitPredictor",
+        "missing_args": [
+          "input_dim"
+        ],
+        "error": "ExitPredictor.__init__() missing 1 required positional argument: 'input_dim'"
+      },
+      {
+        "class": "TransformLayer",
+        "missing_args": [
+          "input_dim",
+          "output_dim"
+        ],
+        "error": "TransformLayer.__init__() missing 2 required positional arguments: 'input_dim' and 'output_dim'"
+      },
+      {
+        "class": "GATLayer",
+        "missing_args": [
+          "in_dim",
+          "out_dim",
+          "n_heads"
+        ],
+        "error": "GATLayer.__init__() missing 3 required positional arguments: 'in_dim', 'out_dim', and 'n_heads'"
+      },
+      {
+        "class": "GCNLayer",
+        "missing_args": [
+          "in_dim",
+          "out_dim"
+        ],
+        "error": "GCNLayer.__init__() missing 2 required positional arguments: 'in_dim' and 'out_dim'"
+      },
+      {
+        "class": "GraphSAGELayer",
+        "missing_args": [
+          "in_dim",
+          "out_dim"
+        ],
+        "error": "GraphSAGELayer.__init__() missing 2 required positional arguments: 'in_dim' and 'out_dim'"
+      },
+      {
+        "class": "WaveNetBlock",
+        "missing_args": [
+          "channels",
+          "kernel_size",
+          "dilation",
+          "dropout"
+        ],
+        "error": "WaveNetBlock.__init__() missing 4 required positional arguments: 'channels', 'kernel_size', 'dilation', and 'dropout'"
+      },
+      {
+        "class": "SequenceToSequenceModel",
+        "missing_args": [
+          "encoder",
+          "decoder"
+        ],
+        "error": "SequenceToSequenceModel.__init__() missing 2 required positional arguments: 'encoder' and 'decoder'"
+      },
+      {
+        "class": "StreamProcessor",
+        "missing_args": [
+          "window_size"
+        ],
+        "error": "StreamProcessor.__init__() missing 1 required positional argument: 'window_size'"
+      },
+      {
+        "class": "ResidualVectorQuantizer",
+        "missing_args": [
+          "dim"
+        ],
+        "error": "ResidualVectorQuantizer.__init__() missing 1 required positional argument: 'dim'"
+      },
+      {
+        "class": "ContrastiveLearner",
+        "missing_args": [
+          "encoder",
+          "projection_dim"
+        ],
+        "error": "ContrastiveLearner.__init__() missing 2 required positional arguments: 'encoder' and 'projection_dim'"
+      }
+    ],
+    "unexpected_keyword_args": [
+      {
+        "class": "AutoEncoder",
+        "unexpected_arg": "input_dim",
+        "error": "AutoEncoder.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "ConditionalConvDecoder",
+        "unexpected_arg": "input_dim",
+        "error": "ConditionalConvDecoder.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "ConvDecoder",
+        "unexpected_arg": "input_dim",
+        "error": "ConvDecoder.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "UniversalTransformer",
+        "unexpected_arg": "n_layers",
+        "error": "UniversalTransformer.__init__() got an unexpected keyword argument 'n_layers'"
+      },
+      {
+        "class": "EdgeConvLayer",
+        "unexpected_arg": "in_channels",
+        "error": "EdgeConvLayer.__init__() got an unexpected keyword argument 'in_channels'"
+      },
+      {
+        "class": "GraphAttentionLayer",
+        "unexpected_arg": "d_model",
+        "error": "GraphAttentionLayer.__init__() got an unexpected keyword argument 'd_model'"
+      },
+      {
+        "class": "GraphConvLayer",
+        "unexpected_arg": "in_channels",
+        "error": "GraphConvLayer.__init__() got an unexpected keyword argument 'in_channels'"
+      },
+      {
+        "class": "TimeSeriesEncoder",
+        "unexpected_arg": "output_dim",
+        "error": "TimeSeriesEncoder.__init__() got an unexpected keyword argument 'output_dim'"
+      },
+      {
+        "class": "LogSTFTMagnitudeLoss",
+        "unexpected_arg": "reduction",
+        "error": "LogSTFTMagnitudeLoss.__init__() got an unexpected keyword argument 'reduction'"
+      },
+      {
+        "class": "MelSpectrogramLoss",
+        "unexpected_arg": "reduction",
+        "error": "MelSpectrogramLoss.__init__() got an unexpected keyword argument 'reduction'"
+      },
+      {
+        "class": "MultiScaleSTFTLoss",
+        "unexpected_arg": "fft_sizes",
+        "error": "MultiScaleSTFTLoss.__init__() got an unexpected keyword argument 'fft_sizes'"
+      },
+      {
+        "class": "SpectralConvergenceLoss",
+        "unexpected_arg": "reduction",
+        "error": "SpectralConvergenceLoss.__init__() got an unexpected keyword argument 'reduction'"
+      },
+      {
+        "class": "ViTPatchEncoder",
+        "unexpected_arg": "input_dim",
+        "error": "ViTPatchEncoder.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "SetEncoder",
+        "unexpected_arg": "output_dim",
+        "error": "SetEncoder.__init__() got an unexpected keyword argument 'output_dim'"
+      },
+      {
+        "class": "DecoderBlock",
+        "unexpected_arg": "input_dim",
+        "error": "DecoderBlock.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "ConditionalDecoder",
+        "unexpected_arg": "input_dim",
+        "error": "ConditionalDecoder.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "MultiScaleTextureEncoder",
+        "unexpected_arg": "input_dim",
+        "error": "MultiScaleTextureEncoder.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "CrossModalAttention",
+        "unexpected_arg": "d_model",
+        "error": "CrossModalAttention.__init__() got an unexpected keyword argument 'd_model'"
+      },
+      {
+        "class": "SequenceEncoder",
+        "unexpected_arg": "input_dim",
+        "error": "SequenceEncoder.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "ContrastiveLoss",
+        "unexpected_arg": "reduction",
+        "error": "ContrastiveLoss.__init__() got an unexpected keyword argument 'reduction'"
+      },
+      {
+        "class": "AudioNormalizer",
+        "unexpected_arg": "num_features",
+        "error": "AudioNormalizer.__init__() got an unexpected keyword argument 'num_features'"
+      },
+      {
+        "class": "TransformerBlock",
+        "unexpected_arg": "d_model",
+        "error": "TransformerBlock.__init__() got an unexpected keyword argument 'd_model'"
+      },
+      {
+        "class": "L2Norm",
+        "unexpected_arg": "num_features",
+        "error": "L2Norm.__init__() got an unexpected keyword argument 'num_features'"
+      },
+      {
+        "class": "GANLoss",
+        "unexpected_arg": "latent_dim",
+        "error": "GANLoss.__init__() got an unexpected keyword argument 'latent_dim'"
+      },
+      {
+        "class": "SNLinear",
+        "unexpected_arg": "input_dim",
+        "error": "SNLinear.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "SpectralNormalization",
+        "unexpected_arg": "num_features",
+        "error": "SpectralNormalization.__init__() got an unexpected keyword argument 'num_features'"
+      },
+      {
+        "class": "ViTEncoderLayer",
+        "unexpected_arg": "input_dim",
+        "error": "ViTEncoderLayer.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "TransformerDecoderLayer",
+        "unexpected_arg": "input_dim",
+        "error": "TransformerDecoderLayer.__init__() got an unexpected keyword argument 'input_dim'"
+      },
+      {
+        "class": "TransformerEncoderLayer",
+        "unexpected_arg": "input_dim",
+        "error": "TransformerEncoderLayer.__init__() got an unexpected keyword argument 'input_dim'"
+      }
+    ],
+    "import_failures": [],
+    "none_failures": [],
+    "other_failures": [
+      {
+        "class": "AudioSimilarityMatcher",
+        "error": "module 'torch.nn' has no attribute 'L2Norm'"
+      }
+    ]
+  },
+  "parameter_patterns": {
+    "d_model": [
+      "FeedForwardNetwork",
+      "PositionalEncodingTime",
+      "PositionalEncoding"
+    ],
+    "d_ff": [
+      "FeedForwardNetwork"
+    ],
+    "encoder": [
+      "ConditionalVAE",
+      "VAE",
+      "SequenceToSequenceModel",
+      "Retriever",
+      "SequenceToSequenceModel",
+      "ContrastiveLearner"
+    ],
+    "hidden_size": [
+      "AdaptiveComputationTime",
+      "PonderNet"
+    ],
+    "input_size": [
+      "PonderNet"
+    ],
+    "output_size": [
+      "PonderNet"
+    ],
+    "residual_channels": [
+      "WaveNetBlock"
+    ],
+    "skip_channels": [
+      "WaveNetBlock"
+    ],
+    "decoder": [
+      "SequenceToSequenceModel",
+      "SequenceToSequenceModel"
+    ],
+    "embed_dim": [
+      "PositionalEncoding2D"
+    ],
+    "n_patches": [
+      "PositionalEncoding2D"
+    ],
+    "channels": [
+      "BlurPool1d",
+      "BlurPool1d",
+      "WaveNetResBlock",
+      "WaveNetBlock"
+    ],
+    "n_inducing_points": [
+      "InducedSetAttentionBlock"
+    ],
+    "config": [
+      "GuitarTextureModel",
+      "HierarchicalTextureQuantizer",
+      "TextureContentVAE",
+      "AudioModuleBase",
+      "SpecAugment"
+    ],
+    "num_quantizers": [
+      "ResidualVectorQuantizer",
+      "ResidualVectorQuantizer"
+    ],
+    "codebook_size": [
+      "ResidualVectorQuantizer"
+    ],
+    "codebook_dim": [
+      "ResidualVectorQuantizer"
+    ],
+    "commitment_cost": [
+      "ResidualVectorQuantizer"
+    ],
+    "d_model_1": [
+      "CrossModalFusion"
+    ],
+    "d_model_2": [
+      "CrossModalFusion"
+    ],
+    "input_dim": [
+      "ResidualVectorQuantizerWrapper",
+      "ProjectionHead",
+      "ExitPredictor",
+      "TransformLayer"
+    ],
+    "num_embeddings": [
+      "VectorQuantizer"
+    ],
+    "embedding_dim": [
+      "VectorQuantizer"
+    ],
+    "encoder_1": [
+      "ContrastiveLearner"
+    ],
+    "hidden_dim": [
+      "ProjectionHead",
+      "QualityFeatureExtractor"
+    ],
+    "output_dim": [
+      "ProjectionHead",
+      "TransformLayer"
+    ],
+    "sample_rate": [
+      "HarmonicAnalyzer",
+      "MelodicAnalyzer",
+      "RhythmicAnalyzer",
+      "StructuralAnalyzer",
+      "TimbralAnalyzer",
+      "PsychoacousticMaskingModel",
+      "TemporalQualityAnalyzer"
+    ],
+    "n_fft": [
+      "MelodicAnalyzer",
+      "TimbralAnalyzer",
+      "PsychoacousticMaskingModel"
+    ],
+    "hop_length": [
+      "MelodicAnalyzer",
+      "RhythmicAnalyzer",
+      "StructuralAnalyzer",
+      "TimbralAnalyzer",
+      "TemporalQualityAnalyzer"
+    ],
+    "f_min": [
+      "MelodicAnalyzer"
+    ],
+    "f_max": [
+      "MelodicAnalyzer"
+    ],
+    "n_bark_bands": [
+      "PsychoacousticMaskingModel"
+    ],
+    "input_channels": [
+      "QualityFeatureExtractor"
+    ],
+    "num_scales": [
+      "QualityFeatureExtractor"
+    ],
+    "in_channels": [
+      "WaveNetStack",
+      "DiscriminatorBlock"
+    ],
+    "out_channels": [
+      "DiscriminatorBlock"
+    ],
+    "project_name": [
+      "ExperimentTracker"
+    ],
+    "parameter_space": [
+      "HyperparameterOptimizer"
+    ],
+    "hidden_dims": [
+      "AutoEncoder"
+    ],
+    "latent_dim": [
+      "AutoEncoder"
+    ],
+    "in_dim": [
+      "GATLayer",
+      "GCNLayer",
+      "GraphSAGELayer"
+    ],
+    "out_dim": [
+      "GATLayer",
+      "GCNLayer",
+      "GraphSAGELayer"
+    ],
+    "n_heads": [
+      "GATLayer"
+    ],
+    "kernel_size": [
+      "WaveNetBlock"
+    ],
+    "dilation": [
+      "WaveNetBlock"
+    ],
+    "dropout": [
+      "WaveNetBlock"
+    ],
+    "window_size": [
+      "StreamProcessor"
+    ],
+    "dim": [
+      "ResidualVectorQuantizer"
+    ],
+    "projection_dim": [
+      "ContrastiveLearner"
+    ]
+  },
+  "parameter_rules": {
+    "sample_rate": 22050,
+    "n_fft": 1024,
+    "hop_length": 256,
+    "hop_size": 256,
+    "win_length": 1024,
+    "f_min": 50.0,
+    "f_max": 8000.0,
+    "n_bark_bands": 24,
+    "d_model": 256,
+    "n_heads": 8,
+    "n_layers": 4,
+    "d_ff": 1024,
+    "hidden_size": 256,
+    "hidden_dim": 256,
+    "input_dim": 256,
+    "output_dim": 128,
+    "embed_dim": 256,
+    "embedding_dim": 256,
+    "latent_dim": 64,
+    "in_channels": 64,
+    "out_channels": 128,
+    "channels": 256,
+    "kernel_size": 3,
+    "stride": 1,
+    "padding": 1,
+    "dilation": 1,
+    "residual_channels": 256,
+    "skip_channels": 256,
+    "num_quantizers": 4,
+    "num_embeddings": 1024,
+    "codebook_size": 1024,
+    "codebook_dim": 256,
+    "commitment_cost": 0.25,
+    "vocab_size": 1000,
+    "max_seq_len": 100,
+    "max_length": 100,
+    "seq_len": 100,
+    "sequence_length": 100,
+    "dropout": 0.1,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "img_size": 224,
+    "patch_size": 16,
+    "n_patches": 196,
+    "num_classes": 10,
+    "memory_size": 1000,
+    "cache_size": 1000,
+    "buffer_size": 1000,
+    "max_size": 1000,
+    "pad_token_id": 0,
+    "start_token_id": 1,
+    "end_token_id": 2,
+    "pad_idx": 0,
+    "n_inducing_points": 32,
+    "in_dim": 256,
+    "out_dim": 128,
+    "subbands": 4,
+    "filter_size": 64,
+    "beta": 9.0,
+    "num_scales": 3,
+    "input_channels": 1,
+    "audiolen": 1024,
+    "input_fdim": 128,
+    "input_tdim": 100,
+    "config": null,
+    "project_name": "test_project",
+    "parameter_space": {},
+    "encoder": null,
+    "decoder": null,
+    "input_size": 256,
+    "output_size": 128,
+    "feature_dim": 256,
+    "key_dim": 64,
+    "value_dim": 128,
+    "src_vocab_size": 1000,
+    "tgt_vocab_size": 1000,
+    "target_vocab_size": 1000,
+    "share_embeddings": false,
+    "tie_embeddings": false,
+    "num_features": 128,
+    "normalized_shape": 256,
+    "eps": 1e-05,
+    "reduction": "mean",
+    "target_real_label": 1.0,
+    "target_fake_label": 0.0,
+    "layer_type": "gcn",
+    "pooling": "mean",
+    "fusion_type": "concat",
+    "similarity": "cosine",
+    "update_method": "momentum",
+    "window_type": "tumbling",
+    "aggregation": "mean",
+    "architecture": "transformer",
+    "use_cls_token": true,
+    "pool_type": "cls",
+    "use_positional": true,
+    "use_isab": false,
+    "time_based": false,
+    "track_distributions": true,
+    "evolve_schema": false,
+    "use_act": false,
+    "act_threshold": 0.99,
+    "max_steps": 10,
+    "backpressure_threshold": 0.8,
+    "window_slide": null,
+    "session_timeout": null,
+    "window_size": 1000,
+    "step_size": 100,
+    "transform": "fft"
+  },
+  "special_patterns": {
+    "config_based": [
+      "config",
+      "project_name",
+      "parameter_space"
+    ],
+    "encoder_decoder": [
+      "encoder",
+      "decoder"
+    ],
+    "audio_processing": [
+      "sample_rate",
+      "n_fft",
+      "hop_length",
+      "f_min",
+      "f_max"
+    ],
+    "transformer_architecture": [
+      "d_model",
+      "n_heads",
+      "n_layers",
+      "d_ff",
+      "dropout"
+    ],
+    "convolution": [
+      "in_channels",
+      "out_channels",
+      "kernel_size",
+      "stride"
+    ],
+    "quantization": [
+      "num_quantizers",
+      "num_embeddings",
+      "codebook_size",
+      "commitment_cost"
+    ]
+  },
+  "strategy": {
+    "phase_1": {
+      "description": "Automatic parameter mapping",
+      "target": "Fix 80% of parameter mismatch failures",
+      "method": "Apply proven parameter rules systematically",
+      "expected_improvement": "60-70% success rate"
+    },
+    "phase_2": {
+      "description": "Special case handling",
+      "target": "Fix config and dependency issues",
+      "method": "Create minimal config objects and simple encoders/decoders",
+      "expected_improvement": "75-85% success rate"
+    },
+    "phase_3": {
+      "description": "Complex dependency resolution",
+      "target": "Handle remaining import and dependency failures",
+      "method": "Create mock implementations for missing dependencies",
+      "expected_improvement": "85-90% success rate"
+    },
+    "phase_4": {
+      "description": "Final optimization",
+      "target": "Achieve 90%+ success rate",
+      "method": "Fine-tune remaining edge cases",
+      "expected_improvement": "90%+ success rate"
+    }
+  },
+  "summary": {
+    "current_success_rate": 17.9,
+    "target_success_rate": 90.0,
+    "improvement_needed": 72.1,
+    "total_failing_modules": 119,
+    "systematic_approach": "Apply Wave 1/2 success patterns (96.4%) to all modules"
+  }
+}

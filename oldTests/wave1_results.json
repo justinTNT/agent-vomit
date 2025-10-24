@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "wave": "wave_1_quick_wins",
+    "strategy": "Start with easiest untested modules to build momentum",
+    "total_modules": 6,
+    "passed_modules": 3,
+    "wave_success_rate": 50.0,
+    "total_tests": 8,
+    "passed_tests": 6,
+    "test_success_rate": 75.0,
+    "coverage_progress": {
+      "previous_coverage": 79,
+      "new_coverage": 82,
+      "total_modules": 137,
+      "coverage_percentage": 59.854014598540154,
+      "modules_added": 3
+    },
+    "next_wave_ready": false,
+    "estimated_hours": 5.0
+  },
+  "all_results": [
+    {
+      "module": "MultiScaleSTFTLoss",
+      "difficulty": "EASY",
+      "estimated_hours": 0.5,
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.023696184158325195,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'loss': tensor(9.3604), 'mag_loss': tensor(7.9888), 'log_mag_loss': tensor(0.7050), 'spectral_loss'",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.0016069412231445312,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'loss': tensor(9.4788), 'mag_loss': tensor(8.0824), 'log_mag_loss': tensor(0.7237), 'spectral_loss'",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "CausalConv1d",
+      "difficulty": "EASY",
+      "estimated_hours": 0.5,
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.008331775665283203,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'output': tensor([[[ 0.4075, -0.0461, -0.6309,  ...,  0.1263, -0.2919,  0.6461],\n         [-0.3600,",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.0004849433898925781,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'output': tensor([[[ 0.2124,  0.0707, -0.7441,  ...,  0.0758, -1.2741,  0.2282],\n         [ 0.0403,",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "MemoryBank",
+      "difficulty": "EASY",
+      "estimated_hours": 0.5,
+      "result": {
+        "module_passed": true,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": true,
+            "execution_time": 0.08607006072998047,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'retrieved': tensor([[-0.3619,  0.3069,  0.2733,  ...,  0.5063,  0.5493, -0.1980],\n        [-0.3969",
+            "error": null
+          },
+          {
+            "test_name": "test_2",
+            "passed": true,
+            "execution_time": 0.04412388801574707,
+            "output_shape": "<class 'dict'>",
+            "output_dtype": "<class 'dict'>",
+            "numerical_summary": "{'retrieved': tensor([[-0.3841,  0.2838,  0.1517,  ...,  0.4682,  0.5434, -0.2121],\n        [-0.4266",
+            "error": null
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "AntiAliasedConv",
+      "difficulty": "EASY",
+      "estimated_hours": 0.5,
+      "result": {
+        "module_passed": false,
+        "results": [
+          {
+            "test_name": "test_1",
+            "passed": false,
+            "execution_time": 0,
+            "output_shape": null,
+            "output_dtype": null,
+            "numerical_summary": null,
+            "error": "Input must be (batch, channels, time)"
+          },
+          {
+            "test_name": "test_2",
+            "passed": false,
+            "execution_time": 0,
+            "output_shape": null,
+            "output_dtype": null,
+            "numerical_summary": null,
+            "error": "Input must be (batch, channels, time)"
+          }
+        ],
+        "init_error": null
+      }
+    },
+    {
+      "module": "SequenceToSequenceModel",
+      "difficulty": "MODERATE",
+      "estimated_hours": 1.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "SequenceToSequenceModel.__init__() missing 2 required positional arguments: 'encoder' and 'decoder'"
+      }
+    },
+    {
+      "module": "Autoencoder",
+      "difficulty": "HARD",
+      "estimated_hours": 2.0,
+      "result": {
+        "module_passed": false,
+        "results": [],
+        "init_error": "Could not import Autoencoder from autoencoder"
+      }
+    }
+  ]
+}

@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from typing import Optional, Union
+from rave_config_system import RAVEConfig
+
 
 
 class SpectralNormalization(nn.Module):
@@ -130,6 +132,14 @@ def apply_spectral_norm(module: nn.Module,
                                  eps=eps, dim=dim)
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, in_features: int, out_features: int, power_iterations: int, **kwargs):
+# New assignments:
+#         self.in_features = in_features
+        self.out_features = out_features
+        self.bias = config.convolution.bias
+        self.power_iterations = power_iterations
 class SNLinear(nn.Module):
     """Linear layer with built-in spectral normalization."""
     def __init__(self,
@@ -149,6 +159,19 @@ class SNLinear(nn.Module):
         return self.linear(x)
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, power_iterations: int, **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.out_channels = config.convolution.out_channels
+        self.kernel_size = config.convolution.kernel_size
+        self.stride = config.convolution.stride
+        self.padding = config.convolution.padding
+        self.dilation = config.convolution.dilation
+        self.groups = config.convolution.groups
+        self.bias = config.convolution.bias
+        self.power_iterations = power_iterations
 class SNConv1d(nn.Module):
     """1D Convolution with built-in spectral normalization."""
     def __init__(self,
@@ -177,6 +200,19 @@ class SNConv1d(nn.Module):
         return self.conv(x)
 
 
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, power_iterations: int, **kwargs):
+# New assignments:
+#         self.in_channels = config.convolution.in_channels
+        self.out_channels = config.convolution.out_channels
+        self.kernel_size = config.convolution.kernel_size
+        self.stride = config.convolution.stride
+        self.padding = config.convolution.padding
+        self.dilation = config.convolution.dilation
+        self.groups = config.convolution.groups
+        self.bias = config.convolution.bias
+        self.power_iterations = power_iterations
 class SNConv2d(nn.Module):
     """2D Convolution with built-in spectral normalization."""
     def __init__(self,
