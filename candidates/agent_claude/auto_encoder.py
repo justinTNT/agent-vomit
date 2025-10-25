@@ -1,0 +1,249 @@
+"""AutoEncoder - Autoencoder with optional variational component."""
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from typing import Dict, Optional, Tuple
+from rave_config_system import RAVEConfig
+
+
+
+
+# TODO: REFACTOR TO CONFIG-FIRST INTERFACE
+# New signature: def __init__(self, config: RAVEConfig, input_dim: int, hidden_dims: list, variational: bool, activation: str, **kwargs):
+# New assignments:
+#         self.input_dim = input_dim
+        self.hidden_dims = hidden_dims
+        self.latent_dim = config.model.latent_dim
+        self.variational = variational
+        self.activation = activation
+        self.dropout = config.model.dropout
+class AutoEncoder(nn.Module):
+    """Autoencoder with optional variational component.
+    
+    This module implements both standard and variational autoencoders (VAE).
+    It includes an encoder and decoder, and can optionally compute KL divergence
+    for the variational case.
+    
+    Args:
+        input_dim: Dimension of input data
+        hidden_dims: List of hidden layer dimensions for encoder/decoder
+        latent_dim: Dimension of latent representation
+        variational: Whether to use variational autoencoder (default: False)
+        activation: Activation function to use ('relu', 'tanh', 'elu') (default: 'relu')
+        dropout: Dropout probability (default: 0.1)
+        **kwargs: Additional keyword arguments
+    
+    Returns:
+        Dict containing:
+            - reconstruction: Reconstructed input
+            - latent: Latent representation (mean for VAE)
+            - loss: Reconstruction loss (+ KL divergence for VAE)
+            - mu: Mean of latent distribution (VAE only)
+            - log_var: Log variance of latent distribution (VAE only)
+            - kl_loss: KL divergence loss (VAE only)
+            - recon_loss: Reconstruction loss component
+    """
+    
+    def __init__(
+        self,
+        input_dim: int,
+        hidden_dims: list,
+        latent_dim: int,
+        variational: bool = False,
+        activation: str = 'relu',
+        dropout: float = 0.1,
+        **kwargs
+    ):
+        super().__init__()
+        
+        # Validate inputs
+        if activation not in ['relu', 'tanh', 'elu']:
+            raise ValueError(f"activation must be 'relu', 'tanh', or 'elu', got {activation}")
+        
+        if not hidden_dims:
+            raise ValueError("hidden_dims must not be empty")
+        
+        if dropout < 0 or dropout > 1:
+            raise ValueError(f"dropout must be between 0 and 1, got {dropout}")
+        
+        self.input_dim = input_dim
+        self.hidden_dims = hidden_dims
+        self.latent_dim = latent_dim
+        self.variational = variational
+        self.dropout = dropout
+        
+        # Select activation function
+        activation_fn = {
+            'relu': nn.ReLU,
+            'tanh': nn.Tanh,
+            'elu': nn.ELU
+        }[activation]
+        
+        # Build encoder
+        encoder_layers = []
+        prev_dim = input_dim
+        
+        for hidden_dim in hidden_dims:
+            encoder_layers.extend([
+                nn.Linear(prev_dim, hidden_dim),
+                activation_fn(),
+                nn.Dropout(dropout)
+            ])
+            prev_dim = hidden_dim
+        
+        self.encoder = nn.Sequential(*encoder_layers)
+        
+        # Latent layer(s)
+        if variational:
+            # Separate layers for mean and log variance
+            self.fc_mu = nn.Linear(prev_dim, latent_dim)
+            self.fc_log_var = nn.Linear(prev_dim, latent_dim)
+        else:
+            # Single layer for deterministic encoding
+            self.fc_latent = nn.Linear(prev_dim, latent_dim)
+        
+        # Build decoder
+        decoder_layers = []
+        prev_dim = latent_dim
+        
+        # Reverse hidden dimensions for decoder
+        decoder_hidden_dims = list(reversed(hidden_dims))
+        
+        for hidden_dim in decoder_hidden_dims:
+            decoder_layers.extend([
+                nn.Linear(prev_dim, hidden_dim),
+                activation_fn(),
+                nn.Dropout(dropout)
+            ])
+            prev_dim = hidden_dim
+        
+        # Final layer without activation (for reconstruction)
+        decoder_layers.append(nn.Linear(prev_dim, input_dim))
+        
+        self.decoder = nn.Sequential(*decoder_layers)
+        
+        # Initialize weights
+        self._initialize_weights()
+    
+    def _initialize_weights(self):
+        """Initialize weights using Xavier uniform initialization."""
+        for module in self.modules():
+            if isinstance(module, nn.Linear):
+                nn.init.xavier_uniform_(module.weight)
+                if module.bias is not None:
+                    nn.init.zeros_(module.bias)
+    
+    def encode(self, x: torch.Tensor) -> Tuple[torch.Tensor, Optional[torch.Tensor]]:
+        """Encode input to latent representation.
+        
+        Args:
+            x: Input tensor
+        
+        Returns:
+            For standard autoencoder: (latent, None)
+            For VAE: (mu, log_var)
+        """
+        h = self.encoder(x)
+        
+        if self.variational:
+            mu = self.fc_mu(h)
+            log_var = self.fc_log_var(h)
+            return mu, log_var
+        else:
+            latent = self.fc_latent(h)
+            return latent, None
+    
+    def reparameterize(self, mu: torch.Tensor, log_var: torch.Tensor) -> torch.Tensor:
+        """Reparameterization trick for VAE.
+        
+        Args:
+            mu: Mean of latent distribution
+            log_var: Log variance of latent distribution
+        
+        Returns:
+            Sampled latent representation
+        """
+        std = torch.exp(0.5 * log_var)
+        eps = torch.randn_like(std)
+        return mu + eps * std
+    
+    def decode(self, z: torch.Tensor) -> torch.Tensor:
+        """Decode latent representation to reconstruction.
+        
+        Args:
+            z: Latent representation
+        
+        Returns:
+            Reconstructed output
+        """
+        return self.decoder(z)
+    
+    def forward(self, x: torch.Tensor, beta: float = 1.0) -> Dict[str, torch.Tensor]:
+        """Forward pass through the autoencoder.
+        
+        Args:
+            x: Input tensor
+            beta: Weight for KL divergence in VAE loss (default: 1.0)
+        
+        Returns:
+            Dictionary containing reconstruction, latent representation, losses, etc.
+        """
+        # Validate input
+        if x.dim() < 2:
+            raise ValueError(f"Expected input tensor to have at least 2 dimensions, got {x.dim()}")
+        
+        # Flatten input if needed (preserving batch dimension)
+        original_shape = x.shape
+        if x.dim() > 2:
+            x = x.view(x.shape[0], -1)
+        
+        # Encode
+        if self.variational:
+            mu, log_var = self.encode(x)
+            # Sample latent representation
+            z = self.reparameterize(mu, log_var)
+        else:
+            z, _ = self.encode(x)
+            mu = None
+            log_var = None
+        
+        # Decode
+        reconstruction = self.decode(z)
+        
+        # Reshape reconstruction to match original input shape
+        if len(original_shape) > 2:
+            reconstruction = reconstruction.view(original_shape)
+        
+        # Compute reconstruction loss
+        # Using MSE loss for continuous data
+        recon_loss = F.mse_loss(reconstruction, x.view(original_shape), reduction='mean')
+        
+        # Compute total loss
+        if self.variational:
+            # KL divergence loss
+            # KL(q(z|x) || p(z)) where p(z) = N(0, I)
+            kl_loss = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp()) / x.shape[0]
+            
+            # Total loss with beta weighting
+            loss = recon_loss + beta * kl_loss
+        else:
+            kl_loss = None
+            loss = recon_loss
+        
+        # Prepare output dictionary
+        output = {
+            'reconstruction': reconstruction,
+            'latent': mu if self.variational else z,  # Return mean for VAE
+            'loss': loss,
+            'recon_loss': recon_loss
+        }
+        
+        if self.variational:
+            output.update({
+                'mu': mu,
+                'log_var': log_var,
+                'kl_loss': kl_loss
+            })
+        
+        return output
